@@ -33,7 +33,7 @@ onUnmounted(() => {
             <NuxtLink to="/">Agency</NuxtLink>
             <NuxtLink to="/">Contact</NuxtLink>
         </nav>
-        <p>-{{ localTime }}-</p>
+          <p>localtime-{{ localTime }}</p>
         <NuxtLink class="border-black border-b-2">Get a proposal</NuxtLink>
     </header>
 </template>
