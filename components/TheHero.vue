@@ -35,6 +35,12 @@
                     </div>
                 </div>
             </div>
+            <div class="hero-image">
+                <img
+                    src="/webdeveloper_2.webp"
+                    alt="Fullstack developer working at his desk"
+                />
+            </div>
         </div>
     </div>
 </template>
