@@ -1,75 +1,58 @@
-# Nuxt 3 Minimal Starter
+Headless Flower
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Headless Flower is a modern web design agency website built using Nuxt.js, Vue.js, and Tailwind CSS. This project leverages the power of these frameworks to deliver fast, scalable, and aesthetically pleasing web experiences for clients.
+Project Structure
 
-## Setup
+This project is built using Nuxt 3, a powerful Vue.js-based framework that supports server-side rendering, static site generation, and single-page applications, all with minimal configuration.
+Features
 
-Make sure to install the dependencies:
+    Nuxt 3 Framework: A flexible and powerful framework for building modern web applications.
+    Tailwind CSS: A utility-first CSS framework that provides rapid styling without leaving your HTML.
+    Vue.js: A progressive JavaScript framework used for building user interfaces.
 
-```bash
-# npm
+Installation
+
+To get started with the project, you need to have Node.js installed. Once you have Node.js, follow the steps below to set up the project.
+Step 1: Clone the repository
+
+bash
+
+git clone https://github.com/gerardojgarcia/headless-flower.git
+cd headless-flower
+
+Step 2: Install dependencies
+
+bash
+
 npm install
 
-# pnpm
-pnpm install
+Nuxt will automatically install its dependencies, including Tailwind CSS and Vue.js.
+Step 3: Start the development server
 
-# yarn
-yarn install
+bash
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
 
-# pnpm
-pnpm run dev
+The project will start on http://localhost:3000 by default. You can access it through your browser to view the website during development.
+Available Scripts
 
-# yarn
-yarn dev
+In the project directory, you can run the following commands:
 
-# bun
-bun run dev
-```
+    npm run dev: Runs the app in development mode.
+    npm run build: Builds the app for production.
+    npm run generate: Generates a static version of the site.
+    npm run preview: Previews the production build.
+    npm run postinstall: Prepares the project after installation.
 
-## Production
+Dependencies
 
-Build the application for production:
+This project uses the following dependencies:
 
-```bash
-# npm
-npm run build
+    Nuxt.js: ^3.13.0
+    Vue.js: latest
+    @nuxt/icon: ^1.5.0
+    @nuxtjs/tailwindcss: ^6.12.1
 
-# pnpm
-pnpm run build
+License
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is licensed under the MIT License. See the LICENSE file for details.
