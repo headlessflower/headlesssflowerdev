@@ -48,8 +48,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--Hero Image Div-->
             <div
                 class="hero-image isolate bg-[url(/webdeveloper_2.webp)] rounded-md mx-6 h-[60rem] grid grid-cols-2"
             >
@@ -64,7 +62,11 @@
                             style="width: 75%"
                         ></div>
                     </div>
-                    <p></p>
+                    <div class="week">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
                 </div>
                 <div
                     class="developer-box h-60 w-96 z-10 ml-[25rem] mt-16 bg-no-repeat rounded-lg bg-white shadow-lg p-8"
