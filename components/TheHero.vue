@@ -17,18 +17,18 @@
                     </p>
                     <div class="tech-stack text-4xl my-8 space-x-8">
                         <NuxtLink to="/">
-                            <Icon name="ri:blender-line p-0" />
+                            <Icon name="ri:blender-line" />
                         </NuxtLink>
                         <Icon
-                            name="ri:settings-2-line"
+                            name="ri:javascript-line"
                             class="rounded-xl border-2 border-gray-300 shadow-sm"
                         />
                         <Icon
-                            name="ri:inbox-fill"
+                            name="ri:tailwind-css-line"
                             class="rounded-xl border-2 border-gray-300 shadow-sm p-4"
                         />
                         <Icon
-                            name="ri:blender-line"
+                            name="ri:vuejs-line"
                             class="rounded-xl border-2 border-gray-300 shadow-sm p-4"
                         />
                     </div>
