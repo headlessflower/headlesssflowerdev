@@ -15,14 +15,15 @@
                     <p class="w-3/4 text-2xl">
                         trusted by brands for exceptional design solutions
                     </p>
-                    <div class="tech-stack text-4xl my-8 space-x-8">
+                    <div
+                        class="tech-stack text-4xl my-8 space-x-8 w-3/4 flex justify-center"
+                    >
                         <NuxtLink to="/">
                             <Icon name="ri:blender-line" />
                         </NuxtLink>
-                        <Icon
-                            name="ri:javascript-line"
-                            class="rounded-xl border-2 border-gray-300 shadow-sm"
-                        />
+                        <NuxtLink to="/">
+                            <Icon name="ri:javascript-line" />
+                        </NuxtLink>
                         <Icon
                             name="ri:tailwind-css-line"
                             class="rounded-xl border-2 border-gray-300 shadow-sm p-4"
