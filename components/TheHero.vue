@@ -2,8 +2,7 @@
 
 <template>
     <div>
-        <TheHeader />
-        <div class="hero-grid grid grid-rows-2 h-screen">
+        <div class="hero-grid grid grid-rows-2 h-3/4">
             <div class="grid grid-cols-2 place-items-center">
                 <div class="w-1/2">
                     <h1 class="text-4xl">
@@ -49,6 +48,8 @@
                     </div>
                 </div>
             </div>
+
+            <!--Hero Image Div-->
             <div
                 class="hero-image isolate bg-[url(/webdeveloper_2.webp)] rounded-md mx-6 h-[60rem] grid grid-cols-2"
             >
