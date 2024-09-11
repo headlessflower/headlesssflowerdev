@@ -8,7 +8,7 @@ import projects from "/data/projects.js";
             class="container rounded-lg grid grid-cols-3 gap-4 bg-gray-100 place-items-center py-6"
         >
             <div
-                class="workcard shadow-md rounded-lg max-w-96 p-4 hover:shadow-2xl space-y-4"
+                class="workcard shadow-md rounded-lg max-w-96 p-4 hover:shadow-2xl space-y-4 duration-150"
                 v-for="project in projects"
                 :key="project.id"
             >
@@ -22,10 +22,6 @@ import projects from "/data/projects.js";
                     project.name
                 }}</NuxtLink>
                 <div class="tech-icons"></div>
-                <p class="project-description">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Sapiente laboriosam maiores officiis veniam, atque saepe.
-                </p>
             </div>
         </div>
     </div>
