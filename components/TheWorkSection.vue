@@ -2,7 +2,7 @@
 import projects from "/data/projects.js";
 </script>
 <template>
-    <div class="py-16 grid place-items-center">
+    <section class="py-16 grid place-items-center" id="work">
         <h2 class="text-4xl font-bold mb-8">Our Work speaks for itself</h2>
         <div
             class="container rounded-lg grid grid-cols-3 gap-4 bg-gray-100 place-items-center py-6"
@@ -16,7 +16,7 @@ import projects from "/data/projects.js";
                     :src="project.img"
                     alt="project thumbnail"
                     width="400px"
-                    class="rounded-lg"
+                    class="rounded-lg mb-4"
                 />
                 <NuxtLink :to="project.link" class="font-bold">{{
                     project.name
@@ -24,5 +24,5 @@ import projects from "/data/projects.js";
                 <div class="tech-icons"></div>
             </div>
         </div>
-    </div>
+    </section>
 </template>

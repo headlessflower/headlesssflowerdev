@@ -63,10 +63,12 @@
                             style="width: 75%"
                         ></div>
                     </div>
-                    <div class="week">
-                        <p></p>
-                        <p></p>
-                        <p></p>
+                    <div class="week flex justify-evenly mt-2">
+                        <p>Week 1</p>
+                        <p>Week 2</p>
+                        <p>Week 3</p>
+                        <p>Week 4</p>
+                        <p>Week 5</p>
                     </div>
                 </div>
                 <div
