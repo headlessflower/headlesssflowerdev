@@ -2,7 +2,14 @@
 <template>
     <div>
         <h3>Services</h3>
-    <div class="services">
+    <div class="services grid grid-cols-1">
+      <div class="design-branding">
+<strong>Design & Branding
+        </strong>
+
+
+
+      </div>
 
 
 
