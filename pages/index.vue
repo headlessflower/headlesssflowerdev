@@ -4,5 +4,6 @@
         <TheHeader />
         <TheHero />
         <TheWorkSection />
+    <TheServices/>
     </div>
 </template>

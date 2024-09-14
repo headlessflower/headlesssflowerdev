@@ -53,8 +53,13 @@
                 class="hero-image isolate bg-[url(/webdeveloper_2.webp)] rounded-md mx-6 h-[60rem] grid grid-cols-2"
             >
                 <div
-                    class="tracker-box h-60 w-96 z-10 mt-[40rem] ml-24 rounded-lg bg-white pt-32 shadow-lg"
+                    class="tracker-box h-56 w-96 z-10 mt-[40rem] ml-24 rounded-lg bg-white shadow-lg flex flex-col"
                 >
+                    <p
+                        class="text-2xl font-bold bg-gray-100 rounded-lg w-24 mt-12 mb-4 ml-56 p-2 mx-6"
+                    >
+                        Coding
+                    </p>
                     <div
                         class="bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mx-6"
                     >
@@ -63,7 +68,7 @@
                             style="width: 75%"
                         ></div>
                     </div>
-                    <div class="week flex justify-evenly mt-2">
+                    <div class="week flex justify-evenly mt-2 font-semibold">
                         <p>Week 1</p>
                         <p>Week 2</p>
                         <p>Week 3</p>
