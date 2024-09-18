@@ -5,7 +5,7 @@
         <div class="services grid grid-cols-1 container p-16 space-y-16">
             <!--Design & Branding Section-->
             <div
-                class="design-branding grid grid-cols-2 bg-gray-50 rounded-lg p-6 gap-4"
+                class="design-branding grid grid-cols-1 bg-gray-50 rounded-lg p-6 gap-4"
             >
                 <strong class="text-4xl">Design & Branding </strong>
                 <div>
