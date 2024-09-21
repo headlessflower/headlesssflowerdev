@@ -2,7 +2,7 @@
 <template>
     <div class="grid place-items-center" id="services">
         <h3 class="text-5xl">Services</h3>
-        <div class="services grid grid-cols-1 container p-16 space-y-16">
+        <div class="services grid grid-cols-2 container p-16 space-x-8 gap-6">
             <!--Design & Branding Section-->
             <div
                 class="design-branding grid grid-cols-1 bg-gray-50 rounded-lg p-6 gap-4"
