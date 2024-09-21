@@ -27,7 +27,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <header class="flex justify-between w-full font-bold px-4">
+    <header class="flex justify-between w-full font-bold px-4 pt-4">
         <strong>headlessflower</strong>
         <nav class="w-1/3 px-4 flex justify-evenly">
             <NuxtLink to="/#work">Work</NuxtLink>

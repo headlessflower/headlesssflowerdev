@@ -35,9 +35,7 @@
                 </div>
             </div>
             <!--Development Section-->
-            <section
-                class="Development grid grid-cols-3 bg-gray-50 rounded-lg p-4 gap-4"
-            >
+            <section class="Development grid bg-gray-50 rounded-lg p-4 gap-4">
                 <strong class="text-4xl">Development </strong>
                 <div>
                     <strong>Web Development</strong>
