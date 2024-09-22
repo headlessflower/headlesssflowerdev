@@ -18,10 +18,14 @@ import projects from "/data/projects.js";
                     width="400px"
                     class="rounded-lg mb-4"
                 />
-                <NuxtLink :to="project.link" class="font-bold">{{
+                <NuxtLink :to="project.link" class="font-semibold text-2xl">{{
                     project.name
                 }}</NuxtLink>
-                <div class="tech-icons"></div>
+                <div class="tech-icons text-2xl">
+                    <Icon name="ri:vuejs-line" /><Icon
+                        name="ri:tailwind-css-line"
+                    />
+                </div>
             </div>
         </div>
     </section>

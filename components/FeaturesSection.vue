@@ -4,7 +4,8 @@
         <strong class="text-4xl mb-16">Best in the business</strong>
 
         <div class="feature-contaner grid md:grid-cols-3 px-8 gap-6">
-            <div>
+            <div class="grid space-y-4">
+                <Icon name="ri:computer-line" class="text-3xl" />
                 <strong class="text-3xl">Expertise and Specialization</strong>
                 <p>
                     Our team of experts specializes in web design, development,
@@ -15,7 +16,8 @@
                 </p>
             </div>
 
-            <div>
+            <div class="grid space-y-4">
+                <Icon name="ri:timer-flash-line" class="text-3xl" />
                 <strong class="text-3xl">Cost & Time Efficiency </strong>
                 <p>
                     We streamline the development process with advanced tools,
@@ -24,7 +26,8 @@
                     business while we handle the details
                 </p>
             </div>
-            <div>
+            <div class="grid space-y-4">
+                <Icon name="ri:line-chart-line" class="text-3xl" />
                 <strong class="text-3xl"
                     >Long-Term Support & Scalability</strong
                 >
