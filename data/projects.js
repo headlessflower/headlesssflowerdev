@@ -1,4 +1,5 @@
 export const projects = ref([
+
   {
     id: 1,
     name: "TaxBuddy",
@@ -77,6 +78,14 @@ export const projects = ref([
     video: "./video.webm",
     tags: ["html", "css", "Javascript", "Vue3", "Nuxt3"],
     link: "https://snapstudio.shop",
+  },
+  {
+    id: 11,
+    name: "Mecayotl",
+    img: "/mecayotl-hero.png",
+    video: "./video.webm",
+    tags: ["html", "css", "Javascript", "Vue3", "Nuxt3"],
+    link: "https://mecayotl.info",
   },
 ]);
 

@@ -6,5 +6,6 @@
     <FeaturesSection/>
         <TheWorkSection />
     <TheServices/>
+      <TheTestimonials/>
     </div>
 </template>

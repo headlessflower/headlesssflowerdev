@@ -2,10 +2,10 @@
 <template>
     <div class="grid place-items-center" id="services">
         <h3 class="text-5xl">Services</h3>
-        <div class="services grid grid-cols-2 container p-16 gap-6">
+        <div class="services grid grid-cols-1 md:grid-cols-2 container p-16 gap-6">
             <!--Design & Branding Section-->
             <div
-                class="design-branding grid grid-cols-1 bg-gray-50 rounded-lg p-6 gap-4"
+                class="design-branding grid grid-cols-1 bg-gray-50 rounded-lg p-6 gap-4 shadow-md"
             >
                 <strong class="text-4xl">Design & Branding </strong>
                 <div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <!--Development Section-->
-            <section class="Development grid bg-gray-50 rounded-lg p-4 gap-4">
+            <section class="Development grid bg-gray-50 rounded-lg p-4 gap-4 shadow-md">
                 <strong class="text-4xl">Development </strong>
                 <div>
                     <strong>Web Development</strong>
@@ -81,7 +81,7 @@
                 </div>
             </section>
             <!--Performance section-->
-            <section class="performance bg-gray-50 rounded-lg p-4 gap-4 grid">
+            <section class="performance bg-gray-50 rounded-lg p-4 gap-4 grid shadow-md">
                 <strong class="text-4xl">Optimization & Performance</strong>
 
                 <div>
@@ -102,7 +102,7 @@
                 </div>
             </section>
 
-            <section class="bg-gray-50 rounded-lg p-4 gap-4 grid">
+            <section class="bg-gray-50 rounded-lg p-4 gap-4 grid shadow-md">
                 <strong class="text-4xl">Support & Maintenance</strong>
                 <div>
                     <strong>Website Maintenance</strong>
