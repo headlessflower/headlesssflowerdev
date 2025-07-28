@@ -51,44 +51,8 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="hero-image isolate bg-[url(/webdeveloper_2.webp)] rounded-md mx-6 h-[60rem] grid md:grid-cols-2"
-            >
-                <div
-                    class="tracker-box h-56 w-96 hidden z-10 mt-[40rem] ml-24 rounded-lg bg-white shadow-lg md:flex flex-col"
-                >
-                    <p
-                        class="text-2xl font-bold bg-gray-100 rounded-lg w-24 mt-12 mb-4 md:ml-56 p-2 mx-6"
-                    >
-                        Coding
-                    </p>
-                    <div
-                        class="bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mx-6"
-                    >
-                        <div
-                            class="bg-blue-600 h-2.5 rounded-full"
-                            style="width: 75%"
-                        ></div>
-                    </div>
-                    <div class="week flex justify-evenly mt-2 font-semibold">
-                        <p>Week 1</p>
-                        <p>Week 2</p>
-                        <p>Week 3</p>
-                        <p>Week 4</p>
-                        <p>Week 5</p>
-                    </div>
-                </div>
-                <div
-                    class="developer-box h-60 w-96 z-10 md:ml-[18rem] mt-16 bg-no-repeat rounded-lg bg-white shadow-lg p-8"
-                >
-                    <p class="text-2xl">Gerardo Garcia</p>
-                    <p class="role pt-2">Lead Developer</p>
-                    <p class="description pt-8 uppercase">
-                        He is always ready to turn complex ideas into
-                        user-friendly digital experiences.
-                    </p>
-                </div>
-            </div>
+
+
         </div>
     </section>
 </template>
