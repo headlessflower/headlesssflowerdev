@@ -5,6 +5,7 @@
 <template>
 <div>
   <SubPageHero title="Services" subtitle="We offer a range of services for the modern business." bgImg="/webdeveloper_1.webp"/>
+  <WebDevPricing/>
   <TheServices/>
   <TheWorkSection/>
 
