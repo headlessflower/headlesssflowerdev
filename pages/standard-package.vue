@@ -18,7 +18,7 @@
             A scalable, secure multi‑page site built to convert.
           </h1>
           <p class="mt-5 text-neutral-300">
-            The **Standard Package** expands your presence to <span class="font-semibold text-neutral-100">3–5 pages</span> with global navigation, lead‑ready forms, and content structure that supports SEO, accessibility, and your brand’s integrity.
+            The Standard Package expands your presence to <span class="font-semibold text-neutral-100">3–5 pages</span> with global navigation, lead‑ready forms, and content structure that supports SEO, accessibility, and your brand’s integrity.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <!-- Included -->
+    <!-- Included Feautures -->
     <section id="details" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid gap-10 lg:grid-cols-3">
         <div class="lg:col-span-1">

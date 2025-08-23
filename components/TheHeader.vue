@@ -113,9 +113,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
             </div>
           </div>
 
-          <NuxtLink to="/work" class="block rounded-md px-3 py-2 hover:bg-neutral-900">Work</NuxtLink>
+          <NuxtLink to="/agency" class="block rounded-md px-3 py-2 hover:bg-neutral-900">Work</NuxtLink>
           <NuxtLink to="/about" class="block rounded-md px-3 py-2 hover:bg-neutral-900">About</NuxtLink>
-          <NuxtLink to="/contact" class="block rounded-md bg-yellow-300 px-3 py-2 font-semibold text-neutral-900">Get a Quote</NuxtLink>
+          <NuxtLink to="#contact" class="block rounded-md bg-yellow-300 px-3 py-2 font-semibold text-neutral-900">Get a Quote</NuxtLink>
         </div>
       </div>
     </transition>

@@ -16,7 +16,7 @@ const isHovered = ref(false)
     <div class="flex flex-col space-y-2 text-sm font-bold text-black uppercase">
       <NuxtLink to="/terms" class="hover:text-white duration-150">Terms&Conditions</NuxtLink>
       <NuxtLink to="/services" class="hover:text-white duration-150">Services</NuxtLink>
-      <NuxtLink to="/#work" class="hover:text-white duration-150">Work</NuxtLink>
+      <NuxtLink to="/agency" class="hover:text-white duration-150">Work</NuxtLink>
     </div>
     <div class="space-y-2 text-sm font-bold text-black text-right mt-10 md:mt-0">
       <NuxtLink to="#hero" class="uppercase hover:text-white duration-150">back to top</NuxtLink>

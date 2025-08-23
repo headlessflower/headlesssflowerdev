@@ -4,6 +4,7 @@
         <TheHero />
       <WebDevPricing/>
     <FeaturesSection/>
+    <SubscriptionServiceBanner/>
         <TheWorkSection />
     <TheServices/>
       <TheTestimonials/>
