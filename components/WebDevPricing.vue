@@ -32,7 +32,7 @@
           <p class="mt-2 text-gray-600">{{ plan.description }}</p>
 
           <div class="mt-5 space-y-1">
-            <p class="text-2xl font-bold text-gray-900">{{ plan.price }}</p>
+            <p class="text-2xl font-bold text-gray-900"> <p class="text-sm text-gray-500"> starting at</p> {{ plan.price }}</p>
             <p class="text-sm text-gray-500">Estimated: {{ plan.hours }} of work</p>
           </div>
 
@@ -108,7 +108,7 @@ const plans = [
     description:
       '1-page scrollable site (Hero, About, Services, Contact). A clean, fast launch for a strong first impression.',
     hours: '15–20 hrs',
-    price: '$1,400–$1,800',
+    price: '$1,500',
     features: [
       'Responsive layout',
       'Accessibility-first structure',
@@ -126,7 +126,7 @@ const plans = [
     description:
       '3–5 page responsive site with navigation and forms. Ideal for growing businesses and services.',
     hours: '25–35 hrs',
-    price: '$2,200–$3,200',
+    price: '$3,500',
     features: [
       'Multi-page site with nav',
       'Advanced forms (file upload, conditional)',
@@ -144,7 +144,7 @@ const plans = [
     description:
       'Custom design system, animation, and CMS integration. Built for long-term content and scale.',
     hours: '45–55 hrs',
-    price: '$4,000–$5,000',
+    price: '$5,500',
     features: [
       'Design system & components',
       'Micro-interactions & animation',

@@ -60,10 +60,7 @@
 </template>
 
 <script setup lang="ts">
-/**
- * Icons as inline components for zero-dependency rendering.
- * Replace with your own icon set if desired.
- */
+
 const ShieldIcon = {
   render() {
     return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
@@ -121,7 +118,7 @@ const features = [
     description: 'Hardened configs, dependency updates, and modern hosting patterns keep your site safe.',
     points: ['Secure forms & spam protection', 'Best‑practice headers', 'Regular dependency review'],
     icon: ShieldIcon,
-    link: { label: 'See our process', href: '/services' },
+    link: { label: 'See our process', href: '/security-first-websites' },
   },
   {
     title: 'Performance',
