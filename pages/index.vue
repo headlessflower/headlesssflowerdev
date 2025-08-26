@@ -2,11 +2,11 @@
 <template>
     <div class="grid grid-cols-1 scroll-smooth">
         <TheHero />
-      <WebDevPricing/>
-<SubscriptionServiceBanner/>
-    <FeaturesSection/>
-    <Timeline/> 
+        <WebDevPricing />
+        <SubscriptionServiceBanner />
+        <FeaturesSection />
+
         <TheWorkSection />
-      <TheTestimonials/>
+        <TheTestimonials />
     </div>
 </template>
