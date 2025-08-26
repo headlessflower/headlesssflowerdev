@@ -3,10 +3,10 @@
     <div class="grid grid-cols-1 scroll-smooth">
         <TheHero />
       <WebDevPricing/>
+<SubscriptionServiceBanner/>
     <FeaturesSection/>
-    <SubscriptionServiceBanner/>
+    <Timeline/> 
         <TheWorkSection />
-    <TheServices/>
       <TheTestimonials/>
     </div>
 </template>

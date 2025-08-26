@@ -3,8 +3,8 @@
 </script>
 
 <template>
-<SubPageHero title="About" bgImg="/webdeveloper_2.webp"></SubPageHero>
 <TheAgencySection/>
+  <Timeline/>
 </template>
 
 <style scoped>

@@ -74,12 +74,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
               <li><NuxtLink to="/starter-package" class="block px-4 py-2 hover:bg-neutral-800" role="menuitem">Starter Package</NuxtLink></li>
               <li><NuxtLink to="/standard-package" class="block px-4 py-2 hover:bg-neutral-800" role="menuitem">Standard Package</NuxtLink></li>
               <li><NuxtLink to="/premium-package" class="block px-4 py-2 hover:bg-neutral-800" role="menuitem">Premium Package</NuxtLink></li>
+<li><NuxtLink to="/monthly-maintenance-subscription" class="block px-4 py-2 hover:bg-neutral-800" role="menuitem">Maintenance</NuxtLink></li>
             </ul>
           </div>
         </div>
 
-        <NuxtLink to="/services" class="hover:text-yellow-300 duration-150">Work</NuxtLink>
+        <NuxtLink to="/work" class="hover:text-yellow-300 duration-150">Work</NuxtLink>
         <NuxtLink to="/agency" class="hover:text-yellow-300 duration-150">About</NuxtLink>
+ <NuxtLink to="/templates" class="hover:text-yellow-300 duration-150">Templates</NuxtLink>
         <NuxtLink to="#contact" class="rounded-lg bg-yellow-300 px-4 py-2 font-semibold text-neutral-900 hover:-translate-y-0.5 hover:shadow-lg duration-150">Get a Quote</NuxtLink>
       </nav>
     </div>
@@ -113,8 +115,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
             </div>
           </div>
 
-          <NuxtLink to="/agency" class="block rounded-md px-3 py-2 hover:bg-neutral-900">Work</NuxtLink>
-          <NuxtLink to="/about" class="block rounded-md px-3 py-2 hover:bg-neutral-900">About</NuxtLink>
+          <NuxtLink to="/work" class="block rounded-md px-3 py-2 hover:bg-neutral-900">Work</NuxtLink>
+          <NuxtLink to="/agency" class="block rounded-md px-3 py-2 hover:bg-neutral-900">About</NuxtLink>
+  <NuxtLink to="/templates" class="block rounded-md px-3 py-2 hover:bg-neutral-900">Templates</NuxtLink>
           <NuxtLink to="#contact" class="block rounded-md bg-yellow-300 px-3 py-2 font-semibold text-neutral-900">Get a Quote</NuxtLink>
         </div>
       </div>

@@ -97,7 +97,7 @@ const props = defineProps({
   },
   secondaryLink: {
     type: String,
-    default: '/services'
+    default: '/monthly-maintenance-subscription'
   }
 })
 
