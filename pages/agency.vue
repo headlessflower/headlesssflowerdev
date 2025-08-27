@@ -1,12 +1,7 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-<TheAgencySection/>
-  <Timeline/>
+    <TheAgencySection />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

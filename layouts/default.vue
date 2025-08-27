@@ -5,6 +5,7 @@
 <template>
 <TheHeader/>
   <slot></slot>
+  <TheTestimonials/>
   <TheForm/>
 <TheFooter/>
 </template>

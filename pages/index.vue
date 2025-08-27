@@ -4,9 +4,10 @@
         <TheHero />
         <WebDevPricing />
         <SubscriptionServiceBanner />
+
         <FeaturesSection />
 
         <TheWorkSection />
-        <TheTestimonials />
+        <WhyUs />
     </div>
 </template>

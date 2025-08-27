@@ -32,6 +32,8 @@
             />
         </section>
         <NuxtPage />
+        <Timeline />
+        <SubscriptionServiceBanner />
     </div>
 </template>
 

@@ -73,7 +73,7 @@
             <li>Monthly reports with wins and next steps.</li>
             <li>Collaboration with your sales and support teams.</li>
           </ul>
-          <p class="mt-3"><NuxtLink to="/#contact" class="text-teal-400 hover:underline">Ask about the optimization plan →</NuxtLink></p>
+          <p class="mt-3"><NuxtLink to="/seo-analytics" class="text-teal-400 hover:underline">Ask about the optimization plan →</NuxtLink></p>
         </div>
 
         <div>
