@@ -132,6 +132,14 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
                                     >Maintenance</NuxtLink
                                 >
                             </li>
+                                <li>
+                                <NuxtLink
+                                    to="/databases"
+                                    class="block px-4 py-2 hover:bg-neutral-800"
+                                    role="menuitem"
+                                    >Database</NuxtLink
+                                >
+                            </li>
                         </ul>
                     </div>
                 </div>

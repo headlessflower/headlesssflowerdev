@@ -20,7 +20,7 @@
             Relational core. Search-ready. Standards‑aligned. We design PostgreSQL‑first systems for museums, organizations, and private collections—extensible with search and graph when you need it.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <NuxtLink to="/contact" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow hover:bg-blue-700">
+            <NuxtLink to="#contact" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow hover:bg-blue-700">
               Start a database consultation
             </NuxtLink>
             <a href="#architecture" class="inline-flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-800 px-5 py-3 font-semibold hover:bg-gray-50 dark:hover:bg-gray-900">
@@ -96,7 +96,7 @@
               </li>
             </ul>
             <div class="mt-8">
-              <NuxtLink to="/contact" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow hover:bg-blue-700">Discuss your stack</NuxtLink>
+              <NuxtLink to="#contact" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow hover:bg-blue-700">Discuss your stack</NuxtLink>
             </div>
           </div>
           <div>
@@ -166,7 +166,7 @@
             <h3 class="text-2xl font-bold">Ready to future‑proof your archive?</h3>
             <p class="mt-2 text-gray-600 dark:text-gray-300">Let’s map your data model and architecture in a focused discovery session.</p>
             <div class="mt-6 flex justify-center gap-3">
-              <NuxtLink to="/contact" class="inline-flex items-center justify-center rounded-xl bg-white text-blue-700 border border-white px-5 py-3 font-semibold shadow-sm hover:bg-blue-50">
+              <NuxtLink to="#contact" class="inline-flex items-center justify-center rounded-xl bg-white text-blue-700 border border-white px-5 py-3 font-semibold shadow-sm hover:bg-blue-50">
                 Book a discovery call
               </NuxtLink>
               <NuxtLink to="/services" class="inline-flex items-center justify-center rounded-xl bg-blue-700 text-white px-5 py-3 font-semibold shadow hover:bg-blue-800">

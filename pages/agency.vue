@@ -2,6 +2,8 @@
 
 <template>
     <TheAgencySection />
+    <WhyUs/>
+
 </template>
 
 <style scoped></style>
