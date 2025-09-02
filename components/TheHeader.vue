@@ -228,6 +228,16 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
                                 class="block rounded-md px-3 py-2 hover:bg-neutral-900"
                                 >Premium Package</NuxtLink
                             >
+                             <NuxtLink
+                                to="/maintenance"
+                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
+                                >Maintenance</NuxtLink
+                            >
+                             <NuxtLink
+                                to="/Database"
+                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
+                                >Database</NuxtLink
+                            >
                         </div>
                     </div>
 
