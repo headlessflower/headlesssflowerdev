@@ -36,7 +36,7 @@
                 <NuxtLink
                     v-for="p in list"
                     :key="p.id"
-                    :to="`/work/${p.link}`"
+                    :to="`${p.link}`"
                     class="group overflow-hidden rounded-2xl border border-neutral-800/60 bg-neutral-900 transition hover:border-emerald-400/40 hover:shadow-emerald-500/10"
                 >
                     <div class="relative">

@@ -77,7 +77,7 @@ export const projects = ref([
     img: "/solar_sustain_thumbnail.png",
     video: "./video.webm",
     tags: ["html", "css", "Javascript", "Vue3", "Nuxt3"],
-    link: "solarsustain",
+    link: "https://www.solarsustain.pro",
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export const projects = ref([
     img: "/mecayotl-hero.png",
     video: "./video.webm",
     tags: ["html", "css", "Javascript", "Vue3", "Nuxt3"],
-    link: "mecayotl",
+    link: "https://www.mecayotl.info",
   },
 ]);
 

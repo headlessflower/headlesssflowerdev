@@ -17,7 +17,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
 </script>
 <template>
     <header
-        class="w-full border-b border-neutral-200/20 fixed top-0 bg-white dark:bg-neutral-950 text-neutral-100 z-10"
+        class="w-full border-b border-neutral-200/20 fixed top-0 bg-white dark:bg-neutral-950 light:text-neutral-950 text-neutral-100 z-10"
     >
         <div
             class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
@@ -132,7 +132,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
                                     >Maintenance</NuxtLink
                                 >
                             </li>
-                                <li>
+                            <li>
                                 <NuxtLink
                                     to="/databases"
                                     class="block px-4 py-2 hover:bg-neutral-800"
@@ -236,12 +236,12 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
                                 class="block rounded-md px-3 py-2 hover:bg-neutral-900"
                                 >Premium Package</NuxtLink
                             >
-                             <NuxtLink
+                            <NuxtLink
                                 to="/maintenance"
                                 class="block rounded-md px-3 py-2 hover:bg-neutral-900"
                                 >Maintenance</NuxtLink
                             >
-                             <NuxtLink
+                            <NuxtLink
                                 to="/Database"
                                 class="block rounded-md px-3 py-2 hover:bg-neutral-900"
                                 >Database</NuxtLink
@@ -259,7 +259,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
                         class="block rounded-md px-3 py-2 hover:bg-neutral-900"
                         >About</NuxtLink
                     >
-                   <!-- <NuxtLink
+                    <!-- <NuxtLink
                         to="/templates"
                         class="block rounded-md px-3 py-2 hover:bg-neutral-900"
                         >Templates</NuxtLink

@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "headlessflower",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,8 +11,14 @@
   },
   "dependencies": {
     "@nuxt/icon": "^1.5.0",
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "nuxt": "^3.13.0",
+    "@nuxtjs/seo": "3.2.2",
+    "@nuxtjs/sitemap": "7.4.7",
+    "caniuse-lite": "^1.0.30001748",
+    "nuxt": "^4.1.0",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0"
   }
 }
