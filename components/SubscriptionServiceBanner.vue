@@ -1,84 +1,157 @@
 <template>
-  <section class="relative overflow-hidden rounded-3xl border border-gray-200 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-    <div class="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-100/60 blur-3xl"></div>
-    <div class="absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-purple-100/60 blur-3xl"></div>
+  <section class="relative overflow-hidden bg-neutral-950 text-white">
+    <!-- background texture / vignette -->
+    <div class="pointer-events-none absolute inset-0">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.07),transparent_55%)]" />
+      <div class="absolute inset-0 shadow-[inset_0_0_180px_rgba(0,0,0,0.85)]" />
+    </div>
 
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-12 py-14">
-      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+    <div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
+      <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <!-- Copy -->
         <div>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
-            Monthly Maintenance & Care Plan
-          </h3>
-          <p class="mt-3 text-gray-700 max-w-xl">
-            Keep your site secure, fast, and up‑to‑date. We handle updates, backups, uptime checks, and
-            quick content edits — so you can focus on your business.
+          <p class="text-[11px] font-semibold tracking-[0.28em] text-white/60">
+            MONTHLY CARE PLAN
           </p>
 
-          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <li v-for="p in points" :key="p" class="flex items-start gap-2">
-              <svg class="mt-1 h-5 w-5 flex-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <span class="text-gray-800">{{ p }}</span>
+          <h3
+              class="mt-5 font-serif font-normal leading-[0.95] tracking-tight text-white
+                   text-[clamp(1.9rem,3.2vw,2.6rem)]"
+          >
+            Maintenance & Support
+            <span class="text-red-600"> that keeps your site sharp.</span>
+          </h3>
+
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/70">
+            Keep your site secure, fast, and up-to-date. We handle updates, backups, monitoring, and
+            quick content edits — so you can stay focused on running your business.
+          </p>
+
+          <ul class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <li v-for="p in points" :key="p" class="flex items-start gap-3">
+              <span
+                  class="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full
+                       border border-white/15 bg-white/10 text-white/80"
+                  aria-hidden="true"
+              >
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
+                  <path
+                      d="M20 6L9 17l-5-5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="text-sm leading-relaxed text-white/80">{{ p }}</span>
             </li>
           </ul>
 
-          <div class="mt-7 flex flex-wrap items-center gap-3">
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <NuxtLink
-              :to="primaryLink"
-              class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white font-medium shadow hover:bg-blue-700 transition"
+                :to="primaryLink"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10
+                     px-6 py-3 text-[12px] font-semibold tracking-[0.2em] text-white
+                     backdrop-blur-md transition hover:bg-white/15 hover:border-white/30"
             >
-              Start Maintenance
+              START MAINTENANCE
+              <span class="ml-2 text-white/60">↗</span>
             </NuxtLink>
+
             <NuxtLink
-              :to="secondaryLink"
-              class="inline-flex items-center justify-center rounded-xl bg-white border border-gray-300 px-5 py-3 text-gray-800 font-medium shadow hover:bg-gray-50 transition"
+                :to="secondaryLink"
+                class="inline-flex items-center justify-center rounded-full border border-white/15 bg-transparent
+                     px-6 py-3 text-[12px] font-semibold tracking-[0.2em] text-white/90
+                     transition hover:border-white/25 hover:text-white"
             >
-              See Plan Details
+              SEE PLAN DETAILS
+              <span class="ml-2 text-white/60">↗</span>
             </NuxtLink>
-            <span class="text-sm text-gray-500">Cancel anytime • Month‑to‑month</span>
+
+            <span class="text-xs font-medium tracking-[0.12em] text-white/55">
+              Cancel anytime • Month-to-month
+            </span>
           </div>
         </div>
 
-        <!-- Card -->
-        <div class="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
-          <div class="flex items-baseline justify-between">
-            <h4 class="text-lg font-semibold text-gray-900">Care Plan</h4>
-            <span class="rounded-full bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 text-xs font-medium">
-              Recommended
-            </span>
-          </div>
+        <!-- Pricing card -->
+        <div class="lg:pt-2">
+          <div
+              class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.45)]
+                   backdrop-blur-md"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-[11px] font-semibold tracking-[0.28em] text-white/60">
+                  CARE PLAN
+                </p>
+                <h4 class="mt-2 text-lg font-semibold tracking-tight text-white">
+                  Ongoing maintenance
+                </h4>
+              </div>
 
-          <div class="mt-4">
-            <div class="flex items-end gap-2">
-              <p class="text-3xl font-extrabold text-gray-900">{{ price }}</p>
-              <span class="text-gray-500">/ month</span>
+              <span
+                  class="inline-flex items-center rounded-full border border-red-600/30 bg-red-600/10
+                       px-2.5 py-1 text-[11px] font-semibold tracking-[0.14em] text-red-400"
+              >
+                RECOMMENDED
+              </span>
             </div>
-            <p class="mt-1 text-sm text-gray-500">Billed monthly. No long‑term contracts.</p>
+
+            <div class="mt-6">
+              <p class="text-[11px] font-semibold tracking-[0.22em] text-white/55">
+                STARTING AT
+              </p>
+              <div class="mt-2 flex items-end justify-between gap-3">
+                <p class="font-serif text-4xl leading-none text-white">
+                  {{ price }}
+                </p>
+                <p class="text-xs font-medium tracking-[0.14em] text-white/60">/ MONTH</p>
+              </div>
+              <p class="mt-2 text-sm text-white/55">Billed monthly. No long-term contracts.</p>
+            </div>
+
+            <ul class="mt-6 space-y-3">
+              <li v-for="f in features" :key="f" class="flex items-start gap-3">
+                <span
+                    class="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full
+                         border border-white/15 bg-white/10 text-white/80"
+                    aria-hidden="true"
+                >
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M20 6L9 17l-5-5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span class="text-sm leading-relaxed text-white/75">{{ f }}</span>
+              </li>
+            </ul>
+
+            <div class="mt-8">
+              <NuxtLink
+                  :to="primaryLink"
+                  class="inline-flex w-full items-center justify-center rounded-full border border-white/20
+                       bg-white/10 px-6 py-3 text-[12px] font-semibold tracking-[0.2em] text-white
+                       backdrop-blur-md transition hover:bg-white/15 hover:border-white/30"
+              >
+                GET STARTED
+                <span class="ml-2 text-white/60">↗</span>
+              </NuxtLink>
+            </div>
+
+            <p class="mt-5 text-xs leading-relaxed text-white/50">
+              *Turnaround targets apply to site sizes under 25 pages. Enterprise?
+              <NuxtLink to="#contact" class="underline underline-offset-4 decoration-white/30 hover:decoration-white/60">
+                Contact us
+              </NuxtLink>.
+            </p>
           </div>
-
-          <ul class="mt-5 space-y-3">
-            <li v-for="f in features" :key="f" class="flex items-start gap-2">
-              <svg class="mt-1 h-5 w-5 flex-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <span class="text-gray-700">{{ f }}</span>
-            </li>
-          </ul>
-
-          <div class="mt-6">
-            <NuxtLink
-              :to="primaryLink"
-              class="inline-flex w-full items-center justify-center rounded-xl bg-gray-900 px-5 py-3 text-white font-medium shadow hover:bg-black/90 transition"
-            >
-              Get Started
-            </NuxtLink>
-          </div>
-
-          <p class="mt-4 text-xs text-gray-500">
-            *Turnaround targets apply to site sizes under 25 pages. Enterprise? <NuxtLink to="#contact" class="underline hover:no-underline">Contact us</NuxtLink>.
-          </p>
         </div>
       </div>
     </div>
@@ -86,36 +159,30 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  price: {
-    type: String,
-    default: '$149'
-  },
-  primaryLink: {
-    type: String,
-    default: '#contact'
-  },
-  secondaryLink: {
-    type: String,
-    default: '/monthly-maintenance-subscription'
-  }
-})
+const props = defineProps<{
+  price?: string;
+  primaryLink?: string;
+  secondaryLink?: string;
+}>();
+
+const price = props.price ?? "$149";
+const primaryLink = props.primaryLink ?? "#contact";
+const secondaryLink = props.secondaryLink ?? "/monthly-maintenance-subscription";
 
 const points = [
-  'Core/CMS/plugin updates & testing',
-  'Daily backups + 30-day retention',
-  'Uptime & security monitoring',
-  'Performance checks & fixes',
-  'Accessibility & SEO quick fixes',
-  'Up to 1 hour content edits/month',
-]
+  "Core/CMS/plugin updates & testing",
+  "Daily backups + 30-day retention",
+  "Uptime & security monitoring",
+  "Performance checks & fixes",
+  "Accessibility & SEO quick fixes",
+  "Up to 1 hour content edits/month",
+];
 
 const features = [
-  'Monthly update cycle with rollback plan',
-  'Broken link checks & form testing',
-  'Image optimization & cache review',
-  'Priority email support',
-  'Emergency hotfix (fair use)',
-]
+  "Monthly update cycle with rollback plan",
+  "Broken link checks & form testing",
+  "Image optimization & cache review",
+  "Priority email support",
+  "Emergency hotfix (fair use)",
+];
 </script>
-

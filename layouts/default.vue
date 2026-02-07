@@ -1,15 +1,10 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-<TheHeader/>
-  <slot></slot>
-  <TheTestimonials/>
-  <TheForm/>
-<TheFooter/>
+    <TheHeader />
+    <slot></slot>
+
+    <TheFooter />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

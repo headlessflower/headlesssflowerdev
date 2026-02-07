@@ -1,60 +1,92 @@
 <template>
-    <section class="relative bg-gray-50" id="hero">
-        <!-- Background -->
-        <div class="absolute inset-0">
-            <img
-                src="/dev-hero-alt.png"
-                alt="Creative agency background"
-                class="w-full h-full object-cover opacity-30"
-            />
-            <div
-                class="absolute inset-0 bg-gradient-to-b from-white/70 to-gray-50"
-            ></div>
-        </div>
+  <section id="hero" class="relative overflow-hidden bg-neutral-950">
+    <!-- Background media -->
+    <div class="absolute inset-0">
+      <img
+          src="/dev-hero-alt.png"
+          alt="Abstract ocean texture"
+          class="h-full w-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-neutral-950/45"></div>
+      <div
+          class="absolute inset-0 bg-gradient-to-b from-neutral-950/30 via-neutral-950/20 to-neutral-950/80"
+      ></div>
+      <div class="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.65)]"></div>
+    </div>
 
-        <!-- Content -->
-        <div
-            class="relative max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-40 text-center"
-        >
-            <h1
-                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight"
-            >
-                Building Modern Websites <br class="hidden sm:block" />
-                That Reflect Your Brand
-            </h1>
-            <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
-                We create secure, accessible, and user-friendly websites that
-                showcase your identity and help you connect with the right
-                audience.
+
+    <!-- Content -->
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="min-h-[88vh] md:min-h-screen pb-14 pt-28 md:pb-20 md:pt-36">
+        <div class="flex h-full items-end">
+          <div class="max-w-4xl">
+            <!-- small “kicker” label -->
+            <p class="text-[11px] font-medium tracking-[0.32em] text-white/65">
+              DIGITAL PRODUCTS FOR SERVICE BUSINESSES
             </p>
 
-            <div class="mt-10 flex justify-center gap-4">
-                <NuxtLink
-                    to="/services"
-                    class="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition"
-                >
-                    View Services
-                </NuxtLink>
-                <NuxtLink
-                    to="#contact"
-                    class="px-6 py-3 rounded-xl bg-white border border-gray-300 text-gray-800 font-medium shadow hover:bg-gray-50 transition"
-                >
-                    Get a Quote
-                </NuxtLink>
+            <h1
+                class="mt-6 font-serif font-normal leading-[0.88] tracking-tightest text-white
+         text-[clamp(3rem,6.2vw,6.8rem)]"
+            >
+              Modern websites
+              <br />
+              with real-world performance.
+            </h1>
+
+            <p class="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
+              We design and build fast, accessible Nuxt sites with clean systems behind them—
+              so your business looks premium and converts.
+            </p>
+
+            <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <NuxtLink
+                  to="/services"
+                  class="inline-flex items-center justify-center rounded-full border border-white/20
+                       bg-white/10 px-6 py-3 text-sm font-semibold text-white
+                       backdrop-blur-md transition hover:bg-white/15 hover:border-white/30"
+              >
+                View services
+              </NuxtLink>
+
+              <NuxtLink
+                  to="#contact"
+                  class="inline-flex items-center justify-center rounded-full border border-white/15
+                       bg-transparent px-6 py-3 text-sm font-semibold text-white/90
+                       transition hover:border-white/25 hover:text-white"
+              >
+                Let’s talk
+                <span class="ml-2 text-white/60">↗</span>
+              </NuxtLink>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+
+    <div class="pointer-events-none absolute bottom-6 right-6">
+      <NuxtLink
+          to="/agency"
+          class="pointer-events-auto inline-flex items-center gap-2 text-xs font-medium tracking-[0.22em] text-white/70
+               transition hover:text-white"
+      >
+        ABOUT <span class="text-white/50">↗</span>
+      </NuxtLink>
+    </div>
+  </section>
 </template>
 
 <script setup>
 useHead({
-    title: "Headless Flower | Web Development Agency",
-    meta: [
-        {
-            name: "description",
-            content:
-                "We build modern, accessible, and secure websites for businesses that want to stand out. Headless Flower helps you create your brand’s digital identity with best practices in mind.",
-        },
-    ],
+  title: "Headless Flower | Web Development Agency",
+  meta: [
+    {
+      name: "description",
+      content:
+          "We design and build fast, accessible Nuxt websites for service businesses—clean systems, premium visuals, and real conversions.",
+    },
+  ],
 });
 </script>

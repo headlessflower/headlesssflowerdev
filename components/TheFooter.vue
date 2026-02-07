@@ -1,45 +1,163 @@
 <script setup lang="ts">
-import { ref } from "vue";
+const brand = "HF"; // change to "HEADLESS FLOWER" if you want, but the big-top treatment works best with 1 word
 
-const isHovered = ref(false);
+const primaryLinks = [
+  { label: "ABOUT", to: "/agency" },
+  { label: "RESEARCH", to: "/agency#research" },
+  { label: "WRITING", to: "/agency#writing" },
+  { label: "SOLUTIONS", to: "/services" },
+  { label: "CAREERS", to: "/agency#careers" },
+];
+
+const secondaryLinks = [
+  { label: "— WEB", to: "/services#web" },
+  { label: "— SYSTEMS", to: "/services#systems" },
+];
+
+const socials = [
+  { label: "X", href: "https://x.com" },
+  { label: "IN", href: "https://linkedin.com" },
+  { label: "GH", href: "https://github.com" },
+  { label: "EM", href: "mailto:solarsustain@gmail.com" },
+];
+
+function submitNewsletter(e: Event) {
+  e.preventDefault();
+  // wire up later (Mailchimp/Buttondown/etc)
+}
 </script>
 
 <template>
-    <footer
-        @mouseenter="isHovered = true"
-        @mouseleave="isHovered = false"
-        :class="[
-            'transition-colors duration-300 ease-in-out w-full px-6 py-16 flex flex-col md:flex-row justify-between items-start md:items-center ',
-            isHovered ? 'bg-yellow-400' : 'bg-white',
-        ]"
-    >
-        <div
-            class="flex flex-col space-y-2 text-sm font-bold text-black uppercase"
-        >
-            <NuxtLink to="/terms" class="hover:text-white duration-150"
-                >Terms&Conditions</NuxtLink
-            >
-            <NuxtLink to="/services" class="hover:text-white duration-150"
-                >Services</NuxtLink
-            >
-            <NuxtLink to="/work/projects" class="hover:text-white duration-150"
-                >Work</NuxtLink
-            >
-        </div>
-        <div
-            class="space-y-2 text-sm font-bold text-black text-right mt-10 md:mt-0"
-        >
-            <NuxtLink to="#hero" class="uppercase hover:text-white duration-150"
-                >back to top</NuxtLink
-            >
-            <p class="uppercase hover:text-white duration-150">
-                headlessflowerdev@gmail.com
-            </p>
-            <p class="uppercase hover:text-white duration-150">
-                headlessflower © 2025
-            </p>
-        </div>
-    </footer>
-</template>
+  <footer class="relative overflow-hidden rounded-2xl bg-red-600 text-white">
+    <!-- Giant wordmark across the top -->
+    <div class="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-12">
+      <h2
+          class="select-none font-sans font-black uppercase tracking-tight text-white/95 leading-none
+               text-[clamp(4.5rem,14vw,12rem)]"
+      >
+        {{ brand }}
+      </h2>
 
-<style scoped></style>
+      <!-- Top row: nav + CTA -->
+      <div class="mt-6 grid grid-cols-1 gap-10 md:grid-cols-[auto_1fr_auto] md:items-start">
+        <!-- Stacked nav (like screenshot) -->
+        <div class="flex gap-10">
+          <nav aria-label="Footer navigation">
+            <ul class="space-y-1 text-[12px] font-semibold leading-tight tracking-[0.18em] text-white/90">
+              <li v-for="l in primaryLinks" :key="l.label">
+                <NuxtLink :to="l.to" class="hover:text-white">
+                  {{ l.label }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Footer secondary links">
+            <ul class="space-y-1 text-[12px] font-semibold leading-tight tracking-[0.18em] text-white/85">
+              <li class="opacity-0 select-none">SPACER</li>
+              <li class="opacity-0 select-none">SPACER</li>
+              <li v-for="l in secondaryLinks" :key="l.label">
+                <NuxtLink :to="l.to" class="hover:text-white">
+                  {{ l.label }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Spacer column to mimic lots of empty red -->
+        <div class="hidden md:block" />
+
+        <!-- LET'S TALK -->
+        <div class="md:justify-self-end">
+          <NuxtLink
+              to="#contact"
+              class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-white/90 hover:text-white"
+          >
+            LET’S TALK
+            <span
+                class="inline-flex h-5 w-5 items-center justify-center rounded border border-white/30 text-[11px] text-white/90"
+                aria-hidden="true"
+            >
+              ↗
+            </span>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <!-- Socials row -->
+      <div class="mt-10 flex items-center gap-3">
+        <a
+            v-for="s in socials"
+            :key="s.label"
+            :href="s.href"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20
+                 text-[11px] font-semibold tracking-[0.12em] text-white/90 hover:bg-white/10"
+            :aria-label="s.label"
+        >
+          {{ s.label }}
+        </a>
+      </div>
+
+      <!-- Newsletter block (bottom-mid like screenshot) -->
+      <div class="mt-24 grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div class="hidden md:block" />
+
+        <div class="max-w-md md:justify-self-start">
+          <p class="text-[12px] font-semibold tracking-[0.18em] text-white/90">
+            SIGN UP FOR THE
+            <br />
+            LATEST NEWS & INSIGHTS
+          </p>
+
+          <form class="mt-6" @submit="submitNewsletter">
+            <label class="block text-[12px] font-semibold tracking-[0.18em] text-white/85">
+              EMAIL ADDRESS
+              <input
+                  type="email"
+                  required
+                  placeholder=""
+                  class="mt-3 w-full border-b border-white/35 bg-transparent pb-3
+                       text-sm text-white placeholder:text-white/40
+                       outline-none focus:border-white"
+              />
+            </label>
+
+            <button
+                type="submit"
+                class="mt-5 inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-white/90 hover:text-white"
+            >
+              SUBMIT
+              <span
+                  class="inline-flex h-5 w-5 items-center justify-center rounded border border-white/30 text-[11px]"
+                  aria-hidden="true"
+              >
+                ↗
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom legal -->
+      <div class="mt-16 pb-10">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div class="text-[12px] font-semibold tracking-[0.18em] text-white/85">
+            <p>© {{ new Date().getFullYear() }} HEADLESS FLOWER.</p>
+            <p class="mt-2 underline underline-offset-4 decoration-white/40">
+              <NuxtLink to="/privacy" class="hover:text-white">PRIVACY POLICY</NuxtLink>
+              <span class="mx-2 text-white/60">|</span>
+              <NuxtLink to="/terms" class="hover:text-white">TERMS &amp; CONDITIONS</NuxtLink>
+            </p>
+          </div>
+
+          <div class="text-[12px] font-semibold tracking-[0.18em] text-white/75">
+            headlessflowerdev@gmail.com · (323) 709-5357
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>

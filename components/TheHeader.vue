@@ -1,287 +1,138 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 const mobileOpen = ref(false);
-const mobileServicesOpen = ref(false);
-const servicesOpen = ref(false); // kept for a11y events; desktop hover handles visibility
+const scrolled = ref(false);
 
-// Close mobile menu on route change (optional if you use a global watcher elsewhere)
 const onKey = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-        mobileOpen.value = false;
-        mobileServicesOpen.value = false;
-    }
+  if (e.key === "Escape") mobileOpen.value = false;
 };
-onMounted(() => window.addEventListener("keydown", onKey));
-onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
+
+const onScroll = () => {
+  scrolled.value = window.scrollY > 8;
+};
+
+onMounted(() => {
+  window.addEventListener("keydown", onKey);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", onKey);
+  window.removeEventListener("scroll", onScroll);
+});
+
+const headerClass = computed(() => {
+  return [
+    "fixed top-0 left-0 right-0 z-50",
+    "text-white",
+    scrolled.value
+        ? "bg-neutral-950/30 backdrop-blur-md border-b border-white/10"
+        : "bg-transparent border-b border-transparent",
+  ].join(" ");
+});
 </script>
+
 <template>
-    <header
-        class="w-full border-b border-neutral-200/20 fixed top-0 bg-white dark:bg-neutral-950 light:text-neutral-950 text-neutral-100 z-10"
-    >
-        <div
-            class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+  <header :class="headerClass">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+      <div class="flex h-16 items-center justify-between md:h-20">
+        <!-- Left: Wordmark -->
+        <NuxtLink
+            to="/"
+            class="text-2xl font-black tracking-tight sm:text-3xl"
+            aria-label="Headless Flower home"
         >
-            <!-- Brand -->
-            <NuxtLink to="/" class="text-lg font-bold tracking-tight"
-                >Headless Flower</NuxtLink
+          HEADLESSFLOWER
+        </NuxtLink>
+
+        <!-- Center: Stacked nav (desktop) -->
+        <nav class="hidden md:block">
+          <div class="grid grid-cols-[auto_auto] gap-x-8">
+            <!-- Left column (stack) -->
+            <ul class="space-y-1 text-[12px] font-medium leading-tight tracking-[0.18em] text-white/90">
+              <li><NuxtLink to="/agency" class="hover:text-white">ABOUT</NuxtLink></li>
+              <li><NuxtLink to="/services" class="hover:text-white">SERVICES</NuxtLink></li>
+              <li><NuxtLink to="/work/projects" class="hover:text-white">WORK</NuxtLink></li>
+            </ul>
+
+            <!-- Right column (small aligned items like “EDA / ASICS”) -->
+
+          </div>
+        </nav>
+
+        <!-- Right: CTA -->
+        <div class="flex items-center gap-3">
+          <NuxtLink
+              to="#contact"
+              class="hidden sm:inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-white/90 hover:text-white"
+          >
+            LET’S TALK
+            <span
+                class="inline-flex h-5 w-5 items-center justify-center rounded border border-white/30 text-[11px] text-white/80"
+                aria-hidden="true"
             >
+              ↗
+            </span>
+          </NuxtLink>
 
-            <!-- Mobile toggle -->
-            <button
-                class="inline-flex items-center rounded-md p-2 lg:hidden hover:bg-neutral-800/60 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-                @click="mobileOpen = !mobileOpen"
-                aria-controls="mobile-nav"
-                :aria-expanded="mobileOpen"
-            >
-                <span class="sr-only">Open main menu</span>
-                <svg class="size-6" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                        v-if="!mobileOpen"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16"
-                    />
-                    <path
-                        v-else
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                    />
-                </svg>
-            </button>
-
-            <!-- Desktop nav -->
-            <nav class="hidden lg:flex lg:items-center lg:gap-8">
-                <NuxtLink to="/" class="hover:text-yellow-300 duration-150"
-                    >Home</NuxtLink
-                >
-
-                <!-- Services dropdown (desktop: hover/focus; mobile handled below) -->
-                <div
-                    class="relative group"
-                    @keydown.escape="servicesOpen = false"
-                    @focusin="servicesOpen = true"
-                    @focusout="servicesOpen = false"
-                >
-                    <button
-                        class="inline-flex items-center gap-1 hover:text-yellow-300 duration-150 focus:outline-none"
-                        @click.prevent
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        Services
-                        <svg
-                            class="size-4 transition-transform group-hover:rotate-180"
-                            viewBox="0 0 20 20"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </button>
-
-                    <!-- Menu -->
-                    <div
-                        class="absolute dropdown-menu left-0 w-56 rounded-lg border border-neutral-800 bg-neutral-900 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible focus-within:opacity-100 focus-within:visible transition duration-150 z-50"
-                        role="menu"
-                    >
-                        <ul class="py-2 text-sm">
-                            <li>
-                                <NuxtLink
-                                    to="/services"
-                                    class="block px-4 py-2 hover:bg-neutral-800"
-                                    role="menuitem"
-                                    >All Services</NuxtLink
-                                >
-                            </li>
-                            <li>
-                                <NuxtLink
-                                    to="/starter-package"
-                                    class="block px-4 py-2 hover:bg-neutral-800"
-                                    role="menuitem"
-                                    >Starter Package</NuxtLink
-                                >
-                            </li>
-                            <li>
-                                <NuxtLink
-                                    to="/standard-package"
-                                    class="block px-4 py-2 hover:bg-neutral-800"
-                                    role="menuitem"
-                                    >Standard Package</NuxtLink
-                                >
-                            </li>
-                            <li>
-                                <NuxtLink
-                                    to="/premium-package"
-                                    class="block px-4 py-2 hover:bg-neutral-800"
-                                    role="menuitem"
-                                    >Premium Package</NuxtLink
-                                >
-                            </li>
-                            <li>
-                                <NuxtLink
-                                    to="/monthly-maintenance-subscription"
-                                    class="block px-4 py-2 hover:bg-neutral-800"
-                                    role="menuitem"
-                                    >Maintenance</NuxtLink
-                                >
-                            </li>
-                            <li>
-                                <NuxtLink
-                                    to="/databases"
-                                    class="block px-4 py-2 hover:bg-neutral-800"
-                                    role="menuitem"
-                                    >Database</NuxtLink
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <NuxtLink
-                    to="/work/projects"
-                    class="hover:text-yellow-300 duration-150"
-                    >Work</NuxtLink
-                >
-                <NuxtLink
-                    to="/agency"
-                    class="hover:text-yellow-300 duration-150"
-                    >About</NuxtLink
-                >
-                <!--<NuxtLink
-                    to="/templates"
-                    class="hover:text-yellow-300 duration-150"
-                    >Templates</NuxtLink
->-->
-                <NuxtLink
-                    to="#contact"
-                    class="rounded-lg bg-yellow-300 px-4 py-2 font-semibold text-neutral-900 hover:-translate-y-0.5 hover:shadow-lg duration-150"
-                    >Get a Quote</NuxtLink
-                >
-            </nav>
+          <!-- Mobile toggle -->
+          <button
+              class="inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:bg-white/10 md:hidden"
+              @click="mobileOpen = !mobileOpen"
+              :aria-expanded="mobileOpen"
+              aria-controls="mobile-menu"
+          >
+            <span class="sr-only">Toggle menu</span>
+            <svg v-if="!mobileOpen" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg v-else class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
+      </div>
+    </div>
 
-        <!-- Mobile nav -->
-        <transition
-            enter-active-class="duration-200 ease-out"
-            enter-from-class="opacity-0 -translate-y-2"
-            enter-to-class="opacity-100 translate-y-0"
-            leave-active-class="duration-150 ease-in"
-            leave-from-class="opacity-100 translate-y-0"
-            leave-to-class="opacity-0 -translate-y-2"
-        >
-            <div
-                v-if="mobileOpen"
-                id="mobile-nav"
-                class="lg:hidden border-t border-neutral-800 bg-neutral-950"
-            >
-                <div
-                    class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 space-y-2"
-                >
-                    <NuxtLink
-                        to="/"
-                        class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                        >Home</NuxtLink
-                    >
+    <!-- Mobile menu -->
+    <transition
+        enter-active-class="duration-200 ease-out"
+        enter-from-class="opacity-0 -translate-y-2"
+        enter-to-class="opacity-100 translate-y-0"
+        leave-active-class="duration-150 ease-in"
+        leave-from-class="opacity-100 translate-y-0"
+        leave-to-class="opacity-0 -translate-y-2"
+    >
+      <div
+          v-if="mobileOpen"
+          id="mobile-menu"
+          class="md:hidden border-t border-white/10 bg-neutral-950/85 backdrop-blur-md"
+      >
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-12">
+          <div class="grid gap-3 text-sm font-semibold tracking-[0.16em] text-white/90">
+            <NuxtLink to="/agency" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">ABOUT</NuxtLink>
+            <NuxtLink to="/services" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">SERVICES</NuxtLink>
+            <NuxtLink to="/work/projects" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">WORK</NuxtLink>
+            <NuxtLink to="/agency#process" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">PROCESS</NuxtLink>
+            <NuxtLink to="/agency#careers" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">CAREERS</NuxtLink>
 
-                    <!-- Mobile: Services accordion -->
-                    <div class="rounded-md">
-                        <button
-                            class="flex w-full items-center justify-between rounded-md px-3 py-2 hover:bg-neutral-900"
-                            @click="mobileServicesOpen = !mobileServicesOpen"
-                            :aria-expanded="mobileServicesOpen"
-                            aria-controls="mobile-services-menu"
-                        >
-                            <span>Services</span>
-                            <svg
-                                class="size-5 transition-transform"
-                                :class="mobileServicesOpen ? 'rotate-180' : ''"
-                                viewBox="0 0 20 20"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                                    clip-rule="evenodd"
-                                />
-                            </svg>
-                        </button>
-                        <div
-                            v-show="mobileServicesOpen"
-                            id="mobile-services-menu"
-                            class="pl-3"
-                        >
-                            <NuxtLink
-                                to="/services"
-                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                                >All Services</NuxtLink
-                            >
-                            <NuxtLink
-                                to="/starter-package"
-                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                                >Starter Package</NuxtLink
-                            >
-                            <NuxtLink
-                                to="/standard-package"
-                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                                >Standard Package</NuxtLink
-                            >
-                            <NuxtLink
-                                to="/premium-package"
-                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                                >Premium Package</NuxtLink
-                            >
-                            <NuxtLink
-                                to="/maintenance"
-                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                                >Maintenance</NuxtLink
-                            >
-                            <NuxtLink
-                                to="/Database"
-                                class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                                >Database</NuxtLink
-                            >
-                        </div>
-                    </div>
-
-                    <NuxtLink
-                        to="/work/projects"
-                        class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                        >Work</NuxtLink
-                    >
-                    <NuxtLink
-                        to="/agency"
-                        class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                        >About</NuxtLink
-                    >
-                    <!-- <NuxtLink
-                        to="/templates"
-                        class="block rounded-md px-3 py-2 hover:bg-neutral-900"
-                        >Templates</NuxtLink
->-->
-                    <NuxtLink
-                        to="#contact"
-                        class="block rounded-md bg-yellow-300 px-3 py-2 font-semibold text-neutral-900"
-                        >Get a Quote</NuxtLink
-                    >
-                </div>
+            <div class="mt-3">
+              <NuxtLink
+                  to="#contact"
+                  class="inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[12px] font-semibold tracking-[0.2em] text-white hover:bg-white/15"
+                  @click="mobileOpen = false"
+              >
+                LET’S TALK
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded border border-white/30 text-[11px] text-white/80">
+                  ↗
+                </span>
+              </NuxtLink>
             </div>
-        </transition>
-    </header>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </header>
 </template>
-
-<style>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.3s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
-</style>

@@ -1,160 +1,192 @@
 <template>
-  <section class="relative bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20">
-      <!-- Heading -->
-      <div class="max-w-2xl">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
-          Built for speed, access, and scale
-        </h2>
-        <p class="mt-3 text-gray-600">
-          We ship modern websites that are secure, accessible, and easy to manage — so your brand
-          can connect with the right audience and grow.
+  <section class="relative overflow-hidden bg-neutral-950 text-white">
+    <!-- subtle background + vignette -->
+    <div class="pointer-events-none absolute inset-0">
+      <div class="absolute inset-0 bg-neutral-950"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_55%)]"></div>
+      <div class="absolute inset-0 shadow-[inset_0_0_180px_rgba(0,0,0,0.85)]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
+      <!-- Top row: kicker + headline + CTA -->
+      <div class="grid gap-10 lg:grid-cols-[240px_1fr_auto] lg:items-start">
+        <p class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
+          {{ kicker }}
         </p>
+
+        <h2
+            class="font-serif font-normal leading-[0.95] tracking-tight text-white
+                 text-[clamp(2.2rem,4.4vw,4.2rem)]"
+        >
+          <span>{{ headline.before }}</span>
+          <span class="text-red-600">{{ headline.accent1 }}</span>
+          <span>{{ headline.middle }}</span>
+          <span class="text-red-600">{{ headline.accent2 }}</span>
+          <span>{{ headline.after }}</span>
+        </h2>
+
+        <div class="lg:justify-self-end">
+          <NuxtLink
+              :to="cta.to"
+              class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-white/80 hover:text-white"
+          >
+            {{ cta.label }}
+            <span
+                class="inline-flex h-5 w-5 items-center justify-center rounded border border-white/25 text-[11px] text-white/80"
+                aria-hidden="true"
+            >
+              ↗
+            </span>
+          </NuxtLink>
+        </div>
       </div>
 
-      <!-- Feature Grid -->
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <article
-          v-for="f in features"
-          :key="f.title"
-          class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+      <!-- Center panel (replaces screenshot image) -->
+      <div class="mt-14 flex justify-center lg:mt-16">
+        <div
+            class="w-full max-w-4xl rounded-2xl border border-white/15 bg-white/5
+                 shadow-[0_30px_120px_rgba(0,0,0,0.55)] backdrop-blur-md"
         >
-          <div class="flex items-center gap-3">
-            <div class="h-11 w-11 flex items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-              <component :is="f.icon" class="h-6 w-6" aria-hidden="true" />
+          <div class="p-6 sm:p-8">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p class="text-[11px] font-semibold tracking-[0.28em] text-white/60">
+                  WEB CONVERSION SNAPSHOT
+                </p>
+                <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/70">
+                  Real outcomes from performance + UX improvements. These are typical ranges for
+                  service sites after cleaning up messaging, speed, and lead capture flow.
+                </p>
+              </div>
+
+              <div class="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2">
+                <span class="h-2 w-2 rounded-full bg-red-600"></span>
+                <span class="text-[11px] font-semibold tracking-[0.18em] text-white/70">
+                  LAST 90 DAYS
+                </span>
+              </div>
             </div>
-            <h3 class="text-lg font-semibold text-gray-900">{{ f.title }}</h3>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <StatCard label="Avg. load time" value="1.2s" hint="from ~3.8s" />
+              <StatCard label="Lead conversion" value="+38%" hint="form completion" />
+              <StatCard label="Bounce rate" value="-22%" hint="better intent match" />
+              <StatCard label="Quote requests" value="+41%" hint="CTA clarity" />
+            </div>
+
+            <div class="mt-8 border-t border-white/10 pt-6">
+              <div class="grid gap-4 sm:grid-cols-3">
+                <MiniStat label="Top channel" value="Organic Search" />
+                <MiniStat label="Best page" value="/services" />
+                <MiniStat label="Avg. session" value="2m 18s" />
+              </div>
+            </div>
           </div>
-          <p class="mt-3 text-gray-600">
+        </div>
+      </div>
+
+      <!-- Bottom features (A/B/C/D) -->
+      <div class="mt-14 grid gap-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <div v-for="f in features" :key="f.key">
+          <div class="flex items-center gap-4">
+            <span
+                class="inline-flex h-6 w-6 items-center justify-center rounded border border-red-600/40 bg-red-600/15
+                     text-[12px] font-bold text-red-500"
+                aria-hidden="true"
+            >
+              {{ f.key }}
+            </span>
+            <h3 class="text-base font-semibold tracking-tight text-white">
+              {{ f.title }}
+            </h3>
+          </div>
+
+          <p class="mt-4 text-sm leading-relaxed text-white/65">
             {{ f.description }}
           </p>
-
-          <ul v-if="f.points?.length" class="mt-5 space-y-2">
-            <li v-for="p in f.points" :key="p" class="flex items-start gap-2">
-              <svg class="mt-1 h-5 w-5 flex-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <span class="text-gray-700">{{ p }}</span>
-            </li>
-          </ul>
-
-          <NuxtLink
-            v-if="f.link"
-            :to="f.link.href"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2 text-white font-medium shadow hover:bg-black/90 transition"
-          >
-            {{ f.link.label }}
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M13 5l7 7-7 7M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </NuxtLink>
-        </article>
+        </div>
       </div>
-
-      <!-- Footnote -->
-      <p class="mt-10 text-sm text-gray-500">
-        WCAG‑minded structure, performance budgets, and SEO basics are included on every project.
-      </p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const kicker = "WHAT IS HEADLESS FLOWER?";
 
-const ShieldIcon = {
-  render() {
-    return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
-      h('path', {
-        d: 'M12 3l7 4v5c0 5-3.5 9-7 9s-7-4-7-9V7l7-4z',
-        stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-      })
-    ])
-  }
-}
-const ZapIcon = {
-  render() {
-    return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
-      h('path', {
-        d: 'M13 2L3 14h7l-1 8 11-12h-7l1-8z',
-        stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-      })
-    ])
-  }
-}
-const A11yIcon = {
-  render() {
-    return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
-      h('circle', { cx: '12', cy: '4', r: '2', stroke: 'currentColor', 'stroke-width': '2' }),
-      h('path', { d: 'M4 8h16M7 8l5 4 5-4M12 12v8M7 20h10', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })
-    ])
-  }
-}
-const CogIcon = {
-  render() {
-    return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
-      h('path', { d: 'M12 15a3 3 0 100-6 3 3 0 000 6z', stroke: 'currentColor', 'stroke-width': '2' }),
-      h('path', { d: 'M19.4 15a7.96 7.96 0 000-6l2.1-1.2-2-3.4-2.4 1A8.02 8.02 0 0012 3L11 0H9l-1 3a8.02 8.02 0 00-3.1 2.4l-2.4-1-2 3.4 2.1 1.2a7.96 7.96 0 000 6L-1 16.2l2 3.4 2.4-1A8.02 8.02 0 009 21l1 3h2l1-3a8.02 8.02 0 003.1-2.4l2.4 1 2-3.4-2.1-1.2z', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })
-    ])
-  }
-}
-const RocketIcon = {
-  render() {
-    return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
-      h('path', { d: 'M14 4l6 6-6 6-4-4-6 2 2-6-4-4 6-6 4 4z', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })
-    ])
-  }
-}
-const PencilIcon = {
-  render() {
-    return h('svg', { viewBox: '0 0 24 24', fill: 'none' }, [
-      h('path', { d: 'M3 21l3-1 11-11-2-2L4 18l-1 3zM14 4l2 2 2-2-2-2-2 2z', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })
-    ])
-  }
-}
+const headline = {
+  before: "A full-stack web partner for ",
+  accent1: "high-converting",
+  middle:
+      " service businesses—shipping production-grade sites that reduce admin work and surface the leads ",
+  accent2: "you actually want",
+  after: ".",
+};
+
+const cta = {
+  label: "BOOK A CONSULTATION",
+  to: "#contact",
+};
 
 const features = [
   {
-    title: 'Security‑first',
-    description: 'Hardened configs, dependency updates, and modern hosting patterns keep your site safe.',
-    points: ['Secure forms & spam protection', 'Best‑practice headers', 'Regular dependency review'],
-    icon: ShieldIcon,
-    link: { label: 'See our process', href: '/security-first-websites' },
+    key: "A",
+    title: "Conversion-first pages",
+    description:
+        "Clear hierarchy, stronger CTAs, and forms designed to reduce friction and increase completed inquiries.",
   },
   {
-    title: 'Performance',
-    description: 'Fast loads and smooth interactions out of the box, measured and tuned.',
-    points: ['Image optimization', 'Code splitting & caching', 'Core Web Vitals focus'],
-    icon: ZapIcon,
-    link: { label: 'How we optimize', href: '/website-performance' },
+    key: "B",
+    title: "Performance engineering",
+    description:
+        "Fast load times and smooth interactions built with budgets, audit-driven fixes, and best-practice Nuxt setups.",
   },
   {
-    title: 'Accessibility',
-    description: 'Inclusive experiences that meet WCAG guidelines and work across devices.',
-    points: ['Semantic HTML structure', 'Keyboard & screen reader checks', 'Color contrast validation'],
-    icon: A11yIcon,
-    link: { label: 'Accessibility checklist', href: '/web-accessibility' },
+    key: "C",
+    title: "Human-in-the-loop iteration",
+    description:
+        "We refine the site with real feedback—what prospects ask, where they drop off, and what improves trust.",
   },
   {
-    title: 'Easy to manage',
-    description: 'Headless CMS options and clear content models so your team can publish with confidence.',
-    points: ['Sanity/Contentful integration', 'Reusable components', 'Authoring guidance'],
-    icon: CogIcon,
-    link: { label: 'CMS options', href: '/headless-cms-management' },
+    key: "D",
+    title: "Traceable improvements",
+    description:
+        "We document what changed and why, so you can connect updates to real outcomes and keep the system maintainable.",
   },
-  {
-    title: 'Conversion‑ready',
-    description: 'Clear CTAs, thoughtful layouts, and analytics setup to validate what works.',
-    points: ['A/B‑ready structure', 'Event tracking', 'SEO schemas & metadata'],
-    icon: RocketIcon,
-    link: { label: 'See case studies', href: '/conversion-ready-websites' },
-  },
-  {
-    title: 'Brand aligned',
-    description: 'Design system and type/colour tokens that reflect your identity at every breakpoint.',
-    points: ['Design tokens', 'Component library', 'Motion & micro‑interactions'],
-    icon: PencilIcon,
-    link: { label: 'Design services', href: '/brand-aligned-design' },
-  },
-]
+];
 </script>
 
+<script lang="ts">
+/**
+ * Local subcomponents (keeps this drop-in simple for Nuxt).
+ */
+export default {
+  components: {
+    StatCard: {
+      props: {
+        label: { type: String, required: true },
+        value: { type: String, required: true },
+        hint: { type: String, default: "" },
+      },
+      template: `
+        <div class="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+          <p class="text-[11px] font-semibold tracking-[0.18em] text-white/55">{{ label }}</p>
+          <p class="mt-3 font-serif text-3xl leading-none text-white">{{ value }}</p>
+          <p v-if="hint" class="mt-2 text-xs leading-relaxed text-white/55">{{ hint }}</p>
+        </div>
+      `,
+    },
+    MiniStat: {
+      props: {
+        label: { type: String, required: true },
+        value: { type: String, required: true },
+      },
+      template: `
+        <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md">
+          <p class="text-[11px] font-semibold tracking-[0.18em] text-white/55">{{ label }}</p>
+          <p class="mt-2 text-sm font-semibold text-white/85">{{ value }}</p>
+        </div>
+      `,
+    },
+  },
+};
+</script>

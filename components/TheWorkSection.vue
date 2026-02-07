@@ -1,125 +1,196 @@
 <template>
-    <main class="min-h-screen bg-neutral-950 text-neutral-100">
-        <!-- Hero -->
-        <section class="relative overflow-hidden">
-            <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-                <div
-                    class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between"
-                >
-                    <div>
-                        <p
-                            class="mb-3 inline-flex items-center rounded-full bg-emerald-400/10 px-3 py-1 text-sm font-medium text-emerald-300 ring-1 ring-emerald-400/30"
-                        >
-                            Our Work
-                        </p>
-                        <h1
-                            class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-                        >
-                            Projects
-                        </h1>
-                        <p class="mt-4 max-w-2xl text-neutral-300">
-                            A selection of sites and apps we’ve designed and
-                            built. Click any card to view its project page.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-emerald-500/10 to-transparent blur-3xl"
-                aria-hidden="true"
-            />
-        </section>
+  <section class="bg-neutral-100 text-neutral-950">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
+      <!-- Header -->
+      <p class="text-[12px] font-semibold tracking-[0.18em] text-neutral-900/70">
+        WORK
+      </p>
 
-        <!-- Grid -->
-        <section class="mx-auto max-w-6xl px-6 pb-24">
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <NuxtLink
-                    v-for="p in list"
-                    :key="p.id"
-                    :to="`${p.link}`"
-                    class="group overflow-hidden rounded-2xl border border-neutral-800/60 bg-neutral-900 transition hover:border-emerald-400/40 hover:shadow-emerald-500/10"
-                >
-                    <div class="relative">
-                        <img
-                            :src="p.img"
-                            :alt="`${p.name} thumbnail`"
-                            class="h-48 w-full object-cover"
-                        />
-                        <div
-                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent"
-                        ></div>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center justify-between gap-3">
-                            <h3
-                                class="text-lg font-semibold text-neutral-100 group-hover:text-emerald-300"
-                            >
-                                {{ p.name }}
-                            </h3>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                class="h-4 w-4 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-emerald-300"
-                            >
-                                <path d="M13.5 4.5L21 12l-7.5 7.5m7.5-7.5H3" />
-                            </svg>
-                        </div>
-                        <div class="mt-3 flex flex-wrap gap-2">
-                            <span
-                                v-for="(t, i) in p.tags"
-                                :key="i"
-                                class="rounded-full bg-neutral-800 px-2.5 py-1 text-xs text-neutral-300 ring-1 ring-neutral-700"
-                                >{{ t }}</span
-                            >
-                        </div>
-                    </div>
-                </NuxtLink>
-            </div>
-
-            <!-- Note / CTA -->
+      <!-- Preview + Rows -->
+      <div class="mt-10 grid gap-10 lg:grid-cols-[420px_1fr]">
+        <!-- Preview area (desktop only) -->
+        <div class="hidden lg:block">
+          <div class="sticky top-24">
             <div
-                class="mt-12 rounded-2xl border border-emerald-400/30 bg-emerald-400/10 p-6"
+                class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl
+                     ring-1 ring-black/5"
             >
-                <div
-                    class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between"
-                >
-                    <div>
-                        <h3 class="text-lg font-semibold">
-                            Want results like these?
-                        </h3>
-                        <p class="mt-1 text-neutral-300">
-                            We can tailor a project like these to your goals,
-                            brand, and budget.
-                        </p>
-                    </div>
-                    <NuxtLink
-                        to="/#contact"
-                        class="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
-                        >Contact us</NuxtLink
-                    >
-                </div>
+              <!-- VIDEO PREVIEW -->
+              <transition
+                  enter-active-class="duration-200 ease-out"
+                  enter-from-class="opacity-0"
+                  enter-to-class="opacity-100"
+                  leave-active-class="duration-150 ease-in"
+                  leave-from-class="opacity-100"
+                  leave-to-class="opacity-0"
+              >
+                <video
+                    v-if="active?.video"
+                    :key="`video-${active.id}`"
+                    :src="active.video"
+                    class="h-full w-full object-cover"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                />
+              </transition>
+
+              <!-- IMAGE FALLBACK -->
+              <transition
+                  enter-active-class="duration-200 ease-out"
+                  enter-from-class="opacity-0"
+                  enter-to-class="opacity-100"
+                  leave-active-class="duration-150 ease-in"
+                  leave-from-class="opacity-100"
+                  leave-to-class="opacity-0"
+              >
+                <img
+                    v-if="active && !active.video"
+                    :key="`img-${active.id}`"
+                    :src="active.img"
+                    :alt="`${active.name} preview`"
+                    class="h-full w-full object-cover"
+                />
+              </transition>
             </div>
-        </section>
-    </main>
+          </div>
+        </div>
+
+        <!-- Project rows -->
+        <div>
+          <div class="border-t border-neutral-900/10">
+            <div
+                v-for="p in list"
+                :key="p.id"
+                class="group grid items-center gap-6 border-b border-neutral-900/10 py-6
+                     md:grid-cols-[180px_1fr_auto]"
+                @mouseenter="setActive(p)"
+                @mouseleave="clearActive"
+                @focusin="setActive(p)"
+                @focusout="clearActive"
+            >
+              <!-- Tags -->
+              <div class="text-[12px] font-semibold tracking-[0.14em] text-neutral-900/55 uppercase">
+                {{ p.tags?.length ? tagLabel(p.tags) : "—" }}
+              </div>
+
+              <!-- Title -->
+              <div
+                  class="text-[18px] font-semibold leading-snug tracking-tight
+                       text-neutral-900/35 transition-colors
+                       group-hover:text-neutral-900"
+              >
+                {{ p.name }}
+              </div>
+
+              <!-- READ MORE -->
+              <component
+                  :is="isExternal(p.link) ? 'a' : 'NuxtLink'"
+                  :href="isExternal(p.link) ? p.link : undefined"
+                  :to="!isExternal(p.link) ? p.link : undefined"
+                  :target="isExternal(p.link) ? '_blank' : undefined"
+                  :rel="isExternal(p.link) ? 'noreferrer' : undefined"
+                  class="flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em]
+                       text-neutral-900/35 hover:text-neutral-900/80"
+              >
+                READ MORE
+                <span
+                    class="inline-flex h-5 w-5 items-center justify-center rounded border
+                         border-neutral-900/15 text-[11px]"
+                    aria-hidden="true"
+                >
+                  ↗
+                </span>
+              </component>
+
+              <!-- Mobile preview -->
+              <div
+                  v-if="active?.id === p.id"
+                  class="md:col-span-3 lg:hidden"
+              >
+                <div
+                    class="mt-3 overflow-hidden rounded-2xl bg-white ring-1 ring-black/5"
+                >
+                  <video
+                      v-if="p.video"
+                      :src="p.video"
+                      class="h-56 w-full object-cover sm:h-72"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                  />
+                  <img
+                      v-else
+                      :src="p.img"
+                      :alt="`${p.name} preview`"
+                      class="h-56 w-full object-cover sm:h-72"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="mt-10 flex justify-end">
+            <NuxtLink
+                to="/work"
+                class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em]
+                     text-neutral-900/70 hover:text-neutral-900"
+            >
+              VIEW ALL PROJECTS
+              <span
+                  class="inline-flex h-5 w-5 items-center justify-center rounded border
+                       border-neutral-900/20 text-[11px]"
+                  aria-hidden="true"
+              >
+                ↗
+              </span>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import projects from "~/data/projects.js";
-import { computed, unref } from "vue";
+import { computed, ref, unref } from "vue";
+import { projects } from "~/data/projects.js";
 
-const list = computed(() => {
-    const arr = Array.isArray(unref(projects)) ? unref(projects) : [];
-    return arr.map((p: any) => ({
-        id: p.id,
-        name: p.name,
-        img: p.img,
-        tags: p.tags || [],
-        link: p.link,
-    }));
+type Project = {
+  id: string | number;
+  name: string;
+  img?: string;
+  video?: string;
+  tags?: string[];
+  link: string;
+};
+
+const list = computed<Project[]>(() => {
+  const raw = unref(projects);
+  return Array.isArray(raw) ? raw : [];
 });
-</script>
 
-<style scoped>
-/* Matches site style */
-</style>
+const active = ref<Project | null>(null);
+
+function setActive(project: Project) {
+  active.value = project;
+}
+
+function clearActive() {
+  active.value = null;
+}
+
+function tagLabel(tags: string[]) {
+  const cleaned = tags.map((t) => t.trim()).filter(Boolean);
+  const first = cleaned.slice(0, 2).join(" + ");
+  const rest = cleaned.length - 2;
+  return rest > 0 ? `${first} + ${rest}` : first;
+}
+
+function isExternal(link: string) {
+  return /^https?:\/\//i.test(link);
+}
+</script>

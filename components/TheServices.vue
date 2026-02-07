@@ -1,129 +1,170 @@
-    <template>
-  <section class="w-full bg-neutral-50 text-neutral-900">
-    <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-      <!-- Header -->
-      <div class="mb-10 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p class="mb-2 inline-flex items-center rounded-full bg-sky-600/10 px-3 py-1 text-sm font-medium text-sky-700 ring-1 ring-sky-600/30">
-            <slot name="badge">Services</slot>
-          </p>
-          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
-            <slot name="title">Everything you need to launch and grow</slot>
-          </h2>
-          <p class="mt-2 max-w-2xl text-neutral-600">
-            <slot name="subtitle">Strategy, design, and engineering—delivered with performance, security, and brand consistency.</slot>
-          </p>
-        </div>
+<template>
+  <section class="w-full bg-neutral-100 text-neutral-950">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
+      <!-- Top label -->
+      <div class="flex items-start justify-between gap-6">
+        <p class="text-[12px] font-semibold tracking-[0.18em] text-neutral-800/80">
+          <span class="uppercase">{{ labelLeft }}</span>
+          <span class="mx-2 text-neutral-500/80">·</span>
+          <span class="uppercase">{{ labelRight }}</span>
+        </p>
+
+        <!-- Optional small top-right link, if you want parity later -->
         <NuxtLink
-          to="/#contact"
-          class="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+            v-if="topLinkTo"
+            :to="topLinkTo"
+            class="hidden sm:inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-neutral-900/70 hover:text-neutral-900"
         >
-          Start a project <span aria-hidden="true" class="ml-2">→</span>
+          {{ topLinkLabel }}
+          <span
+              class="inline-flex h-5 w-5 items-center justify-center rounded border border-neutral-900/20 text-[11px]"
+              aria-hidden="true"
+          >
+            ↗
+          </span>
         </NuxtLink>
       </div>
 
-      <!-- Grid -->
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Big editorial headline -->
+      <h2
+          class="mt-10 font-serif font-normal leading-[0.92] tracking-tight text-neutral-950
+               text-[clamp(2.4rem,6vw,4.9rem)]"
+      >
+        <span>{{ titleBefore }}</span>
+        <span class="text-red-600">{{ titleAccent }}</span>
+        <span>{{ titleAfter }}</span>
+      </h2>
+
+      <!-- Bottom columns (services) -->
+      <div class="mt-16 grid gap-8 md:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-10">
         <NuxtLink
-          v-for="(s, i) in items"
-          :key="i"
-          :to="s.href || '/#contact'"
-          class="group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:border-sky-300 hover:shadow-md"
+            v-for="(s, i) in columns"
+            :key="i"
+            :to="s.href"
+            class="group block text-[14px] leading-relaxed text-neutral-900/80
+         transition-colors hover:text-neutral-950 focus:outline-none"
         >
-          <div class="flex items-center gap-3">
-            <!-- Icon replacement: initials badge (no SVG) -->
-            <div class="grid h-9 w-9 place-items-center rounded-xl border border-neutral-200 bg-neutral-100 text-sm font-semibold text-sky-700">
-              <span aria-hidden="true">{{ initials(s.title) }}</span>
-              <span class="sr-only">{{ s.title }} icon</span>
-            </div>
-            <h3 class="text-lg font-semibold text-neutral-900 group-hover:text-sky-700">{{ s.title }}</h3>
-          </div>
-          <p class="mt-3 text-neutral-600">{{ s.description }}</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span v-for="(t, ti) in (s.tags || [])" :key="ti" class="rounded-full bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 ring-1 ring-neutral-200">{{ t }}</span>
-          </div>
-          <div class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-700">
-            <span>Learn more</span><span aria-hidden="true">→</span>
-          </div>
+          <p
+              class="font-medium text-neutral-950 underline-offset-4
+           decoration-neutral-900/0 transition
+           group-hover:underline group-hover:decoration-neutral-900/40"
+          >
+            {{ s.title }}
+          </p>
+
+          <p class="mt-3">
+            {{ s.description }}
+          </p>
+
+          <!-- subtle affordance -->
+          <span
+              class="mt-4 inline-block text-[12px] font-semibold tracking-[0.18em]
+           text-neutral-900/60 opacity-0 transition
+           group-hover:opacity-100"
+              aria-hidden="true"
+          >
+    READ MORE ↗
+  </span>
         </NuxtLink>
+
       </div>
 
-      <!-- Footnote / CTA -->
-      <div class="mt-12 rounded-2xl border border-sky-300 bg-sky-50 p-6">
-        <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h3 class="text-lg font-semibold text-neutral-900">Not sure where to start?</h3>
-            <p class="mt-1 text-neutral-600">We can audit your site and recommend a roadmap across security, speed, and conversions.</p>
-          </div>
-          <NuxtLink to="/#contact" class="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500">Book a call</NuxtLink>
-        </div>
+      <!-- Bottom bar -->
+      <div class="mt-16 flex flex-col gap-6 border-t border-neutral-900/10 pt-8 md:flex-row md:items-end md:justify-between">
+        <p class="text-[12px] font-semibold tracking-[0.16em] text-neutral-900/70">
+          {{ footnote }}
+        </p>
+
+
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
 type Service = {
-  title: string
-  description: string
-  href?: string
-  tags?: string[]
-}
+  title: string;
+  description: string;
+  href?: string;
+  tags?: string[];
+};
 
-const props = withDefaults(defineProps<{ services?: Service[] }>(), {
-  services: undefined,
-})
+const props = withDefaults(
+    defineProps<{
+      services?: Service[];
 
-const items = computed(() => (props.services && props.services.length ? props.services : defaultServices))
+      // Header label
+      labelLeft?: string;
+      labelRight?: string;
 
-function initials(title: string) {
-  if (!title) return '•'
-  const words = title.trim().split(/\s+/)
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase()
-  return (words[0][0] + words[1][0]).toUpperCase()
-}
+      // Title split (lets us color one word without v-html)
+      titleBefore?: string;
+      titleAccent?: string;
+      titleAfter?: string;
+
+      // CTA
+      ctaLabel?: string;
+      ctaTo?: string;
+
+      // Optional top-right link
+      topLinkLabel?: string;
+      topLinkTo?: string;
+
+      // Small footer line
+      footnote?: string;
+    }>(),
+    {
+      services: undefined,
+
+      labelLeft: "HEADLESS FLOWER",
+      labelRight: "WEB + SYSTEMS",
+
+      titleBefore: "Services that make your ",
+      titleAccent: "business",
+      titleAfter: " feel premium and perform fast.",
+
+      ctaLabel: "READ OUR SERVICES",
+      ctaTo: "/services",
+
+      topLinkLabel: "LET’S TALK",
+      topLinkTo: "",
+
+      footnote: "Strategy, design, and engineering — delivered with performance, security, and clarity.",
+    },
+);
 
 const defaultServices: Service[] = [
   {
-    title: 'Security‑first',
-    description: 'Hardened configs, dependency updates, and modern hosting patterns keep your site safe.',
-    href: '/security-first-websites',
-    tags: ['Headers', 'CSP', 'Monitoring'],
+    title: "Security-first builds",
+    description:
+        "Hardened configs, dependency updates, and modern hosting patterns to keep your site safe and stable.",
+    href: "/security-first-websites",
   },
   {
-    title: 'Performance',
-    description: 'Fast loads and smooth interactions out of the box—measured and tuned.',
-    href: '/website-performance',
-    tags: ['Core Web Vitals', 'CDN'],
+    title: "Performance tuning",
+    description:
+        "Fast loads and smooth interactions measured against Core Web Vitals and improved with real budgets.",
+    href: "/website-performance",
   },
   {
-    title: 'Accessibility',
-    description: 'Inclusive experiences that meet WCAG guidelines and work across devices.',
-    href: '/web-accessibility',
-    tags: ['WCAG', 'Contrast', 'Keyboard'],
+    title: "Accessible by default",
+    description:
+        "Inclusive UX that meets WCAG guidelines and works across devices, screen readers, and keyboards.",
+    href: "/web-accessibility",
   },
   {
-    title: 'Easy to manage',
-    description: 'Headless CMS options and clear content models so your team can publish confidently.',
-    href: '/headless-cms-management',
-    tags: ['Headless', 'Previews'],
+    title: "Systems that scale",
+    description:
+        "Clear content models, CMS options, and reusable components so your team can ship confidently.",
+    href: "/headless-cms-management",
   },
-  {
-    title: 'Conversion‑ready',
-    description: 'Clear CTAs, thoughtful layouts, and analytics setup to validate what works.',
-    href: '/conversion-ready-websites',
-    tags: ['A/B tests', 'Events', 'Schema'],
-  },
-  {
-    title: 'Brand‑aligned',
-    description: 'Design system and type/colour tokens that reflect your identity at every breakpoint.',
-    href: '/brand-aligned-design',
-    tags: ['Tokens', 'Components'],
-  },
-]
-</script>
+];
 
-<style scoped>
-</style>
+const columns = computed(() => {
+  const list = props.services?.length ? props.services : defaultServices;
+  // The reference layout shows 4 columns — we match that.
+  return list.slice(0, 4);
+});
+</script>
