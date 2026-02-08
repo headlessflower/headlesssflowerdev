@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/seo",
     "@nuxtjs/sitemap",
+    "@nuxtjs/i18n"
   ],
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -39,5 +40,17 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  i18n: {
+    strategy: "prefix_except_default",
+    defaultLocale: "en",
+    locales: [
+      { code: "en", iso: "en-US", name: "English" },
+      { code: "es", iso: "es-MX", name: "Español" }
+    ],
+
+    // This enables <i18n> blocks inside Vue SFC files (like the page I sent)
+    vueI18n: "./i18n.config.ts"
+  }
 
 });

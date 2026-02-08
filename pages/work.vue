@@ -21,7 +21,7 @@
                         </h1>
                         <p class="mt-4 max-w-2xl text-neutral-300">
                             A selection of sites and apps we’ve designed and
-                            built. Click any card to view its project page.
+                            built
                         </p>
                     </div>
                 </div>
@@ -31,6 +31,7 @@
                 aria-hidden="true"
             />
         </section>
+      <TheWorkSection/>
         <NuxtPage />
         <Timeline />
         <SubscriptionServiceBanner />

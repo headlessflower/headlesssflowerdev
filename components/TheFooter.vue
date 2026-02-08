@@ -3,22 +3,16 @@ const brand = "HF"; // change to "HEADLESS FLOWER" if you want, but the big-top 
 
 const primaryLinks = [
   { label: "ABOUT", to: "/agency" },
-  { label: "RESEARCH", to: "/agency#research" },
-  { label: "WRITING", to: "/agency#writing" },
-  { label: "SOLUTIONS", to: "/services" },
-  { label: "CAREERS", to: "/agency#careers" },
+  { label: "WORK", to: "/work" },
+  { label: "MAINTENANCE", to: "/monthly-maintenance-subscription" },
+  { label: "SERVICES", to: "/services" },
 ];
 
-const secondaryLinks = [
-  { label: "— WEB", to: "/services#web" },
-  { label: "— SYSTEMS", to: "/services#systems" },
-];
+
 
 const socials = [
-  { label: "X", href: "https://x.com" },
-  { label: "IN", href: "https://linkedin.com" },
-  { label: "GH", href: "https://github.com" },
-  { label: "EM", href: "mailto:solarsustain@gmail.com" },
+
+  { label: "EM", href: "mailto:headlessflowerdev@gmail.com" },
 ];
 
 function submitNewsletter(e: Event) {
@@ -52,17 +46,7 @@ function submitNewsletter(e: Event) {
             </ul>
           </nav>
 
-          <nav aria-label="Footer secondary links">
-            <ul class="space-y-1 text-[12px] font-semibold leading-tight tracking-[0.18em] text-white/85">
-              <li class="opacity-0 select-none">SPACER</li>
-              <li class="opacity-0 select-none">SPACER</li>
-              <li v-for="l in secondaryLinks" :key="l.label">
-                <NuxtLink :to="l.to" class="hover:text-white">
-                  {{ l.label }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
+
         </div>
 
         <!-- Spacer column to mimic lots of empty red -->

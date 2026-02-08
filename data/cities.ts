@@ -149,6 +149,7 @@ export const cities: Record<string, CityLanding> = {
     seoDescription:
       "Nuxt + Tailwind web design in Burbank for creatives and production companies. Fast, modern, and conversion-ready.",
   },
+
 };
 
 export const citySlugs = Object.keys(cities);

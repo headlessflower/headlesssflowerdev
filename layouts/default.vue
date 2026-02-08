@@ -3,7 +3,7 @@
 <template>
     <TheHeader />
     <slot></slot>
-
+<TheFormSection/>
     <TheFooter />
 </template>
 

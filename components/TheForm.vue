@@ -1,105 +1,297 @@
-<script setup lang="ts">
-import { reactive } from 'vue'
-
-const form = reactive({
-  name: '',
-  phone: '',
-  email: '',
-  service: '',
-  message: '',
-  agree: false,
-})
-
-const services = [
-  'Website Design',
-  'UI/UX Design',
-  'Frontend Development',
-  'Backend Development',
-  'E-commerce Development',
-  'Brand Identity',
-  'SEO Optimization',
-  'Maintenance & Support',
-]
-
-function handleSubmit() {
-  console.log('Form submitted:', { ...form })
-}
-</script>
-
 <template>
-  <form
-      class="bg-yellow-400 text-black  p-6 md:p-12"
-      @submit.prevent="handleSubmit"
-      id="contact"
-  >
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="space-y-4">
-        <input
-            type="text"
-            v-model="form.name"
-            placeholder="Name*"
-            class="w-full px-4 py-3 bg-white placeholder-black text-black"
-            required
-        />
-        <input
-            type="tel"
-            v-model="form.phone"
-            placeholder="Phone number"
-            class="w-full px-4 py-3 bg-white placeholder-black text-black"
-        />
-        <input
-            type="email"
-            v-model="form.email"
-            placeholder="Email*"
-            class="w-full px-4 py-3 bg-white placeholder-black text-black"
-            required
-        />
-        <select
-            v-model="form.service"
-            class="w-full px-4 py-3 bg-white text-black"
-        >
-          <option disabled value="">Select a service</option>
-          <option v-for="option in services" :key="option" :value="option">
-            {{ option }}
-          </option>
-        </select>
-      </div>
-      <div class="flex flex-col justify-between">
-        <textarea
-            v-model="form.message"
-            placeholder="Message*"
-            class="w-full h-48 px-4 py-3 bg-white placeholder-black text-black resize-none"
-            required
-        ></textarea>
-
-        <div class="mt-6 md:self-end">
-          <button
-              type="submit"
-              class="px-6 py-3 border-4 border-black font-bold hover:bg-black hover:text-yellow-400 transition-colors"
-          >
-            HEADLESS FLOWER
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex items-center mt-6 text-sm">
-      <input
-          type="checkbox"
-          v-model="form.agree"
-          id="terms"
-          class="mr-2"
-          required
-      />
-      <label for="terms">
-        I agree to the Headless Flower
-        <span class="font-bold">Terms of Service</span> and
-        <span class="font-bold">Privacy Policy</span>
+  <form class="space-y-6" @submit.prevent="onSubmit">
+    <!-- Honeypot -->
+    <div class="hidden">
+      <label>
+        Company website
+        <input v-model="honeypot" type="text" autocomplete="off" tabindex="-1" />
       </label>
     </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <template v-for="field in visibleFields" :key="field.key">
+        <!-- Textarea -->
+        <div v-if="field.type === 'textarea'" class="sm:col-span-2">
+          <div class="flex items-baseline justify-between gap-3">
+            <label class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
+              {{ field.label }} <span v-if="field.required" class="text-white/45">*</span>
+            </label>
+            <span v-if="errors[field.key]" class="text-xs font-medium text-red-400">
+              {{ errors[field.key] }}
+            </span>
+          </div>
+
+          <textarea
+              v-model="values[field.key]"
+              :placeholder="field.placeholder"
+              :maxlength="field.maxLength"
+              class="hf-input hf-textarea"
+              rows="6"
+          />
+
+          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+        </div>
+
+        <!-- Select -->
+        <div v-else-if="field.type === 'select'" class="sm:col-span-1">
+          <div class="flex items-baseline justify-between gap-3">
+            <label class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
+              {{ field.label }} <span v-if="field.required" class="text-white/45">*</span>
+            </label>
+            <span v-if="errors[field.key]" class="text-xs font-medium text-red-400">
+              {{ errors[field.key] }}
+            </span>
+          </div>
+
+          <select v-model="values[field.key]" class="hf-input">
+            <option value="" disabled>Select one</option>
+            <option v-for="opt in field.options" :key="opt.value" :value="opt.value">
+              {{ opt.label }}
+            </option>
+          </select>
+
+          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+        </div>
+
+        <!-- Checkbox -->
+        <div v-else-if="field.type === 'checkbox'" class="sm:col-span-2">
+          <label class="flex items-start gap-3">
+            <input
+                v-model="values[field.key]"
+                type="checkbox"
+                class="mt-1 h-4 w-4 rounded border-white/25 bg-white/5"
+            />
+            <span class="text-sm leading-relaxed text-white/75">
+              {{ field.label }}
+            </span>
+          </label>
+
+          <p v-if="errors[field.key]" class="mt-2 text-xs font-medium text-red-400">
+            {{ errors[field.key] }}
+          </p>
+
+          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+        </div>
+
+        <!-- Text / Email / Tel -->
+        <div v-else class="sm:col-span-1">
+          <div class="flex items-baseline justify-between gap-3">
+            <label class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
+              {{ field.label }} <span v-if="field.required" class="text-white/45">*</span>
+            </label>
+            <span v-if="errors[field.key]" class="text-xs font-medium text-red-400">
+              {{ errors[field.key] }}
+            </span>
+          </div>
+
+          <input
+              v-model="values[field.key]"
+              :type="field.type"
+              :placeholder="field.placeholder"
+              :maxlength="field.maxLength"
+              class="hf-input"
+              :autocomplete="autoCompleteFor(field.key)"
+          />
+
+          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+        </div>
+      </template>
+    </div>
+
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <button type="submit" class="hf-btn" :disabled="submitting">
+        {{ submitting ? "SENDING…" : submitLabel }}
+        <span class="ml-2 text-white/60">↗</span>
+      </button>
+
+      <p class="text-xs font-medium tracking-[0.12em] text-white/50">
+        {{ privacyLine }}
+      </p>
+    </div>
+
+    <p v-if="submitError" class="text-sm text-red-400">{{ submitError }}</p>
+    <p v-if="submitSuccess" class="text-sm text-white/75">{{ submitSuccess }}</p>
   </form>
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import { computed, reactive, ref, unref } from "vue";
+import type { ContactFormSchema, ContactField } from "~/data/contactForm.schema";
 
+const props = withDefaults(
+    defineProps<{
+      schema: ContactFormSchema;
+      submitLabel?: string;
+      privacyLine?: string;
+    }>(),
+    {
+      submitLabel: "BOOK A CONSULTATION",
+      privacyLine: "No spam • Your info stays private",
+    }
+);
+
+const emit = defineEmits<{
+  (e: "submit", payload: {
+    form_key: string;
+    form_version: number;
+    fields: Record<string, any>;
+    meta: Record<string, any>;
+  }): void;
+}>();
+
+const submitting = ref(false);
+const submitError = ref("");
+const submitSuccess = ref("");
+
+const honeypot = ref("");
+
+const values = reactive<Record<string, any>>({});
+const errors = reactive<Record<string, string>>({});
+
+function init() {
+  for (const f of props.schema.fields) {
+    values[f.key] = f.type === "checkbox" ? false : "";
+    errors[f.key] = "";
+  }
+}
+init();
+
+const visibleFields = computed(() => {
+  const schema = unref(props.schema);
+  return schema.fields.filter((f) => {
+    if (!f.dependsOn) return true;
+    return values[f.dependsOn.key] === f.dependsOn.value;
+  });
+});
+
+function validateField(f: ContactField) {
+  errors[f.key] = "";
+  const v = values[f.key];
+
+  if (f.required) {
+    if (f.type === "checkbox") {
+      if (v !== true) errors[f.key] = "This field is required.";
+      return;
+    }
+    if (typeof v !== "string" || !v.trim()) {
+      errors[f.key] = "This field is required.";
+      return;
+    }
+  }
+
+  if (typeof v === "string" && f.maxLength && v.length > f.maxLength) {
+    errors[f.key] = `Please keep under ${f.maxLength} characters.`;
+  }
+
+  if (f.type === "email" && typeof v === "string" && v.trim()) {
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    if (!ok) errors[f.key] = "Please enter a valid email.";
+  }
+}
+
+function validateAll() {
+  let ok = true;
+  for (const f of visibleFields.value) {
+    validateField(f);
+    if (errors[f.key]) ok = false;
+  }
+  return ok;
+}
+
+function autoCompleteFor(key: string) {
+  if (key === "full_name") return "name";
+  if (key === "email") return "email";
+  if (key === "phone") return "tel";
+  if (key === "company") return "organization";
+  return "off";
+}
+
+async function onSubmit() {
+  submitError.value = "";
+  submitSuccess.value = "";
+
+  // simple spam trap
+  if (honeypot.value) return;
+
+  const ok = validateAll();
+  if (!ok) {
+    submitError.value = "Please fix the highlighted fields.";
+    return;
+  }
+
+  submitting.value = true;
+
+  try {
+    const payload = {
+      form_key: props.schema.formKey,
+      form_version: props.schema.version,
+      fields: { ...values },
+      meta: {
+        page: typeof window !== "undefined" ? window.location.pathname : "",
+        user_agent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+        submitted_at: new Date().toISOString(),
+      },
+    };
+
+    emit("submit", payload);
+
+    submitSuccess.value = "Thanks — we’ll reply shortly.";
+
+    // reset
+    for (const f of props.schema.fields) {
+      values[f.key] = f.type === "checkbox" ? false : "";
+    }
+  } catch (e: any) {
+    submitError.value = e?.message ?? "Something went wrong. Please try again.";
+  } finally {
+    submitting.value = false;
+  }
+}
+</script>
+
+<style scoped>
+.hf-input {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px 14px;
+  color: white;
+  outline: none;
+  backdrop-filter: blur(10px);
+}
+.hf-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+.hf-input:focus {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+.hf-textarea {
+  border-radius: 18px;
+}
+.hf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.10);
+  padding: 12px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: white;
+  transition: 150ms ease;
+  backdrop-filter: blur(10px);
+}
+.hf-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+.hf-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 </style>
