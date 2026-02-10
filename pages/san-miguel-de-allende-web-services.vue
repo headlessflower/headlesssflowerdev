@@ -112,7 +112,7 @@
             <div class="rounded-3xl border border-neutral-900/10 bg-white/40 p-3">
               <div class="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-neutral-900/10 bg-neutral-950/5">
                 <img
-                    src="/"
+                    src="/san-miguel/san-miguel-streets-1.png"
                     :alt="t('hero.imageAlt')"
                     class="h-full w-full object-cover"
                     @error="onImgError"
@@ -514,7 +514,7 @@ const processPoints = [
 const workTiles = [
   {
     key: "hotel",
-    src: "/",
+    src: "/san-miguel/san-miguel-hotel.png",
     alt: "work.tiles.hotel.alt",
     tag: "work.tiles.hotel.tag",
     title: "work.tiles.hotel.title",
@@ -522,7 +522,7 @@ const workTiles = [
   },
   {
     key: "gallery",
-    src: "/",
+    src: "/san-miguel/san-miguel-studio.png",
     alt: "work.tiles.gallery.alt",
     tag: "work.tiles.gallery.tag",
     title: "work.tiles.gallery.title",
@@ -530,7 +530,7 @@ const workTiles = [
   },
   {
     key: "service",
-    src: "/",
+    src: "/san-miguel/san-miguel-streets-2.png",
     alt: "work.tiles.service.alt",
     tag: "work.tiles.service.tag",
     title: "work.tiles.service.title",

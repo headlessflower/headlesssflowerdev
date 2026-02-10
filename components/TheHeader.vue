@@ -54,7 +54,7 @@ const headerClass = computed(() => {
             <ul class="space-y-1 text-[12px] font-medium leading-tight tracking-[0.18em] text-white/90">
               <li><NuxtLink to="/agency" class="hover:text-white">ABOUT</NuxtLink></li>
               <li><NuxtLink to="/services" class="hover:text-white">SERVICES</NuxtLink></li>
-              <li><NuxtLink to="/work/projects" class="hover:text-white">WORK</NuxtLink></li>
+              <li><NuxtLink to="/work/" class="hover:text-white">WORK</NuxtLink></li>
             </ul>
 
             <!-- Right column (small aligned items like “EDA / ASICS”) -->
@@ -114,9 +114,7 @@ const headerClass = computed(() => {
           <div class="grid gap-3 text-sm font-semibold tracking-[0.16em] text-white/90">
             <NuxtLink to="/agency" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">ABOUT</NuxtLink>
             <NuxtLink to="/services" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">SERVICES</NuxtLink>
-            <NuxtLink to="/work/projects" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">WORK</NuxtLink>
-            <NuxtLink to="/agency#process" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">PROCESS</NuxtLink>
-            <NuxtLink to="/agency#careers" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">CAREERS</NuxtLink>
+            <NuxtLink to="/work/" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">WORK</NuxtLink>
 
             <div class="mt-3">
               <NuxtLink

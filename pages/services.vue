@@ -4,8 +4,10 @@
 
 <template>
 <div>
-  <WebDevPricing/>
+
   <TheServices/>
+  <WebDevPricing/>
+
   <TheWorkSection/>
 
 </div>

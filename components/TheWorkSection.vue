@@ -85,33 +85,34 @@
               </div>
 
               <!-- READ MORE -->
-              <component
-                  :is="isExternal(p.link) ? 'a' : 'NuxtLink'"
-                  :href="isExternal(p.link) ? p.link : undefined"
-                  :to="!isExternal(p.link) ? p.link : undefined"
-                  :target="isExternal(p.link) ? '_blank' : undefined"
-                  :rel="isExternal(p.link) ? 'noreferrer' : undefined"
+              <div v-if="isExternal(p.link)">
+              <a
+                  :href="p.link"
+                  target="_blank"
+                  rel="noreferrer"
                   class="flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em]
-                       text-neutral-900/35 hover:text-neutral-900/80"
+           text-neutral-900/35 hover:text-neutral-900/80"
               >
                 READ MORE
-                <span
-                    class="inline-flex h-5 w-5 items-center justify-center rounded border
-                         border-neutral-900/15 text-[11px]"
-                    aria-hidden="true"
-                >
-                  ↗
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded border border-neutral-900/15 text-[11px]" aria-hidden="true">
+                     ↗
                 </span>
-              </component>
-
-              <!-- Mobile preview -->
-              <div
-                  v-if="active?.id === p.id"
-                  class="md:col-span-3 lg:hidden"
-              >
+              </a>
+              </div>
+      <div v-else>
+          <NuxtLink
+      :to="p.link"
+      class="flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em]
+           text-neutral-900/35 hover:text-neutral-900/80">
+    READ MORE
+    <span class="inline-flex h-5 w-5 items-center justify-center rounded border border-neutral-900/15 text-[11px]" aria-hidden="true">
+      ↗
+    </span>
+              </NuxtLink>
+              </div>
+              <div v-if="active?.id === p.id" class="md:col-span-3 lg:hidden" >
                 <div
-                    class="mt-3 overflow-hidden rounded-2xl bg-white ring-1 ring-black/5"
-                >
+                    class="mt-3 overflow-hidden rounded-2xl bg-white ring-1 ring-black/5">
                   <video
                       v-if="p.video"
                       :src="p.video"
@@ -158,6 +159,7 @@
 <script setup lang="ts">
 import { computed, ref, unref } from "vue";
 import { projects } from "~/data/projects.js";
+import { NuxtLink } from "#components";
 
 type Project = {
   id: string | number;

@@ -5,7 +5,7 @@ export const projects = ref([
     img: "/taxbuddy_1920.webp",
     video: "",
     tags: ["CMS + Vue3"],
-    link: "https://headlessflower.dev/work/taxbuddy",
+    link: "/work/taxbuddy",
   },
 
 
@@ -17,7 +17,7 @@ export const projects = ref([
     img: "/ol_thumb_1920.webp",
     video: "",
     tags: ["Booking Form" ],
-    link: "https://headlessflower.dev/work/orangesandlemons",
+    link: "/work/orangesandlemons",
   },
   {
     id: 7,
@@ -25,7 +25,7 @@ export const projects = ref([
     img: "/snap_thumbnail.png",
     video: "",
     tags: ["Booking Form", "Landing Page"],
-    link: "https://headlessflower.dev/work/snapstudio",
+    link: "/work/snapstudio",
   },
   {
     id: 8,
@@ -33,7 +33,7 @@ export const projects = ref([
     img: "/sealtech_thumb.png",
     video: "",
     tags: ["Booking Form", "Landing Page"],
-    link: "https://headlessflower.dev/work/sealtechpro",
+    link: "/work/sealtechpro",
   },
   {
     id: 9,
@@ -41,7 +41,7 @@ export const projects = ref([
     img: "/safetree_thumbnail.png",
     video: "",
     tags: ["CMS", "Booking Form"],
-    link: "https://headlessflower.dev/work/safetree-trimming",
+    link: "/work/safetree-trimming",
   },
   {
     id: 10,
@@ -65,16 +65,9 @@ export const projects = ref([
     img: "/mecayotl-hero.png",
     video: "",
     tags: ["Desktop Application", ],
-    link: "guava-music-vault",
+    link: "/guava-music-vault",
   },
-  {
-    id: 13,
-    name: "Mods - GOH: Ostfront",
-    img: "/mecayotl-hero.png",
-    video: "",
-    tags: ["Game Mods"],
-    link: "https://headlessflower.dev/work/mods",
-  },
+
 ]);
 
 export default projects;
