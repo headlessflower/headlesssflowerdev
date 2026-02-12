@@ -12,7 +12,7 @@
 
           <div class="hero__actions">
             <a class="btn btn--primary" :href="links.macDmg" target="_blank" rel="noopener">
-              Download Mac DMG
+              Download Mac DMG - Silicon
             </a>
             <a class="btn btn--ghost" :href="links.linuxInstall" target="_blank" rel="noopener">
               Linux Install
@@ -40,9 +40,8 @@
 
         <!-- IMAGE PLACEHOLDER -->
         <div class="hero__image">
-          <!-- Replace src with your real image -->
           <img
-              src="/guava-preview.png"
+              src="/guava-music-thumbnail.png "
               alt="Guava Music Vault application interface"
           />
         </div>
@@ -106,9 +105,88 @@
       </div>
     </section>
 
-    <!-- DOWNLOADS -->
-    <section class="section section--alt" aria-label="Downloads">
+    <!-- PRICING -->
+    <section class="section" aria-label="Pricing">
       <div class="container">
+        <header class="section__header">
+          <h2 class="section__title">Simple pricing</h2>
+          <p class="section__subtitle">
+            Start free, upgrade when you need a bigger queue.
+          </p>
+        </header>
+
+        <div class="pricing">
+          <!-- Free -->
+          <article class="price-card" aria-label="Free plan">
+            <div class="price-card__top">
+              <h3 class="price-card__name">Free</h3>
+              <p class="price-card__price">$0</p>
+            </div>
+
+            <p class="price-card__desc">For light use and trying the workflow.</p>
+
+            <ul class="price-card__list" role="list">
+              <li class="price-card__item">
+                <span class="check" aria-hidden="true">✓</span>
+                <span><strong>10 URLs</strong> download limit</span>
+              </li>
+              <li class="price-card__item">
+                <span class="check" aria-hidden="true">✓</span>
+                <span>Core features included</span>
+              </li>
+              <li class="price-card__item">
+                <span class="check" aria-hidden="true">✓</span>
+                <span>macOS + Linux</span>
+              </li>
+            </ul>
+
+            <div class="price-card__cta">
+              <a class="btn btn--ghost" href="#downloads">Get started</a>
+            </div>
+          </article>
+
+          <!-- Pro -->
+          <article class="price-card price-card--featured" aria-label="Pro plan">
+            <div class="price-card__ribbon" aria-hidden="true">
+              Most popular
+            </div>
+
+            <div class="price-card__top">
+              <h3 class="price-card__name">Pro</h3>
+              <p class="price-card__price">$12</p>
+            </div>
+
+            <p class="price-card__desc">
+              For regular use and bigger batches.
+            </p>
+
+            <ul class="price-card__list" role="list">
+              <li class="price-card__item">
+                <span class="check" aria-hidden="true">✓</span>
+                <span><strong>100 URLs</strong> download limit</span>
+              </li>
+              <li class="price-card__item">
+                <span class="check" aria-hidden="true">✓</span>
+                <span>Everything in Free</span>
+              </li>
+              <li class="price-card__item">
+                <span class="check" aria-hidden="true">✓</span>
+                <span>Best for playlists / large queues</span>
+              </li>
+            </ul>
+
+            <div class="price-card__cta">
+              <a class="btn btn--primary" href="/guava-music-vault-pro">Upgrade to Pro</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="section section--alt" aria-label="Downloads">
+
+    <div class="container">
         <header class="section__header">
           <h2 class="section__title">Get Guava Music Vault</h2>
           <p class="section__subtitle">
@@ -172,8 +250,8 @@ const year = new Date().getFullYear()
 // Replace with your real URLs
 const links = {
   linuxInstall: "https://example.com/linux-install",
-  buildFromSource: "https://example.com/build-from-source",
-  macDmg: "https://example.com/mac-dmg"
+  buildFromSource: "https://github.com/headlessflower/yt-audio-downloader.git",
+  macDmg: "https://headlessflower.gumroad.com/l/obynwq"
 }
 
 // Replace with your agency URL
@@ -667,4 +745,143 @@ const agencyUrl = "https://headlessflower.dev"
 .footer__link:hover {
   border-bottom-color: rgba(16, 185, 129, 0.65);
 }
+
+/* ---- Pricing ---- */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 860px) {
+  .pricing {
+    grid-template-columns: 1fr;
+  }
+}
+
+.price-card {
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  padding: 1.15rem;
+}
+
+.price-card--featured {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.10);
+}
+
+.price-card__ribbon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(16, 185, 129, 0.30);
+  background: rgba(16, 185, 129, 0.10);
+  color: rgba(15, 23, 42, 0.85);
+}
+
+.price-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.price-card__name {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.price-card__price {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.price-card__desc {
+  margin: 0.5rem 0 0.9rem;
+  color: rgba(15, 23, 42, 0.72);
+  line-height: 1.6;
+}
+
+.price-card__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.price-card__item {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  color: rgba(15, 23, 42, 0.78);
+  line-height: 1.45;
+}
+
+.check {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.10);
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.price-card__cta {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.price-card {
+  padding-top: 2.1rem; /* creates breathing room under the badge */
+}
+
+/* Badge stays top-right */
+.price-card__ribbon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  color: rgba(15, 23, 42, 0.85);
+}
+
+/* Header row handles layout */
+.price-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Price styling (no absolute positioning!) */
+.price-card__price {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: rgba(15, 23, 42, 0.95);
+}
+
 </style>
