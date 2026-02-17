@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/seo",
     "@nuxtjs/sitemap",
-    "@nuxtjs/i18n"
+    "@nuxtjs/i18n",
+    "@nuxtjs/supabase",
   ],
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -51,6 +52,22 @@ export default defineNuxtConfig({
 
     // This enables <i18n> blocks inside Vue SFC files (like the page I sent)
     vueI18n: "./i18n.config.ts"
-  }
+  },
+  runtimeConfig: {
+    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
+
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
+      adminEmails: process.env.ADMIN_EMAILS || "",
+    },
+  },
+
+  supabase: {
+    // optional, only if you’re using auth redirects
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirect: false,
+  },
 
 });

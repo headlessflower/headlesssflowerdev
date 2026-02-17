@@ -445,13 +445,29 @@
                       :placeholder="t('form.messagePh')"
                   />
                 </label>
+                <div class="sr-only" aria-hidden="true">
+                  <label for="company_website">Company website</label>
+                  <input
+                      id="company_website"
+                      v-model="hp"
+                      type="text"
+                      name="company_website"
+                      autocomplete="off"
+                      tabindex="-1"
+                  />
+                </div>
 
                 <button
                     type="submit"
-                    class="mt-2 inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white px-6 text-sm font-semibold text-neutral-950 transition hover:-translate-y-[1px]"
-                >
-                  {{ t("form.submit") }}
+                    :disabled="submitting"
+                    class="mt-2 inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white px-6 text-sm font-semibold text-neutral-950 transition hover:-translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer" >
+                  <span v-if="submitting">Sending…</span>
+                  <span v-else>{{ t("form.submit") }}</span>
                 </button>
+
+                <p v-if="submitError" class="text-sm text-white/80">
+                  {{ submitError }}
+                </p>
 
                 <p v-if="submitted" class="text-sm text-white/70">
                   {{ t("form.thanks") }}
@@ -473,16 +489,27 @@
 </template>
 
 <script setup lang="ts">
-/**
- * Nuxt i18n notes:
- * - This uses `useI18n()` which works if you have vue-i18n / @nuxtjs/i18n configured.
- * - If you're not using @nuxtjs/i18n yet, you can still keep this page; we can wire the module next.
- */
+definePageMeta({
+  layout: 'no-contact',
+})
+const submitted = ref(false);
+const submitting = ref(false)
+const submitError = ref<string | null>(null)
 const phone = "(323) 709-5357";
 const email = "headlessflowerdev@gmail.com"; // swap to your agency email if desired
 
 const localePath = useLocalePath?.() ?? ((p: string) => p);
 const { t, locale, setLocale } = useI18n();
+const supabase = useSupabaseClient();
+
+const hp = ref("") // bots often fill hidden fields
+const mountedAt = ref(0)
+
+onMounted(() => {
+  mountedAt.value = Date.now()
+})
+
+
 
 
 const mailtoHref = computed(() => {
@@ -538,17 +565,94 @@ const workTiles = [
   },
 ];
 
-const submitted = ref(false);
+
 const form = reactive({
   name: "",
   business: "",
   replyTo: "",
   message: "",
-});
+})
 
-function onSubmit() {
-  // Wire this to your API endpoint later (e.g., /api/contact)
-  submitted.value = true;
+function resetForm() {
+  form.name = ""
+  form.business = ""
+  form.replyTo = ""
+  form.message = ""
+}
+
+function isValidEmail(v: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())
+}
+
+async function onSubmit() {
+  // clear state
+  submitted.value = false
+  submitError.value = null
+
+  // prevent double submit
+  if (submitting.value) return
+
+  // Honeypot: if filled, silently "succeed" (don’t give bots signal)
+  if (hp.value.trim().length > 0) {
+    submitted.value = true
+    return
+  }
+
+  // Time gate: bots submit instantly
+  const elapsed = Date.now() - mountedAt.value
+  if (elapsed < 800) {
+    submitError.value = "Please try again."
+    return
+  }
+
+  // validation
+  if (!form.name.trim()) {
+    submitError.value = "Please enter your name."
+    return
+  }
+  if (!form.replyTo.trim() || !isValidEmail(form.replyTo)) {
+    submitError.value = "Please enter a valid email."
+    return
+  }
+  if (!form.message.trim()) {
+    submitError.value = "Please add a short message."
+    return
+  }
+
+  submitting.value = true
+
+  try {
+    const payload = {
+      page: "san-miguel-de-allende-web-services",
+      locale: String(locale.value || "en"),
+      name: form.name.trim(),
+      business: form.business.trim() || null,
+      email: form.replyTo.trim().toLowerCase(),
+      message: form.message.trim(),
+      referrer: import.meta.client ? document.referrer || null : null,
+      user_agent: import.meta.client ? navigator.userAgent || null : null,
+    }
+
+    const { error } = await supabase.from("web_inquiries").insert(payload)
+
+    if (error) {
+      // nicer error messages for common cases
+      if (error.code === "42501") {
+        throw new Error("Database permissions blocked this request (RLS).")
+      }
+      throw error
+    }
+
+    submitted.value = true
+    resetForm()
+  } catch (err: any) {
+    // Supabase errors usually have message; fall back to generic
+    submitError.value =
+        err?.message ||
+        "Something went wrong. Please try again, or email us directly."
+  } finally {
+    submitting.value = false
+  }
 }
 
 function onImgError(e: Event) {

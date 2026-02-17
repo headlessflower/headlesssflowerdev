@@ -30,7 +30,7 @@
             class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.45)]
                  backdrop-blur-md sm:p-8"
         >
-          <TheForm :schema="contactFormSchema" @submit="handleSubmit" />
+          <TheForm :schema="contactFormSchema" :on-submit-form="submitToSupabase" />
         </div>
       </div>
     </div>
@@ -41,9 +41,19 @@
 import TheForm from "~/components/TheForm.vue";
 import { contactFormSchema } from "~/data/contactForm.schema";
 
-function handleSubmit(payload: any) {
-  // Later: insert into Supabase.
-  // For now: you can POST to a server route or just log.
-  console.log("contact submit payload:", payload);
+
+const supabase = useSupabaseClient()
+
+async function submitToSupabase(payload: {
+  form_key: string
+  form_version: number
+  fields: Record<string, any>
+  meta: Record<string, any>
+}) {
+  const { error } = await supabase
+      .from("form_submissions")
+      .insert(payload)
+
+  if (error) throw error
 }
 </script>

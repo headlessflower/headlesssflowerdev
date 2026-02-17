@@ -96,6 +96,19 @@
           <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
         </div>
       </template>
+
+      <div class="sr-only" aria-hidden="true">
+        <label for="company_website">Company website</label>
+        <input
+            id="company_website"
+            v-model="honeypot"
+            type="text"
+            name="company_website"
+            autocomplete="off"
+            tabindex="-1"
+        />
+      </div>
+
     </div>
 
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -115,7 +128,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, unref } from "vue";
+import { computed, reactive, ref, unref, onMounted } from "vue";
 import type { ContactFormSchema, ContactField } from "~/data/contactForm.schema";
 
 const props = withDefaults(
@@ -123,6 +136,14 @@ const props = withDefaults(
       schema: ContactFormSchema;
       submitLabel?: string;
       privacyLine?: string;
+
+      // async handler provided by parent (Supabase insert happens there)
+      onSubmitForm: (payload: {
+        form_key: string;
+        form_version: number;
+        fields: Record<string, any>;
+        meta: Record<string, any>;
+      }) => Promise<void>;
     }>(),
     {
       submitLabel: "BOOK A CONSULTATION",
@@ -130,20 +151,16 @@ const props = withDefaults(
     }
 );
 
-const emit = defineEmits<{
-  (e: "submit", payload: {
-    form_key: string;
-    form_version: number;
-    fields: Record<string, any>;
-    meta: Record<string, any>;
-  }): void;
-}>();
-
 const submitting = ref(false);
 const submitError = ref("");
 const submitSuccess = ref("");
 
 const honeypot = ref("");
+const mountedAt = ref(0);
+
+onMounted(() => {
+  mountedAt.value = Date.now();
+});
 
 const values = reactive<Record<string, any>>({});
 const errors = reactive<Record<string, string>>({});
@@ -210,8 +227,20 @@ async function onSubmit() {
   submitError.value = "";
   submitSuccess.value = "";
 
-  // simple spam trap
-  if (honeypot.value) return;
+  if (submitting.value) return;
+
+  // Honeypot: silently succeed
+  if (honeypot.value.trim()) {
+    submitSuccess.value = "Thanks — we’ll reply shortly.";
+    return;
+  }
+
+  // Time gate (bots submit instantly)
+  const elapsed = Date.now() - mountedAt.value;
+  if (elapsed < 800) {
+    submitError.value = "Please try again.";
+    return;
+  }
 
   const ok = validateAll();
   if (!ok) {
@@ -230,17 +259,21 @@ async function onSubmit() {
         page: typeof window !== "undefined" ? window.location.pathname : "",
         user_agent: typeof navigator !== "undefined" ? navigator.userAgent : "",
         submitted_at: new Date().toISOString(),
+        elapsed_ms: elapsed,
       },
     };
 
-    emit("submit", payload);
+    // ✅ await parent handler so we can show real errors
+    await props.onSubmitForm(payload);
 
     submitSuccess.value = "Thanks — we’ll reply shortly.";
 
     // reset
     for (const f of props.schema.fields) {
       values[f.key] = f.type === "checkbox" ? false : "";
+      errors[f.key] = "";
     }
+    honeypot.value = "";
   } catch (e: any) {
     submitError.value = e?.message ?? "Something went wrong. Please try again.";
   } finally {
