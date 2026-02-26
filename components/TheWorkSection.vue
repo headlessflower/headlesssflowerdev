@@ -93,7 +93,7 @@
                   class="flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em]
            text-neutral-900/35 hover:text-neutral-900/80"
               >
-                READ MORE
+                EXPLORE
                 <span class="inline-flex h-5 w-5 items-center justify-center rounded border border-neutral-900/15 text-[11px]" aria-hidden="true">
                      ↗
                 </span>
@@ -104,7 +104,7 @@
       :to="p.link"
       class="flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em]
            text-neutral-900/35 hover:text-neutral-900/80">
-    READ MORE
+    EXPLORE
     <span class="inline-flex h-5 w-5 items-center justify-center rounded border border-neutral-900/15 text-[11px]" aria-hidden="true">
       ↗
     </span>

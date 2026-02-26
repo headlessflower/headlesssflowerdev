@@ -46,7 +46,7 @@ export const projects = ref([
   {
     id: 10,
     name: "SolarSustain",
-    img: "/solar_sustain_thumbnail.png",
+    img: "/solar-sustain-thumbnail.png",
     video: "",
     tags: ["SEO", "Booking Form" ],
     link: "https://www.solarsustain.pro",
@@ -62,10 +62,10 @@ export const projects = ref([
   {
     id: 12,
     name: "Guava Music Vault",
-    img: "/mecayotl-hero.png",
+    img: "/guava-music/guava-music-thumbnail.png",
     video: "",
     tags: ["Desktop Application", ],
-    link: "/guava-music-vault",
+    link: "/guava-music-vault-pro",
   },
 
 ]);

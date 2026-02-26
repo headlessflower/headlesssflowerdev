@@ -41,7 +41,7 @@
         <!-- IMAGE PLACEHOLDER -->
         <div class="hero__image">
           <img
-              src="/guava-music-thumbnail.png "
+              src="/guava-music/guava-music-thumbnail.png "
               alt="Guava Music Vault application interface"
           />
         </div>
