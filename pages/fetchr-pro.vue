@@ -22,21 +22,21 @@
         <div class="hero-strip">
           <div class="hero-strip__left">
             <p class="badge">Buy once • Own forever</p>
-            <h2 class="hero-strip__title">$20 Pro License</h2>
+            <h2 class="hero-strip__title">$10 Pro License</h2>
             <p class="hero-strip__body">
               No subscriptions. One purchase unlocks the Pro URL limit and Pro downloads.
             </p>
 
             <div class="hero-strip__cta">
               <a class="btn btn--primary" :href="purchaseLink" target="_blank" rel="noopener">
-                Buy Pro ($20)
+                Buy Pro ($10)
               </a>
             </div>
 
             <ul class="hero-strip__meta" role="list">
               <li class="meta">
                 <span class="meta__label">Pro URL limit</span>
-                <span class="meta__value">100 URLs</span>
+                <span class="meta__value">Unlimited URLs</span>
               </li>
               <li class="meta">
                 <span class="meta__label">License</span>
@@ -87,7 +87,7 @@
 
             <div class="locked__cta">
               <a class="btn btn--primary" :href="purchaseLink" target="_blank" rel="noopener">
-                Buy Pro ($20)
+                Buy Pro ($10)
               </a>
             </div>
 
@@ -160,7 +160,7 @@
 
         <div class="whypro-cta">
           <a class="btn btn--primary" :href="purchaseLink" target="_blank" rel="noopener">
-            Buy Pro ($20)
+            Buy Pro ($10)
           </a>
         </div>
       </div>
@@ -211,7 +211,7 @@
 
         <div class="policy-cta">
           <a class="btn btn--primary" :href="purchaseLink" target="_blank" rel="noopener">
-            Buy Pro ($20)
+            Buy Pro ($10)
           </a>
         </div>
       </div>
@@ -235,7 +235,7 @@ import ThreeImageShowcase from "@/components/ThreeImageShowcase.vue"
 
 const year = new Date().getFullYear()
 const backHref = "/fetchr"
-const purchaseLink = "https://headlessflower.gumroad.com/l/svnwd"
+const purchaseLink = "https://headlessflower.gumroad.com/l/iymurc"
 
 const showcaseItems = [
   {
