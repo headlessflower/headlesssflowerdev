@@ -10,15 +10,17 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-sky-300">
-            Standard Package
+            Lead Flow Management
             <span class="inline-block size-1.5 rounded-full bg-sky-300"></span>
             Growth‑Ready
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            A scalable, secure multi‑page site built to convert.
+            A managed lead-generation system built around your website.
           </h1>
           <p class="mt-5 text-neutral-300">
-            The Standard Package expands your presence to <span class="font-semibold text-neutral-100">3–5 pages</span> with global navigation, lead‑ready forms, and content structure that supports SEO, accessibility, and your brand’s integrity.
+            This package connects your website, intake flow, and booking path so
+            growing businesses can turn more traffic into qualified inquiries
+            without piecing together disconnected tools.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -38,7 +40,11 @@
           </div>
 
           <p class="mt-6 text-sm text-neutral-400">
-            Typical range: <span class="font-semibold text-neutral-200">$2,200–$3,200</span>
+            Monthly plan: <span class="font-semibold text-neutral-200">$350/mo</span>
+          </p>
+          <p class="mt-2 text-sm text-neutral-500">
+            6-month minimum contract.
+            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">View plan terms</NuxtLink>.
           </p>
         </div>
       </div>
@@ -78,13 +84,15 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A professional <span class="font-semibold text-neutral-100">3–5 page</span> site with global navigation, lead‑ready forms, and a brand‑aligned design that feels trustworthy and converts.
+            A professional <span class="font-semibold text-neutral-100">3–5 page</span>
+            managed website with better lead flow, clearer service messaging,
+            and the operational basics needed to support consistent follow-up.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300">
-              <span class="font-semibold text-neutral-100">Investment:</span> $2,200–$3,200
+              <span class="font-semibold text-neutral-100">Monthly investment:</span> $350/mo
             </p>
-            <p class="mt-1 text-sm text-neutral-400">Timeline varies by content complexity and approvals.</p>
+            <p class="mt-1 text-sm text-neutral-400">6-month minimum commitment applies.</p>
           </div>
         </div>
 
@@ -92,13 +100,18 @@
           <div class="grid gap-6 sm:grid-cols-2">
             <FeatureCard
                 title="3–5 Pages + Navigation"
-                desc="Home, About, Services, Contact, and one optional page (e.g., FAQ or Portfolio). Thoughtful IA and global nav."
+                desc="Home, About, Services, Contact, and one optional page structured to guide visitors toward inquiry or booking."
                 :icon="'pages'"
             />
             <FeatureCard
                 title="Secure, Spam‑Resistant Forms"
-                desc="Accessible forms with server‑side validation, spam protection, and clear success/error states."
+                desc="Accessible forms with validation, spam protection, and clear states so more qualified leads actually complete the flow."
                 :icon="'forms'"
+            />
+            <FeatureCard
+                title="Booking or Intake Flow"
+                desc="A stronger path from visit to consultation, quote request, or booking so the site works like part of your sales process."
+                :icon="'blocks'"
             />
             <FeatureCard
                 title="Security Built‑In"
@@ -112,22 +125,22 @@
             />
             <FeatureCard
                 title="SEO + Performance"
-                desc="Metadata, structured headings, sitemap & robots, alt text, image optimization, and fast loads."
+                desc="Metadata, structured headings, sitemap, alt text, image optimization, and fast loads to support local visibility and conversion."
                 :icon="'speed'"
             />
             <FeatureCard
                 title="Brand‑Aligned Design System"
-                desc="Type scale, color system, and spacing rhythm tuned to your identity—no cookie‑cutter templates."
+                desc="Type, color, and spacing tuned to your business so the site feels credible, coherent, and ready for ongoing use."
                 :icon="'brand'"
             />
             <FeatureCard
                 title="Content Blocks & Reusability"
-                desc="Modular components for services, testimonials, and CTAs—easy to expand as you grow."
+                desc="Modular sections for services, testimonials, FAQs, and CTAs so your site can evolve without a full rebuild."
                 :icon="'blocks'"
             />
             <FeatureCard
-                title="Mobile‑First, Cross‑Browser"
-                desc="Responsive layouts tested across modern browsers and devices for consistent UX."
+                title="Maintenance & Reporting Ready"
+                desc="Built for ongoing support, optimization, and future iteration instead of a one-time launch-and-forget project."
                 :icon="'mobile'"
             />
           </div>
@@ -135,14 +148,14 @@
       </div>
     </section>
 
-    <!-- Add-ons -->
+    <!-- Standalone services -->
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
       <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold">Optional add‑ons</h3>
+            <h3 class="text-2xl font-bold">Standalone one-time services</h3>
             <p class="mt-2 text-neutral-300">
-              Extend functionality to support campaigns, blogging, or content governance.
+              These one-time services are available independently for businesses that need targeted help without a monthly engagement.
             </p>
           </div>
           <div class="grid w-full gap-4 sm:grid-cols-2 lg:max-w-3xl">
@@ -168,7 +181,8 @@
           </p>
           <h3 class="mt-4 text-2xl font-bold text-sky-100">Monthly Maintenance Subscription</h3>
           <p class="mt-2 text-sky-50/90">
-            Protect performance and security while you focus on business. We keep dependencies fresh and pages fast.
+            Keep your lead system healthy while you focus on sales and delivery.
+            We handle the updates, fixes, and tune-ups that keep it converting.
           </p>
 
           <ul class="mt-6 space-y-3 text-sm text-sky-50/90">
@@ -181,7 +195,7 @@
 
           <div class="mt-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p class="text-sm text-sky-100/90">Starting at</p>
+              <p class="text-sm text-sky-100/90">Monthly rate</p>
               <p class="text-3xl font-extrabold text-sky-100">$150<span class="text-lg font-semibold">/mo</span></p>
             </div>
             <NuxtLink
@@ -197,7 +211,9 @@
         <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
           <h3 class="text-2xl font-bold">This is your brand—don’t undersell it.</h3>
           <p class="mt-3 text-neutral-300">
-            A multi‑page site gives customers richer context and more reasons to trust you. Secure, accessible, and performance‑minded foundations protect your reputation and help the right customers say “yes.”
+            When your website, service pages, and intake flow all work together,
+            customers get more clarity and more confidence. That usually means
+            better leads and less manual back-and-forth.
           </p>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <div class="rounded-2xl border border-neutral-800 p-5">
@@ -225,6 +241,10 @@
               Talk to us about your goals
             </NuxtLink>
           </div>
+          <p class="mt-4 text-sm text-neutral-500">
+            Managed plans are contracted for a 6-month minimum term. Early cancellation fees may apply.
+            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">Read plan terms</NuxtLink>.
+          </p>
         </div>
       </div>
     </section>
@@ -236,7 +256,8 @@
           <div>
             <h3 class="text-2xl font-bold">Ready for a site that scales with you?</h3>
             <p class="mt-2 text-neutral-300">
-              Launch a secure, accessible, and growth‑ready website that represents your brand the way it deserves.
+              Launch a managed website and lead flow that supports growth now
+              and gives you room to improve over time.
             </p>
           </div>
           <div class="flex flex-wrap gap-3">
@@ -265,30 +286,30 @@
  * Proper meta head for SEO & social sharing
  */
 useHead({
-  title: 'Standard Website Package | Secure, Accessible, Growth‑Ready (3–5 pages)',
+  title: 'Lead Flow Management Package | Website, Intake, and Booking',
   meta: [
     {
       name: 'description',
       content:
-          'Upgrade to a secure, accessible, and fast 3–5 page website. Standard Package includes global navigation, lead‑ready forms, SEO architecture, and performance optimizations. Optional monthly maintenance.',
+          'A managed package for growing businesses that need a multi-page website, stronger intake flow, booking support, and ongoing optimization.',
     },
     { name: 'robots', content: 'index,follow' },
     // Open Graph
-    { property: 'og:title', content: 'Standard Website Package | Secure, Accessible, Growth‑Ready (3–5 pages)' },
+    { property: 'og:title', content: 'Lead Flow Management Package | Website, Intake, and Booking' },
     {
       property: 'og:description',
       content:
-          'A scalable multi‑page site built on best practices—security, accessibility, SEO, and performance—plus optional maintenance.',
+          'A managed lead-generation package with website pages, intake flow, booking support, and ongoing maintenance options.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/standard-package' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Standard Website Package | Secure, Accessible, Growth‑Ready (3–5 pages)' },
+    { name: 'twitter:title', content: 'Lead Flow Management Package | Website, Intake, and Booking' },
     {
       name: 'twitter:description',
       content:
-          'Launch a secure, accessible, growth‑ready site with forms, navigation, and SEO architecture—plus optional monthly maintenance.',
+          'A managed website package for growing businesses that need more leads, better intake flow, and dependable upkeep.',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://headlessflower.dev/standard-package' }],
@@ -298,9 +319,9 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Product',
-        name: 'Standard Website Package',
+        name: 'Lead Flow Management Package',
         description:
-            'Secure, accessible, and performant 3–5 page website with navigation and lead-ready forms. Optional maintenance subscription.',
+            'Managed multi-page website with lead-ready forms, intake and booking support, and optional maintenance subscription.',
         brand: { '@type': 'Brand', name: 'Headless Flower' },
         offers: {
           '@type': 'AggregateOffer',

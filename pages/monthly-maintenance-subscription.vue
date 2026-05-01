@@ -15,10 +15,13 @@
               <span class="text-4xl font-extrabold text-emerald-400">$150</span>
               <span class="pb-1 text-neutral-300">/ month</span>
             </div>
-            <p class="mt-2 text-sm text-neutral-400">Cancel anytime. Best for small to mid‑size sites.</p>
+            <p class="mt-2 text-sm text-neutral-400">6-month minimum contract for ongoing care plans.</p>
             <NuxtLink to="/#contact" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
               Enroll now
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M13.5 4.5L21 12l-7.5 7.5m7.5-7.5H3"/></svg>
+            </NuxtLink>
+            <NuxtLink to="/terms#managed-plans" class="mt-3 inline-flex text-sm text-emerald-300 underline underline-offset-4 hover:text-emerald-200">
+              View plan terms
             </NuxtLink>
           </div>
         </div>
@@ -159,8 +162,12 @@
             <p class="mt-2 text-neutral-300">We run a quick baseline audit, confirm access, and begin within a few business days.</p>
           </div>
           <div>
-            <h3 class="text-base font-semibold">Can I cancel anytime?</h3>
-            <p class="mt-2 text-neutral-300">Yes. Your plan runs month‑to‑month. We’ll hand off current reports and backups on request.</p>
+            <h3 class="text-base font-semibold">What is the minimum commitment?</h3>
+            <p class="mt-2 text-neutral-300">Care plans require a 6-month minimum term.</p>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold">What happens if I cancel early?</h3>
+            <p class="mt-2 text-neutral-300">Early cancellation terms are documented in your agreement and may include fees tied to the remaining committed term.</p>
           </div>
         </div>
         <div class="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">

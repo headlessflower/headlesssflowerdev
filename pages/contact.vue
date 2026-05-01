@@ -12,6 +12,7 @@ type ContactFormState = {
 };
 
 const runtimeConfig = useRuntimeConfig();
+const supabase = useSupabaseClient();
 
 // Set these in nuxt.config.ts runtimeConfig.public for real values
 const contactEmailAddress = computed(
@@ -85,24 +86,52 @@ async function submitContactForm() {
     formErrorMessage.value = "";
 
     try {
-        /**
-         * Option A (recommended): POST to your own API route:
-         * - Create /server/api/contact.post.ts (I can generate it next)
-         *
-         * Option B: Replace this call with your form provider (Formspree, Basin, etc.)
-         */
-        const response = await $fetch<{ ok: boolean }>("/api/contact", {
-            method: "POST",
-            body: formState.value,
-        });
+        const payload = {
+            form_key: "contact",
+            form_version: 2,
+            fields: {
+                full_name: formState.value.fullName.trim(),
+                email: formState.value.emailAddress.trim().toLowerCase(),
+                company: formState.value.companyName.trim() || "",
+                city: formState.value.city.trim() || "",
+                website_url: formState.value.websiteUrl.trim() || "",
+                service_interest: formState.value.projectType,
+                budget_range: formState.value.budgetRange,
+                message: formState.value.message.trim(),
+                newsletter_opt_in: formState.value.marketingConsent,
+            },
+            meta: {
+                page: "/contact",
+                source: "contact_page",
+                booking_url: bookingUrl.value || "",
+                user_agent:
+                    typeof navigator !== "undefined" ? navigator.userAgent : "",
+            },
+        };
 
-        if (!response?.ok) {
-            throw new Error("Submission failed");
+        const { error } = await supabase.from("form_submissions").insert(
+            payload,
+        );
+
+        if (error) {
+            throw error;
         }
 
         isSubmitted.value = true;
-    } catch (error) {
+        formState.value = {
+            fullName: "",
+            emailAddress: "",
+            companyName: "",
+            city: "",
+            websiteUrl: "",
+            projectType: "New website",
+            budgetRange: "$2k–$5k",
+            message: "",
+            marketingConsent: false,
+        };
+    } catch (error: any) {
         formErrorMessage.value =
+            error?.message ||
             "Something went wrong submitting the form. Please email us directly.";
     } finally {
         isSubmitting.value = false;

@@ -10,15 +10,17 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-fuchsia-400/20 bg-fuchsia-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-fuchsia-300">
-            Premium Package
+            Business System Management
             <span class="inline-block size-1.5 rounded-full bg-fuchsia-300"></span>
             High-Impact
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Custom design, advanced features, and future-proof scalability.
+            A white-label business system for teams that need more than a website.
           </h1>
           <p class="mt-5 text-neutral-300">
-            The Premium Package is built for brands who need more than a website—they need a complete digital experience. Custom design system, animations, blog, integrations, and advanced functionality that grows with you.
+            This package is for businesses that need customer-facing pages,
+            internal tools, and operational workflows working together under one
+            branded system.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -38,7 +40,11 @@
           </div>
 
           <p class="mt-6 text-sm text-neutral-400">
-            Typical range: <span class="font-semibold text-neutral-200">$4,000–$5,500</span>
+            Monthly plan: <span class="font-semibold text-neutral-200">$475/mo</span>
+          </p>
+          <p class="mt-2 text-sm text-neutral-500">
+            6-month minimum contract.
+            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">View plan terms</NuxtLink>.
           </p>
         </div>
       </div>
@@ -62,37 +68,39 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A feature-rich website that blends storytelling, technology, and design. Built for brands who take their digital presence seriously.
+            A feature-rich system that combines website management, internal
+            tooling, and advanced integrations for businesses ready to operate
+            from one central platform.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
-            <p class="text-sm text-neutral-300"><span class="font-semibold text-neutral-100">Investment:</span> $4,000–$5,500</p>
-            <p class="mt-1 text-sm text-neutral-400">Timeline depends on features, integrations, and custom design scope.</p>
+            <p class="text-sm text-neutral-300"><span class="font-semibold text-neutral-100">Monthly investment:</span> $475/mo</p>
+            <p class="mt-1 text-sm text-neutral-400">6-month minimum commitment applies.</p>
           </div>
         </div>
 
         <div class="lg:col-span-2">
           <div class="grid gap-6 sm:grid-cols-2">
-            <FeatureCard title="Custom Design System" desc="Unique design system (type, color, components) tailored to your brand identity." :icon="'design'" />
-            <FeatureCard title="Advanced Animations" desc="Micro-interactions, scroll-based effects, and animation libraries for an immersive experience." :icon="'animate'" />
-            <FeatureCard title="Blog + CMS Integration" desc="Dynamic blog with category filters, CMS setup for easy updates, content scheduling." :icon="'blog'" />
-            <FeatureCard title="Form Integrations" desc="Custom forms connected to CRM, mailing lists, or third-party tools for lead generation." :icon="'forms'" />
-            <FeatureCard title="E-Commerce Ready" desc="Optional product pages, carts, and checkout integration (Shopify, Stripe, etc.)." :icon="'shop'" />
-            <FeatureCard title="Scalable Architecture" desc="Nuxt/Vue 3, modular components, API integrations, and cloud hosting support." :icon="'scale'" />
-            <FeatureCard title="Accessibility + SEO" desc="Full compliance with accessibility standards, structured data, and on-page SEO best practices." :icon="'seo'" />
-            <FeatureCard title="Ongoing Growth Support" desc="Optimized for scaling with new features, pages, and marketing initiatives." :icon="'growth'" />
+            <FeatureCard title="Custom Branded System UI" desc="A unique design system for both the public website and the business-facing parts of the platform." :icon="'design'" />
+            <FeatureCard title="Customer Intake + Workflow Logic" desc="Advanced forms, conditional flows, and structured intake that support sales and fulfillment." :icon="'forms'" />
+            <FeatureCard title="Admin Dashboard or Customer Database" desc="A central place to review inquiries, customer records, or internal workflow data." :icon="'scale'" />
+            <FeatureCard title="Content or CMS Integration" desc="Dynamic pages, blog or CMS tooling, and content management that support long-term growth." :icon="'blog'" />
+            <FeatureCard title="Third-Party Integrations" desc="Connect booking tools, CRM, email platforms, payments, or APIs specific to your workflow." :icon="'shop'" />
+            <FeatureCard title="Scalable Architecture" desc="A modular Nuxt setup that can grow into deeper application features without a rebuild." :icon="'scale'" />
+            <FeatureCard title="Accessibility + SEO" desc="Strong accessibility and search foundations for both customer trust and discoverability." :icon="'seo'" />
+            <FeatureCard title="Ongoing System Management" desc="Built for continuous updates, support, and iterative improvements after launch." :icon="'growth'" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Add-ons -->
+    <!-- Standalone services -->
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
       <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold">Optional add-ons</h3>
+            <h3 class="text-2xl font-bold">Standalone one-time services</h3>
             <p class="mt-2 text-neutral-300">
-              Enhance your digital presence with custom integrations and creative services.
+              These focused services can be booked separately when you need strategic or implementation help outside a managed plan.
             </p>
           </div>
           <div class="grid w-full gap-4 sm:grid-cols-2 lg:max-w-3xl">
@@ -114,18 +122,19 @@
           </p>
           <h3 class="mt-4 text-2xl font-bold text-fuchsia-100">Monthly Maintenance Subscription</h3>
           <p class="mt-2 text-fuchsia-50/90">
-            Keep your premium site in peak condition—secure, updated, and optimized for growth.
+            Complex systems need ongoing attention. We keep the platform secure,
+            updated, and aligned with how your business actually operates.
           </p>
           <ul class="mt-6 space-y-3 text-sm text-fuchsia-50/90">
-            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Security updates and uptime monitoring</span></li>
-            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Framework & plugin updates (Nuxt, CMS, integrations)</span></li>
-            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Performance & SEO health audits</span></li>
-            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Analytics reports & insights</span></li>
-            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Priority support & small edits</span></li>
+            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Security updates, uptime monitoring, and issue response</span></li>
+            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Framework, CMS, and integration maintenance</span></li>
+            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Performance, SEO, and conversion health reviews</span></li>
+            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Reporting, recommendations, and iterative improvements</span></li>
+            <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Priority support for system updates and small changes</span></li>
           </ul>
           <div class="mt-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p class="text-sm text-fuchsia-100/90">Starting at</p>
+              <p class="text-sm text-fuchsia-100/90">Monthly rate</p>
               <p class="text-3xl font-extrabold text-fuchsia-100">$200<span class="text-lg font-semibold">/mo</span></p>
             </div>
             <NuxtLink
@@ -141,7 +150,13 @@
         <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
           <h3 class="text-2xl font-bold">This is your brand—don’t undersell it.</h3>
           <p class="mt-3 text-neutral-300">
-            The Premium Package is about building a digital identity that’s impossible to ignore. From custom animations to integrations, your website becomes a growth engine for your business.
+            When the website, customer intake, and internal tools all feel like
+            one system, the business runs smoother and the customer experience
+            feels far more premium.
+          </p>
+          <p class="mt-6 text-sm text-neutral-500">
+            Managed plans are contracted for a 6-month minimum term. Early cancellation fees may apply.
+            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">Read plan terms</NuxtLink>.
           </p>
         </div>
       </div>
@@ -154,7 +169,8 @@
           <div>
             <h3 class="text-2xl font-bold">Ready to build your flagship site?</h3>
             <p class="mt-2 text-neutral-300">
-              Invest in a secure, accessible, and future-ready digital experience with the Premium Package.
+              Build the branded system your business can actually operate from,
+              not just a site that looks good on launch day.
             </p>
           </div>
           <div class="flex flex-wrap gap-3">
@@ -179,28 +195,28 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Premium Website Package | Custom, Secure, Scalable, High-Impact',
+  title: 'Business System Management | White-Label Website and Admin Tools',
   meta: [
     {
       name: 'description',
       content:
-          'Premium Package: A custom digital experience with advanced animations, blog, CMS, integrations, SEO, and enterprise security. Perfect for brands ready to scale. Monthly maintenance available.',
+          'A white-label business system for teams that need a managed website, internal tools, customer workflows, and deeper integrations under one branded platform.',
     },
     { name: 'robots', content: 'index,follow' },
-    { property: 'og:title', content: 'Premium Website Package | Custom, Secure, Scalable, High-Impact' },
+    { property: 'og:title', content: 'Business System Management | White-Label Website and Admin Tools' },
     {
       property: 'og:description',
       content:
-          'A flagship website package with custom design system, advanced features, integrations, and SEO best practices. Optional monthly maintenance.',
+          'A managed white-label platform with customer-facing pages, admin tooling, integrations, and ongoing support.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/premium-package' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Premium Website Package | Custom, Secure, Scalable, High-Impact' },
+    { name: 'twitter:title', content: 'Business System Management | White-Label Website and Admin Tools' },
     {
       name: 'twitter:description',
       content:
-          'Invest in a custom, secure, and future-proof digital experience. Premium Package includes advanced features, animations, and integrations.',
+          'A branded business platform with website management, customer workflows, admin tooling, and integrations for growing teams.',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://headlessflower.dev/premium-package' }],

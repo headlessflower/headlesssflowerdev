@@ -61,9 +61,27 @@
           </ul>
         </section>
 
+        <section id="managed-plans" class="scroll-mt-28 rounded-2xl border border-emerald-400/30 bg-emerald-400/10 p-6">
+          <h2 class="text-xl font-semibold text-emerald-300">4) Managed Plan Terms</h2>
+          <div class="mt-3 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div class="rounded-xl border border-neutral-800/60 bg-neutral-950 p-4">
+              <p class="text-sm font-semibold text-neutral-300">Minimum term</p>
+              <p class="mt-1 text-neutral-100">Managed website and growth plans require a <span class="font-semibold text-emerald-300">6-month minimum commitment</span> unless otherwise stated in writing.</p>
+            </div>
+            <div class="rounded-xl border border-neutral-800/60 bg-neutral-950 p-4">
+              <p class="text-sm font-semibold text-neutral-300">Early cancellation</p>
+              <p class="mt-1 text-neutral-100">If a managed plan is canceled before the minimum term ends, <span class="font-semibold text-emerald-300">early cancellation fees may apply</span> based on the remaining committed term.</p>
+            </div>
+          </div>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-neutral-300">
+            <li>Early cancellation fees are defined in the signed Agreement for each client engagement.</li>
+            <li>Setup work, onboarding, and custom implementation already completed remain billable and non-refundable.</li>
+          </ul>
+        </section>
+
         <!-- Deliverables & Acceptance -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">4) Deliverables & Acceptance</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">5) Deliverables & Acceptance</h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
             <li>We will provide deliverables as listed in the Agreement. Access credentials and instructions will be included where applicable.</li>
             <li><span class="font-semibold text-neutral-100">Client review window:</span> You have <span class="font-semibold">7 days</span> from final submittal to raise questions, concerns, or error reports.</li>
@@ -75,7 +93,7 @@
 
         <!-- Client Responsibilities -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">5) Client Responsibilities</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">6) Client Responsibilities</h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
             <li>Provide timely feedback, approvals, and access to required systems and content.</li>
             <li>Ensure you have rights to all materials supplied to us (copy, images, assets).</li>
@@ -85,7 +103,7 @@
 
         <!-- Errors, Revisions, Out-of-scope (refunds) -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">6) Errors, Revisions & Refunds</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">7) Errors, Revisions & Refunds</h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
             <li><span class="font-semibold text-neutral-100">Errors (fix or refund):</span> Report within 7 days of final submittal. We will correct errors promptly. If unresolved, you may request a refund for the affected deliverable(s).</li>
             <li><span class="font-semibold text-neutral-100">Revisions/changes:</span> New requests or preference changes are out of scope and billed at <span class="font-semibold">$45/hour</span> or flat rate under a new service order.</li>
@@ -94,7 +112,7 @@
 
         <!-- IP & License -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">7) Intellectual Property</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">8) Intellectual Property</h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
             <li>Upon full payment, you receive a license or ownership to project deliverables as specified in the Agreement.</li>
             <li>We may showcase non‑confidential work in our portfolio unless otherwise agreed in writing.</li>
@@ -103,7 +121,7 @@
 
         <!-- Timing & Changes -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">8) Timelines & Changes</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">9) Timelines & Changes</h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
             <li>Timelines depend on mutual responsiveness. Delays in approvals or content may shift delivery dates.</li>
             <li>Significant changes to scope will require a change order with updated budget and schedule.</li>
@@ -112,22 +130,23 @@
 
         <!-- Termination -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">9) Cancellation</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">10) Cancellation</h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
             <li>Either party may cancel with written notice. Work completed up to the cancellation date will be invoiced and payable.</li>
             <li>Deposits are applied to work performed and are generally non‑refundable once work has begun.</li>
+            <li>For managed plans under contract, cancellation is also subject to the minimum term and early cancellation provisions in Section 4 and the signed Agreement.</li>
           </ul>
         </section>
 
         <!-- Privacy & Confidentiality -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">10) Privacy & Confidentiality</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">11) Privacy & Confidentiality</h2>
           <p class="mt-3 text-neutral-300">We maintain reasonable safeguards for your confidential information and adhere to privacy best practices. Please advise us of any specific compliance needs before project start.</p>
         </section>
 
         <!-- Changes to Terms -->
         <section class="rounded-2xl border border-neutral-800/60 bg-neutral-900 p-6">
-          <h2 class="text-xl font-semibold text-emerald-400">11) Updates to These Terms</h2>
+          <h2 class="text-xl font-semibold text-emerald-400">12) Updates to These Terms</h2>
           <p class="mt-3 text-neutral-300">We may update these Terms from time to time. The version effective at project kickoff will apply unless superseded by a mutually signed amendment.</p>
         </section>
 

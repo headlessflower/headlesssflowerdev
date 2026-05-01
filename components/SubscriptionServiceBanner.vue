@@ -23,8 +23,8 @@
           </h3>
 
           <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/70">
-            Keep your site secure, fast, and up-to-date. We handle updates, backups, monitoring, and
-            quick content edits — so you can stay focused on running your business.
+            Starting at $150/month for a basic managed website. We handle updates, backups,
+            monitoring, and quick content edits so your site stays secure, current, and useful.
           </p>
 
           <ul class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -70,7 +70,7 @@
             </NuxtLink>
 
             <span class="text-xs font-medium tracking-[0.12em] text-white/55">
-              Cancel anytime • Month-to-month
+              6-month minimum contract
             </span>
           </div>
         </div>
@@ -87,7 +87,7 @@
                   CARE PLAN
                 </p>
                 <h4 class="mt-2 text-lg font-semibold tracking-tight text-white">
-                  Ongoing maintenance
+                  Basic managed website
                 </h4>
               </div>
 
@@ -109,7 +109,12 @@
                 </p>
                 <p class="text-xs font-medium tracking-[0.14em] text-white/60">/ MONTH</p>
               </div>
-              <p class="mt-2 text-sm text-white/55">Billed monthly. No long-term contracts.</p>
+              <p class="mt-2 text-sm text-white/55">
+                Billed monthly with a 6-month minimum term.
+                <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 decoration-white/25 hover:decoration-white/60">
+                  View plan terms
+                </NuxtLink>.
+              </p>
             </div>
 
             <ul class="mt-6 space-y-3">
@@ -165,7 +170,7 @@ const props = defineProps<{
   secondaryLink?: string;
 }>();
 
-const price = props.price ?? "$149";
+const price = props.price ?? "$150";
 const primaryLink = props.primaryLink ?? "#contact";
 const secondaryLink = props.secondaryLink ?? "/monthly-maintenance-subscription";
 

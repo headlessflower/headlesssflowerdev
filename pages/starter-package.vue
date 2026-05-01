@@ -11,15 +11,17 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-yellow-300">
-            Starter Package
+            Presence Management
             <span class="inline-block size-1.5 rounded-full bg-yellow-300"></span>
             Launch-Ready
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Your brand’s best first impression—secure, accessible, and fast.
+            A managed web presence built to turn early traffic into real leads.
           </h1>
           <p class="mt-5 text-neutral-300">
-            Don’t sell your identity short. Our Starter Package gives you a polished, trustworthy website built on modern best practices—so you can reach the right customers with confidence.
+            This package gives small businesses a polished customer-facing system:
+            a high-trust website, working lead capture, and dependable upkeep so
+            you can turn attention into qualified inquiries.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -39,7 +41,11 @@
           </div>
 
           <p class="mt-6 text-sm text-neutral-400">
-            Typical range: <span class="font-semibold text-neutral-200">$1,400–$1,800</span>
+            Monthly plan: <span class="font-semibold text-neutral-200">$200/mo</span>
+          </p>
+          <p class="mt-2 text-sm text-neutral-500">
+            6-month minimum contract.
+            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">View plan terms</NuxtLink>.
           </p>
         </div>
       </div>
@@ -79,13 +85,15 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A launch-ready, 1-page site that communicates your value clearly and converts visitors—without compromising on security, accessibility, or brand credibility.
+            A managed one-page website with the essentials in place: clear
+            positioning, contact flow, strong trust signals, and maintenance
+            foundations that keep things running smoothly.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300">
-              <span class="font-semibold text-neutral-100">Investment:</span> $1,400–$1,800
+              <span class="font-semibold text-neutral-100">Monthly investment:</span> $200/mo
             </p>
-            <p class="mt-1 text-sm text-neutral-400">Timeline depends on copy/assets readiness.</p>
+            <p class="mt-1 text-sm text-neutral-400">6-month minimum commitment applies.</p>
           </div>
         </div>
 
@@ -93,12 +101,17 @@
           <div class="grid gap-6 sm:grid-cols-2">
             <!-- Card -->
             <FeatureCard
-                title="Custom 1‑Page Website"
-                desc="Hero, About, Services, and Contact—crafted to match your brand voice and target audience."
+                title="Managed 1‑Page Website"
+                desc="Hero, offer, services, and contact flow shaped to match your brand and make it easy for customers to take action."
+            />
+            <FeatureCard
+                title="Lead Capture Setup"
+                desc="A contact path designed to reduce friction, protect against spam, and turn more visitors into real inquiries."
+                :icon="'brand'"
             />
             <FeatureCard
                 title="Security Built‑In"
-                desc="HTTPS/SSL setup, secure contact form, and privacy-forward implementation to protect data and trust."
+                desc="HTTPS/SSL setup, secure form handling, and privacy-forward implementation to protect trust from day one."
                 :icon="'shield'"
             />
             <FeatureCard
@@ -108,17 +121,17 @@
             />
             <FeatureCard
                 title="Search + Performance"
-                desc="Metadata, alt text, clean HTML, image optimization, and fast load to support discoverability."
+                desc="Metadata, alt text, clean structure, image optimization, and fast load times to support discovery and conversion."
                 :icon="'speed'"
             />
             <FeatureCard
                 title="Brand‑Aligned Design"
-                desc="Design system choices (type, color, spacing) that reflect your identity—no cookie‑cutter templates."
+                desc="Design choices in type, color, and spacing that make your business feel credible instead of generic."
                 :icon="'brand'"
             />
             <FeatureCard
-                title="Mobile‑First Build"
-                desc="Responsive layouts that look great on any device, tested across modern browsers."
+                title="Maintenance Foundation"
+                desc="A clean, supportable setup that makes future edits, content updates, and ongoing upkeep easier."
                 :icon="'mobile'"
             />
           </div>
@@ -126,14 +139,14 @@
       </div>
     </section>
 
-    <!-- Add-ons -->
+    <!-- Standalone services -->
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
       <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold">Optional add‑ons</h3>
+            <h3 class="text-2xl font-bold">Standalone one-time services</h3>
             <p class="mt-2 text-neutral-300">
-              Enhance your launch with services that deepen brand clarity and reach.
+              These services can be booked on their own when you need focused support without enrolling in a monthly plan.
             </p>
           </div>
           <div class="grid w-full gap-4 sm:grid-cols-2 lg:max-w-3xl">
@@ -159,7 +172,8 @@
           </p>
           <h3 class="mt-4 text-2xl font-bold text-yellow-100">Monthly Maintenance Subscription</h3>
           <p class="mt-2 text-yellow-50/90">
-            The web evolves daily. Keep your site secure, fast, and aligned with best practices—without lifting a finger.
+            Your website should not become another thing to babysit. We handle
+            the upkeep so your presence stays secure, current, and ready to convert.
           </p>
 
           <ul class="mt-6 space-y-3 text-sm text-yellow-50/90">
@@ -181,13 +195,13 @@
             </li>
             <li class="flex gap-3">
               <CheckIcon class="mt-1 size-5 shrink-0" />
-              <span><span class="font-semibold text-yellow-100">Priority support</span> — faster turnaround for small edits.</span>
+              <span><span class="font-semibold text-yellow-100">Priority support</span> — faster turnaround for edits, fixes, and upkeep requests.</span>
             </li>
           </ul>
 
           <div class="mt-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p class="text-sm text-yellow-100/90">Starting at</p>
+              <p class="text-sm text-yellow-100/90">Monthly rate</p>
               <p class="text-3xl font-extrabold text-yellow-100">$150<span class="text-lg font-semibold">/mo</span></p>
             </div>
             <NuxtLink
@@ -203,7 +217,9 @@
         <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
           <h3 class="text-2xl font-bold">This is your brand—don’t undersell it.</h3>
           <p class="mt-3 text-neutral-300">
-            Your website is your storefront, handshake, and first conversation. A secure, accessible, and well‑built site protects your reputation and helps the right customers say “yes.”
+            For many small businesses, this is the first system a customer
+            touches. A secure, credible, and well-managed website protects your
+            reputation and gives people a clear next step.
           </p>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <div class="rounded-2xl border border-neutral-800 p-5">
@@ -231,6 +247,10 @@
               Talk to us about your goals
             </NuxtLink>
           </div>
+          <p class="mt-4 text-sm text-neutral-500">
+            Managed plans are contracted for a 6-month minimum term. Early cancellation fees may apply.
+            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">Read plan terms</NuxtLink>.
+          </p>
         </div>
       </div>
     </section>
@@ -242,7 +262,8 @@
           <div>
             <h3 class="text-2xl font-bold">Ready to launch the right way?</h3>
             <p class="mt-2 text-neutral-300">
-              Get a secure, accessible, and conversion‑ready site that represents your brand the way it deserves.
+              Start with a managed website package that helps your business show
+              up well, capture demand, and stay maintained after launch.
             </p>
           </div>
           <div class="flex flex-wrap gap-3">
@@ -271,30 +292,30 @@
  * Proper meta head for SEO & social sharing
  */
 useHead({
-  title: 'Starter Website Package | Secure, Accessible, Brand‑Forward',
+  title: 'Presence Management Package | Managed Website + Lead Capture',
   meta: [
     {
       name: 'description',
       content:
-          'Launch your brand with a secure, accessible, and fast 1‑page website. Starter Package includes SSL, WCAG‑informed design, SEO‑ready structure, and performance optimizations. Monthly maintenance available.',
+          'A managed website package for small businesses that need a polished web presence, lead capture, performance foundations, and ongoing upkeep.',
     },
     { name: 'robots', content: 'index,follow' },
     // Open Graph
-    { property: 'og:title', content: 'Starter Website Package | Secure, Accessible, Brand‑Forward' },
+    { property: 'og:title', content: 'Presence Management Package | Managed Website + Lead Capture' },
     {
       property: 'og:description',
       content:
-          'A polished, trustworthy 1‑page site built on best practices—security, accessibility, and performance—plus optional monthly maintenance.',
+          'A managed web presence for small businesses that need a trustworthy website, lead capture, and dependable upkeep.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/starter-package' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Starter Website Package | Secure, Accessible, Brand‑Forward' },
+    { name: 'twitter:title', content: 'Presence Management Package | Managed Website + Lead Capture' },
     {
       name: 'twitter:description',
       content:
-          'Launch right: secure, accessible, and fast. Starter Package with best practices + optional maintenance.',
+          'A managed website package with lead capture, strong foundations, and optional monthly maintenance for small businesses.',
     },
   ],
   link: [
@@ -306,9 +327,9 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Product',
-        name: 'Starter Website Package',
+        name: 'Presence Management Package',
         description:
-            'Secure, accessible, and performant 1‑page website for small businesses and creatives. Optional maintenance subscription.',
+            'Managed website package with lead capture, brand-aligned design, performance foundations, and optional maintenance subscription.',
         brand: { '@type': 'Brand', name: 'Headless Flower' },
         offers: {
           '@type': 'AggregateOffer',

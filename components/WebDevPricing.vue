@@ -16,11 +16,11 @@
             class="mt-5 font-serif font-normal leading-[0.95] tracking-tight text-white
                  text-[clamp(2.2rem,4.2vw,3.6rem)]"
         >
-          Transparent Web Development Pricing
+          Managed Growth Packages
         </h2>
         <p class="mt-5 mx-auto max-w-2xl text-base leading-relaxed text-white/70">
-          Packages tailored to your goals — built with best practices for security, accessibility,
-          and performance. It’s your brand; don’t sell it short.
+          Ongoing service packages for small businesses that need a managed web presence,
+          lead capture, customer workflows, and reliable upkeep under one roof.
         </p>
       </div>
 
@@ -38,16 +38,7 @@
               class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
           />
 
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h3 class="text-lg font-semibold tracking-tight text-white">
-                {{ plan.name }}
-              </h3>
-              <p class="mt-2 text-sm leading-relaxed text-white/70">
-                {{ plan.description }}
-              </p>
-            </div>
-
+          <div class="flex flex-col items-start justify-between gap-4">
             <span
                 v-if="plan.badge"
                 class="shrink-0 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1
@@ -55,20 +46,39 @@
             >
               {{ plan.badge }}
             </span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-tight text-white">
+                {{ plan.name }}
+              </h3>
+              <p class="mt-2 text-sm  leading-relaxed text-white/70">
+                {{ plan.description }}
+              </p>
+            </div>
+
+            
           </div>
 
           <!-- Price -->
           <div class="mt-6">
             <p class="text-[11px] font-semibold tracking-[0.22em] text-white/55">
-              STARTING AT
+              MONTHLY RATE
             </p>
 
             <div class="mt-2 flex items-end justify-between gap-3">
               <p class="font-serif font-normal leading-none text-white text-[clamp(2rem,3vw,2.4rem)]">
                 {{ plan.price }}
               </p>
-
+              <p class="text-xs font-medium tracking-[0.14em] text-white/60">/ MONTH</p>
             </div>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">
+              6-month minimum contract.
+            </p>
+            <NuxtLink
+                to="/terms#managed-plans"
+                class="mt-2 inline-flex items-center text-xs font-semibold tracking-[0.14em] text-white/75 underline decoration-white/25 underline-offset-4 transition hover:text-white hover:decoration-white/55"
+            >
+              VIEW PLAN TERMS <span class="ml-2 text-white/50">↗</span>
+            </NuxtLink>
           </div>
 
           <!-- Features -->
@@ -115,35 +125,35 @@
         </article>
       </div>
 
-      <!-- Add-ons -->
+      <!-- Standalone services -->
       <div class="mt-16">
         <div class="text-center">
           <p class="text-[11px] font-semibold tracking-[0.28em] text-white/65">
-            OPTIONAL
+            ONE-TIME SERVICES
           </p>
           <h4 class="mt-4 font-serif font-normal tracking-tight text-white text-2xl sm:text-3xl">
-            Add-ons
+            Standalone Services
           </h4>
           <p class="mt-4 text-white/70 max-w-2xl mx-auto">
-            Enhance your package with optional services to boost discoverability and polish.
+            One-time services available on their own for businesses that need focused support without a monthly management plan.
           </p>
         </div>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div
-              v-for="addon in addons"
-              :key="addon.title"
+              v-for="service in services"
+              :key="service.title"
               class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md
                    transition hover:border-white/20 hover:bg-white/7"
           >
             <h5 class="text-sm font-semibold tracking-tight text-white">
-              {{ addon.title }}
+              {{ service.title }}
             </h5>
             <p class="mt-2 text-[11px] font-semibold tracking-[0.2em] text-white/55">
-              {{ addon.price }}
+              {{ service.price }}
             </p>
             <p class="mt-3 text-sm leading-relaxed text-white/75">
-              {{ addon.description }}
+              {{ service.description }}
             </p>
           </div>
         </div>
@@ -162,7 +172,7 @@
 
       <!-- Note -->
       <p class="mt-12 text-center text-xs font-medium tracking-[0.12em] text-white/55">
-        Final pricing depends on scope, timeline, and integrations. Accessibility and performance best practices are included in every build.
+        Monthly pricing depends on scope, integrations, and support needs. Plans include a 6-month minimum term and early cancellation terms.
       </p>
     </div>
   </section>
@@ -172,61 +182,61 @@
 const plans = [
   {
     slug: "starter",
-    name: "Starter",
-    badge: "Best for portfolios",
+    name: "Presence Management",
+    badge: "Best for simple lead gen",
     description:
-        "1-page scrollable site. A clean, fast launch for a strong first impression.",
+        "A managed website presence for businesses that need a polished brand, working forms, and dependable monthly upkeep.",
     hours: "15–20 hrs",
-    price: "$1,500",
+    price: "$200",
     features: [
-      "Responsive layout",
-      "Accessibility-first structure",
+      "Managed website setup",
       "Contact form with spam protection",
-      "Basic SEO (titles/meta)",
-      "Performance optimization",
+      "Core SEO and analytics setup",
+      "Performance and accessibility baseline",
+      "Monthly maintenance and small updates",
     ],
-    cta: "View Starter",
+    cta: "View Package",
     ctaLink: "/starter-package",
   },
   {
     slug: "standard",
-    name: "Standard",
+    name: "Lead Flow Management",
     badge: "Popular",
     description:
-        "3–5 page responsive site with navigation and forms. Ideal for growing businesses and services.",
+        "For growing businesses that need their website, intake flow, and booking path working together to convert more traffic.",
     hours: "25–35 hrs",
-    price: "$3,500",
+    price: "$350",
     features: [
-      "Multi-page site with nav",
-      "Advanced forms (file upload, conditional)",
-      "SEO schema & metadata",
-      "Blog-ready structure",
-      "Analytics-ready setup",
+      "Multi-page managed website",
+      "Advanced forms and intake logic",
+      "Booking or consultation flow setup",
+      "SEO schema and reporting setup",
+      "Ongoing maintenance and optimization",
     ],
-    cta: "View Standard",
+    cta: "View Package",
     ctaLink: "/standard-package",
   },
   {
     slug: "premium",
-    name: "Premium",
-    badge: "Full brand system",
+    name: "Business System Management",
+    badge: "Best for custom workflows",
     description:
-        "Custom design system and deeperintegrations. Built for long-term content and scale.",
+        "A white-label business system with a managed website, admin tooling, and deeper integrations for teams that need more than marketing pages.",
     hours: "45–55 hrs",
-    price: "$5,500",
+    price: "$475",
     features: [
-      "Design system & components",
-      "Micro-interactions & animation",
-      "Headless CMS integration",
-      "Content modeling & training",
-      "Advanced performance budget",
+      "Custom branded website and system UI",
+      "Admin dashboard or customer database",
+      "Business workflow integrations",
+      "Content or data management setup",
+      "Priority upkeep and iterative improvements",
     ],
-    cta: "View Premium",
+    cta: "View Package",
     ctaLink: "/premium-package",
   },
 ];
 
-const addons = [
+const services = [
   {
     title: "SEO Audit + Metadata",
     price: "$300–$600",

@@ -56,7 +56,7 @@ const figureStyle = computed(() => ({
 }))
 
 function defaultAlt(idx) {
-  return `Guava Music Vault screenshot ${idx + 1}`
+  return `Fetchr screenshot ${idx + 1}`
 }
 </script>
 

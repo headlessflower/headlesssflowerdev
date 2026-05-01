@@ -42,10 +42,10 @@ function fmtDate(iso: string) {
 }
 
 function pickName(fields: any) {
-  return fields?.full_name || fields?.name || "—"
+  return fields?.full_name || fields?.fullName || fields?.name || "—"
 }
 function pickEmail(fields: any) {
-  return fields?.email || fields?.replyTo || "—"
+  return fields?.email || fields?.emailAddress || fields?.replyTo || "—"
 }
 function pickMessage(fields: any) {
   return fields?.message || fields?.notes || ""

@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
     "@nuxtjs/i18n",
     "@nuxtjs/supabase",
+    "nuxt-gtag",
   ],
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -60,7 +61,13 @@ export default defineNuxtConfig({
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
       adminEmails: process.env.ADMIN_EMAILS || "",
+      gtagId: process.env.NUXT_PUBLIC_GTAG_ID || "G-NG3LHEM1JD",
     },
+  },
+
+  gtag: {
+    enabled: process.env.NODE_ENV === "production",
+    id: process.env.NUXT_PUBLIC_GTAG_ID || "G-NG3LHEM1JD",
   },
 
   supabase: {

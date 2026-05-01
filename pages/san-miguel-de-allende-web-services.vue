@@ -246,42 +246,14 @@
           </div>
         </div>
 
-        <div class="mt-12 grid gap-8 lg:grid-cols-12">
+        <div class="mt-12">
           <!-- 3 columns text -->
-          <div class="lg:col-span-8">
+          <div>
             <div class="grid gap-8 md:grid-cols-3">
               <div v-for="p in processPoints" :key="p.key">
                 <h3 class="text-sm font-semibold tracking-tight">{{ t(p.title) }}</h3>
                 <p class="mt-3 text-sm leading-relaxed text-neutral-700">{{ t(p.body) }}</p>
               </div>
-            </div>
-          </div>
-
-          <!-- Right: “graphic” card -->
-          <div class="lg:col-span-4">
-            <div class="rounded-3xl border border-neutral-900/10 bg-white/60 p-6">
-              <div class="flex items-center justify-between">
-                <div class="text-xs font-semibold tracking-[0.22em] uppercase text-neutral-600">
-                  {{ t("graphic.kicker") }}
-                </div>
-                <div class="text-xs text-neutral-500">{{ t("graphic.note") }}</div>
-              </div>
-
-              <div class="mt-6 aspect-square rounded-2xl border border-neutral-900/10 bg-neutral-950/5 p-6">
-                <!-- simple dot grid motif (like the screenshot’s “map” art) -->
-                <div class="grid h-full w-full grid-cols-12 gap-2 opacity-80">
-                  <span
-                      v-for="n in 144"
-                      :key="n"
-                      class="h-1.5 w-1.5 rounded-full"
-                      :class="dotClass(n)"
-                  />
-                </div>
-              </div>
-
-              <p class="mt-6 text-sm leading-relaxed text-neutral-700">
-                {{ t("graphic.caption") }}
-              </p>
             </div>
           </div>
         </div>
@@ -323,28 +295,35 @@
           </div>
         </div>
 
-        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div
-              v-for="item in workTiles"
-              :key="item.key"
-              class="group overflow-hidden rounded-3xl border border-neutral-900/10 bg-white/50"
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <component
+              :is="isExternal(project.link) ? 'a' : NuxtLink"
+              v-for="project in exampleProjects"
+              :key="project.id"
+              :href="isExternal(project.link) ? project.link : undefined"
+              :to="!isExternal(project.link) ? project.link : undefined"
+              :target="isExternal(project.link) ? '_blank' : undefined"
+              :rel="isExternal(project.link) ? 'noreferrer' : undefined"
+              class="group overflow-hidden rounded-3xl border border-neutral-900/10 bg-white/50 transition hover:-translate-y-[1px]"
           >
             <div class="aspect-[4/3] bg-neutral-950/5">
               <img
-                  :src="item.src"
-                  :alt="t(item.alt)"
+                  :src="project.img"
+                  :alt="`${project.name} preview`"
                   class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                   @error="onImgError"
               />
             </div>
             <div class="p-5">
               <div class="text-xs font-semibold tracking-[0.22em] uppercase text-neutral-600">
-                {{ t(item.tag) }}
+                {{ project.tags?.join(" · ") }}
               </div>
-              <div class="mt-2 font-serif text-xl">{{ t(item.title) }}</div>
-              <p class="mt-2 text-sm leading-relaxed text-neutral-700">{{ t(item.desc) }}</p>
+              <div class="mt-2 font-serif text-xl">{{ project.name }}</div>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-700">
+                {{ t(`work.examples.${project.id}`) }}
+              </p>
             </div>
-          </div>
+          </component>
         </div>
       </div>
     </section>
@@ -489,6 +468,10 @@
 </template>
 
 <script setup lang="ts">
+import { computed, unref } from "vue";
+import { projects } from "~/data/projects.js";
+import { NuxtLink } from "#components";
+
 definePageMeta({
   layout: 'no-contact',
 })
@@ -501,6 +484,42 @@ const email = "headlessflowerdev@gmail.com"; // swap to your agency email if des
 const localePath = useLocalePath?.() ?? ((p: string) => p);
 const { t, locale, setLocale } = useI18n();
 const supabase = useSupabaseClient();
+
+useHead(() => ({
+  title:
+    locale.value === "es"
+      ? "Servicios Web en San Miguel de Allende | Headless Flower"
+      : "Web Development Services in San Miguel de Allende | Headless Flower",
+  meta: [
+    {
+      name: "description",
+      content:
+        locale.value === "es"
+          ? "Sitios web administrados, formularios de contacto, rutas de reserva, mantenimiento continuo y sistemas web para negocios en San Miguel de Allende."
+          : "Managed websites, lead capture, booking flows, ongoing upkeep, and white-label business systems for businesses in San Miguel de Allende.",
+    },
+    {
+      property: "og:title",
+      content:
+        locale.value === "es"
+          ? "Servicios Web en San Miguel de Allende"
+          : "Web Development Services in San Miguel de Allende",
+    },
+    {
+      property: "og:description",
+      content:
+        locale.value === "es"
+          ? "Sitios web administrados, generación de consultas, mantenimiento y sistemas internos para negocios en San Miguel de Allende."
+          : "Managed websites, inquiry generation, upkeep, and internal business systems for San Miguel de Allende businesses.",
+    },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://www.headlessflower.dev/san-miguel-de-allende-web-services",
+    },
+  ],
+}));
 
 const hp = ref("") // bots often fill hidden fields
 const mountedAt = ref(0)
@@ -527,7 +546,7 @@ const whatsHref = computed(() => {
 
 const serviceCards = [
   { key: "design", title: "services.cards.design.title", desc: "services.cards.design.desc" },
-  { key: "bilingual", title: "services.cards.bilingual.title", desc: "services.cards.bilingual.desc" },
+  { key: "flows", title: "services.cards.flows.title", desc: "services.cards.flows.desc" },
   { key: "seo", title: "services.cards.seo.title", desc: "services.cards.seo.desc" },
   { key: "support", title: "services.cards.support.title", desc: "services.cards.support.desc" },
 ];
@@ -538,32 +557,19 @@ const processPoints = [
   { key: "launch", title: "process.points.launch.title", body: "process.points.launch.body" },
 ];
 
-const workTiles = [
-  {
-    key: "hotel",
-    src: "/san-miguel/san-miguel-hotel.png",
-    alt: "work.tiles.hotel.alt",
-    tag: "work.tiles.hotel.tag",
-    title: "work.tiles.hotel.title",
-    desc: "work.tiles.hotel.desc",
-  },
-  {
-    key: "gallery",
-    src: "/san-miguel/san-miguel-studio.png",
-    alt: "work.tiles.gallery.alt",
-    tag: "work.tiles.gallery.tag",
-    title: "work.tiles.gallery.title",
-    desc: "work.tiles.gallery.desc",
-  },
-  {
-    key: "service",
-    src: "/san-miguel/san-miguel-streets-2.png",
-    alt: "work.tiles.service.alt",
-    tag: "work.tiles.service.tag",
-    title: "work.tiles.service.title",
-    desc: "work.tiles.service.desc",
-  },
+const exampleProjectNames = [
+  "Amatl Handmade Paper Studio",
+  "Lanzayoso",
+  "ClearFlow Gutter Cleaning",
+  "The San Miguel Wedding Collective",
 ];
+
+const exampleProjects = computed(() => {
+  const all = Array.isArray(unref(projects)) ? unref(projects) : [];
+  return exampleProjectNames
+    .map((name) => all.find((project: any) => project.name === name))
+    .filter(Boolean);
+});
 
 
 const form = reactive({
@@ -661,16 +667,8 @@ function onImgError(e: Event) {
   img.style.display = "none";
 }
 
-function dotClass(n: number) {
-  // Create a subtle “red cluster” motif (inspired by the dot-grid art)
-  // A few regions are highlighted; rest are neutral.
-  const hot =
-      (n % 12 === 8 && n > 70 && n < 120) ||
-      (n % 12 === 9 && n > 80 && n < 130) ||
-      (n % 12 === 7 && n > 60 && n < 110) ||
-      (n % 12 === 10 && n > 92 && n < 138);
-
-  return hot ? "bg-[#d11b1b]" : "bg-neutral-900/25";
+function isExternal(link: string) {
+  return /^https?:\/\//i.test(link);
 }
 </script>
 
@@ -678,106 +676,92 @@ function dotClass(n: number) {
 {
   "en": {
     "nav": { "services": "Services", "process": "Process", "work": "Work", "contact": "Contact" },
-    "cta": { "primary": "Book a free consult", "secondary": "See services", "book": "Book a consult" },
+    "cta": { "primary": "Book a consult", "secondary": "See services", "book": "Book a consult" },
 
     "hero": {
-      "kicker": "San Miguel de Allende · Web Services",
-      "h1a": "Build a website that feels",
-      "h1Accent1": "local",
-      "h1b": ", looks",
-      "h1Accent2": "premium",
-      "sub": "We design and build bilingual websites for San Miguel businesses—boutique hotels, artists, galleries, restaurants, and service pros—focused on clarity, speed, and long-term ownership.",
+      "kicker": "San Miguel de Allende · Managed Web Services",
+      "h1a": "Managed web services for",
+      "h1Accent1": "San Miguel",
+      "h1b": " businesses that want more",
+      "h1Accent2": "customers",
+      "sub": "We build and manage websites, lead capture flows, booking paths, and white-label business systems for businesses in San Miguel de Allende that want a stronger online presence and smoother operations.",
       "imageAlt": "San Miguel de Allende street scene",
-      "sideA": "San Miguel businesses deserve websites that match the quality of the experience—quietly confident, not noisy or generic.",
-      "sideB": "Many sites look beautiful but don’t convert. We structure your pages to increase inquiries while keeping the design calm and editorial.",
-      "sideC": "Clear communication, no jargon, and a process that respects your time."
+      "sideA": "Your website should help people understand what you offer, trust your business quickly, and take the next step without confusion.",
+      "sideB": "We keep the system practical: clear positioning, lead capture, booking support, and ongoing upkeep that keeps the site useful over time.",
+      "sideC": "For businesses in San Miguel, that can mean a stronger digital presence, better inquiries, and simpler day-to-day management after launch."
     },
 
     "trust": {
-      "a": { "k": "Based here", "v": "San Miguel ready" },
-      "b": { "k": "Bilingual", "v": "English / Español" },
-      "c": { "k": "Performance", "v": "Fast + SEO setup" },
-      "d": { "k": "Ownership", "v": "No lock-in" }
+      "a": { "k": "Offer", "v": "Managed web services" },
+      "b": { "k": "Focus", "v": "More inquiries" },
+      "c": { "k": "Systems", "v": "Booking + admin tools" },
+      "d": { "k": "Support", "v": "Ongoing upkeep" }
     },
 
     "services": {
       "kicker": "What we do",
-      "h2a": "A focused stack for",
-      "h2Accent": "high-trust",
-      "h2b": " local business websites.",
-      "sub": "We combine design, messaging, and modern development so your site feels as intentional as your space—while staying easy to update and built to last.",
+      "h2a": "The same managed services,",
+      "h2Accent": "tailored",
+      "h2b": " for businesses in San Miguel.",
+      "sub": "We help businesses in San Miguel de Allende strengthen their web presence, capture more inquiries, support bookings, and maintain the systems customers interact with.",
       "cards": {
-        "design": { "title": "Custom Design", "desc": "A calm, editorial look aligned to your brand and clientele." },
-        "bilingual": { "title": "Bilingual UX", "desc": "EN/ES structure that’s clean, consistent, and easy to maintain." },
-        "seo": { "title": "SEO + Speed", "desc": "Solid technical setup, fast loads, and search-friendly structure." },
-        "support": { "title": "Support", "desc": "Optional ongoing help—updates, fixes, and improvements." }
+        "design": { "title": "Managed Web Presence", "desc": "A business website treated like an active asset, with stronger positioning, page updates, uptime, and ongoing improvements." },
+        "flows": { "title": "Lead Capture + Booking", "desc": "Forms, intake flows, and booking paths designed to reduce friction and turn more visitors into qualified inquiries." },
+        "seo": { "title": "Maintenance + Upkeep", "desc": "Security updates, content edits, performance checks, and reporting that keep your system healthy after launch." },
+        "support": { "title": "White-Label Business Apps", "desc": "Admin dashboards, customer records, and internal tools that give small businesses one place to run the essentials." }
       }
     },
 
     "ui": {
-      "pill1": "Content structure",
-      "pill2": "SEO foundations",
-      "pill3": "Mobile-first",
-      "pill4": "Analytics ready",
-      "blockA": { "k": "Primary goal", "v": "More inquiries + bookings" },
-      "blockB": { "k": "Secondary", "v": "Clear story + credibility" },
-      "blockC": { "k": "Outcome", "v": "A site that feels crafted—and performs." }
+      "pill1": "Managed websites",
+      "pill2": "Lead capture",
+      "pill3": "Booking support",
+      "pill4": "Admin systems",
+      "blockA": { "k": "Primary goal", "v": "More qualified inquiries" },
+      "blockB": { "k": "Secondary", "v": "Clearer operations" },
+      "blockC": { "k": "Outcome", "v": "A system that looks better and works harder." }
     },
 
     "process": {
       "kicker": "Process",
-      "h2a": "Bridging",
-      "h2Accent": "design",
-      "h2b": " with business reality",
-      "aside": "A simple, respectful workflow with clear milestones. You always know what’s next.",
+      "h2a": "Build the right",
+      "h2Accent": "system",
+      "h2b": " and keep it useful",
+      "aside": "The goal is not to overbuild. We shape the simplest version of the website or system that helps the business attract customers and run more smoothly.",
       "points": {
         "clarity": {
-          "title": "1) Clarity first",
-          "body": "We define your audience, key pages, and conversion goals before we touch visuals."
+          "title": "1) Clarify the offer",
+          "body": "We define what the business needs the website or system to do, who it serves, and where customers are dropping off today."
         },
         "craft": {
-          "title": "2) Craft the look",
-          "body": "Typography, spacing, and photography direction—an editorial feel that matches San Miguel."
+          "title": "2) Build the conversion flow",
+          "body": "We shape the pages, forms, booking steps, or admin tools so the experience feels clear, useful, and easier to act on."
         },
         "launch": {
-          "title": "3) Build & launch",
-          "body": "Fast, responsive builds with clean content editing and optional ongoing support."
+          "title": "3) Maintain and improve",
+          "body": "After launch, we support updates, upkeep, and practical improvements so the system does not go stale."
         }
       }
     },
 
     "graphic": {
-      "kicker": "San Miguel map",
+      "kicker": "Managed service stack",
       "note": "concept",
-      "caption": "A subtle visual motif that reinforces locality without feeling touristy."
+      "caption": "A practical mix of web presence, lead capture, maintenance, and internal tooling shaped around the business instead of scattered tools."
     },
 
     "work": {
-      "kicker": "Work",
-      "h2a": "Examples that feel",
-      "h2Accent": "crafted",
-      "h2b": " and clear",
-      "sub": "We can tailor your site to your industry—hospitality, art, wellness, or local services—while keeping the experience simple and high-trust.",
+      "kicker": "Who it fits",
+      "h2a": "Built for businesses that need",
+      "h2Accent": "better systems",
+      "h2b": " and stronger conversion",
+      "sub": "This works well for businesses in San Miguel that want a clearer online presence, stronger inquiry flow, and less friction between marketing, contact, and follow-up.",
       "cta": "Start a project",
-      "tiles": {
-        "hotel": {
-          "alt": "Boutique hotel website",
-          "tag": "Hospitality",
-          "title": "Boutique Hotel / Casa",
-          "desc": "Booking-focused pages with a calm, premium feel."
-        },
-        "gallery": {
-          "alt": "Gallery website",
-          "tag": "Arts",
-          "title": "Gallery / Artist Portfolio",
-          "desc": "Minimal layouts that let the work lead."
-        },
-        "service": {
-          "alt": "Local service website",
-          "tag": "Local Services",
-          "title": "Service Business",
-          "desc": "Clear offers, strong trust signals, simple inquiries."
-        }
+      "examples": {
+        "13": "A studio website example focused on visual storytelling, clearer services, and a stronger inquiry path for a craft-driven business.",
+        "14": "An artist website example designed to showcase portfolio work cleanly while making commissions, exhibitions, or contact requests easier to manage.",
+        "15": "A home-service example centered on lead capture, service clarity, and a more direct path from visit to quote request.",
+        "16": "A wedding directory example built to organize vendors, improve discovery, and support inquiries across a multi-business platform."
       }
     },
 
@@ -786,18 +770,18 @@ function dotClass(n: number) {
 
     "contact": {
       "kicker": "Contact",
-      "h2a": "Ready to build something",
-      "h2Accent": "real",
-      "sub": "Tell us what you do and what you need. We’ll recommend the simplest path to a site that feels right—and performs.",
+      "h2a": "Ready for a stronger",
+      "h2Accent": "web presence",
+      "sub": "Tell us about your business and what you need help with. We’ll recommend the simplest version of a managed website or system that helps you look better and convert more inquiries.",
       "emailBtn": "Email us",
       "whatsBtn": "WhatsApp",
       "phoneK": "Phone",
       "emailK": "Email",
       "formTitle": "Quick inquiry",
-      "formSub": "No pressure—just enough detail to point you in the right direction.",
-      "mailSubject": "San Miguel Website Inquiry",
-      "mailBody": "Hi Headless Flower,\n\nI’m interested in a website for my business in San Miguel de Allende.\n\nBusiness name:\nWebsite (if any):\nWhat I need help with:\nTimeline:\n\nThanks!",
-      "whatsText": "Hi! I’m interested in a website for my business in San Miguel de Allende. Can we talk?"
+      "formSub": "No pressure, just enough context for us to recommend the right setup for your business.",
+      "mailSubject": "San Miguel Web Services Inquiry",
+      "mailBody": "Hi Headless Flower,\n\nI’m interested in web development services for my business in San Miguel de Allende.\n\nBusiness name:\nCurrent website (if any):\nWhat do you need help with (website, inquiries, booking flow, admin system, upkeep, etc.)?:\nTimeline:\n\nThanks!",
+      "whatsText": "Hi! I’m interested in web development services for my business in San Miguel de Allende. Can we talk?"
     },
 
     "form": {
@@ -808,12 +792,12 @@ function dotClass(n: number) {
       "email": "Email",
       "emailPh": "you.com",
       "message": "Message",
-      "messagePh": "What do you want your website to do? (Bookings, inquiries, portfolio, etc.)",
+      "messagePh": "What should the page help with? (Inquiries, bookings, visibility, portfolio, etc.)",
       "submit": "Send inquiry",
       "thanks": "Thanks — we’ll reply soon."
     },
 
-    "footer": { "note": "San Miguel de Allende · EN/ES websites · Built with care" }
+    "footer": { "note": "San Miguel de Allende · Managed web services · Built with care" }
   },
 
   "es": {
@@ -821,103 +805,89 @@ function dotClass(n: number) {
     "cta": { "primary": "Agenda una consulta", "secondary": "Ver servicios", "book": "Agendar consulta" },
 
     "hero": {
-      "kicker": "San Miguel de Allende · Servicios Web",
-      "h1a": "Construye un sitio que se sienta",
-      "h1Accent1": "local",
-      "h1b": ", se vea",
-      "h1Accent2": "premium",
-      "sub": "Diseñamos y desarrollamos sitios bilingües para negocios en San Miguel—hoteles boutique, artistas, galerías, restaurantes y servicios—con enfoque en claridad, velocidad y propiedad a largo plazo.",
+      "kicker": "San Miguel de Allende · Servicios Web Administrados",
+      "h1a": "Servicios web administrados para negocios de",
+      "h1Accent1": "San Miguel",
+      "h1b": " que quieren más",
+      "h1Accent2": "clientes",
+      "sub": "Diseñamos y administramos sitios web, formularios de contacto, rutas de reserva y sistemas web para negocios en San Miguel de Allende que quieren una mejor presencia digital y operaciones más claras.",
       "imageAlt": "Calle en San Miguel de Allende",
-      "sideA": "Los negocios de San Miguel merecen sitios que reflejen la calidad de la experiencia—seguros, sobrios y nada genéricos.",
-      "sideB": "Muchos sitios se ven bonitos pero no convierten. Organizamos tu contenido para aumentar consultas sin perder una estética editorial.",
-      "sideC": "Comunicación clara, sin jerga, y un proceso que respeta tu tiempo."
+      "sideA": "Tu sitio debe ayudar a las personas a entender tu oferta, confiar en tu negocio rápido y dar el siguiente paso sin confusión.",
+      "sideB": "Mantenemos el sistema práctico: buen posicionamiento, captación de consultas, apoyo para reservas y mantenimiento continuo que lo mantiene útil con el tiempo.",
+      "sideC": "Para negocios en San Miguel, eso puede significar una presencia digital más fuerte, mejores consultas y una gestión más sencilla después del lanzamiento."
     },
 
     "trust": {
-      "a": { "k": "Listo aquí", "v": "Enfoque San Miguel" },
-      "b": { "k": "Bilingüe", "v": "English / Español" },
-      "c": { "k": "Rendimiento", "v": "Rápido + SEO" },
-      "d": { "k": "Propiedad", "v": "Sin ataduras" }
+      "a": { "k": "Oferta", "v": "Servicios web administrados" },
+      "b": { "k": "Enfoque", "v": "Más consultas" },
+      "c": { "k": "Sistemas", "v": "Reservas + admin" },
+      "d": { "k": "Soporte", "v": "Mantenimiento continuo" }
     },
 
     "services": {
       "kicker": "Qué hacemos",
-      "h2a": "Una base enfocada para sitios",
-      "h2Accent": "de confianza",
-      "h2b": " en negocios locales.",
-      "sub": "Combinamos diseño, mensajes y desarrollo moderno para que tu sitio se sienta tan intencional como tu espacio—fácil de actualizar y hecho para durar.",
+      "h2a": "Los mismos servicios administrados,",
+      "h2Accent": "adaptados",
+      "h2b": " para negocios en San Miguel.",
+      "sub": "Ayudamos a negocios en San Miguel de Allende a fortalecer su presencia web, generar más consultas, apoyar reservas y mantener los sistemas que usan sus clientes.",
       "cards": {
-        "design": { "title": "Diseño a medida", "desc": "Estética editorial, alineada a tu marca y clientela." },
-        "bilingual": { "title": "UX bilingüe", "desc": "Estructura EN/ES limpia, consistente y mantenible." },
-        "seo": { "title": "SEO + velocidad", "desc": "Base técnica sólida, carga rápida y estructura amigable." },
-        "support": { "title": "Soporte", "desc": "Ayuda opcional: cambios, mejoras y mantenimiento." }
+        "design": { "title": "Presencia web administrada", "desc": "Un sitio tratado como un activo del negocio, con mejor posicionamiento, actualizaciones, uptime y mejoras continuas." },
+        "flows": { "title": "Captación de consultas + reservas", "desc": "Formularios, flujos de contacto y rutas de reserva diseñados para reducir fricción y generar consultas más calificadas." },
+        "seo": { "title": "Mantenimiento + seguimiento", "desc": "Actualizaciones de seguridad, cambios de contenido, revisiones de rendimiento y reportes para mantener sano el sistema." },
+        "support": { "title": "Apps empresariales white-label", "desc": "Dashboards, registros de clientes y herramientas internas para que el negocio tenga lo esencial en un solo lugar." }
       }
     },
 
     "ui": {
-      "pill1": "Estructura de contenido",
-      "pill2": "SEO base",
-      "pill3": "Mobile-first",
-      "pill4": "Analíticas",
-      "blockA": { "k": "Objetivo", "v": "Más consultas + reservas" },
-      "blockB": { "k": "Secundario", "v": "Historia clara + credibilidad" },
-      "blockC": { "k": "Resultado", "v": "Un sitio cuidado—y efectivo." }
+      "pill1": "Sitios administrados",
+      "pill2": "Captación de consultas",
+      "pill3": "Apoyo para reservas",
+      "pill4": "Sistemas internos",
+      "blockA": { "k": "Objetivo", "v": "Más consultas calificadas" },
+      "blockB": { "k": "Secundario", "v": "Operación más clara" },
+      "blockC": { "k": "Resultado", "v": "Un sistema que se ve mejor y trabaja más." }
     },
 
     "process": {
       "kicker": "Proceso",
-      "h2a": "Uniendo",
-      "h2Accent": "diseño",
-      "h2b": " con la realidad del negocio",
-      "aside": "Un flujo simple, respetuoso y con pasos claros. Siempre sabrás qué sigue.",
+      "h2a": "Construye el",
+      "h2Accent": "sistema",
+      "h2b": " correcto y mantenlo útil",
+      "aside": "La meta no es sobrecomplicar. Diseñamos la versión más simple del sitio o sistema que ayude al negocio a atraer clientes y operar mejor.",
       "points": {
         "clarity": {
-          "title": "1) Claridad primero",
-          "body": "Definimos audiencia, páginas clave y metas antes de tocar lo visual."
+          "title": "1) Aclarar la oferta",
+          "body": "Definimos qué necesita lograr el sitio o sistema, a quién sirve y dónde se está perdiendo hoy la atención o las consultas."
         },
         "craft": {
-          "title": "2) Cuidamos el look",
-          "body": "Tipografía, espacios y dirección fotográfica—una estética editorial San Miguel."
+          "title": "2) Construir el flujo de conversión",
+          "body": "Organizamos páginas, formularios, pasos de reserva o herramientas internas para que la experiencia se sienta clara, útil y más fácil de usar."
         },
         "launch": {
-          "title": "3) Desarrollar y lanzar",
-          "body": "Construcción rápida y responsiva con edición sencilla y soporte opcional."
+          "title": "3) Lanzar y mantener",
+          "body": "Después del lanzamiento damos soporte, mantenimiento y mejoras prácticas para que el sistema no se quede estancado."
         }
       }
     },
 
     "graphic": {
-      "kicker": "Mapa San Miguel",
+      "kicker": "Stack de servicio administrado",
       "note": "concepto",
-      "caption": "Un motivo visual sutil que refuerza lo local sin sentirse turístico."
+      "caption": "Una mezcla práctica de presencia web, captación de consultas, mantenimiento y herramientas internas pensada alrededor del negocio."
     },
 
     "work": {
-      "kicker": "Trabajos",
-      "h2a": "Ejemplos con",
-      "h2Accent": "cuidado",
-      "h2b": " y claridad",
-      "sub": "Podemos adaptar el sitio a tu industria—hospitalidad, arte, bienestar o servicios—manteniendo una experiencia simple y de confianza.",
-      "cta": "Iniciar proyecto",
-      "tiles": {
-        "hotel": {
-          "alt": "Sitio web para hotel boutique",
-          "tag": "Hospitalidad",
-          "title": "Hotel boutique / Casa",
-          "desc": "Páginas enfocadas en reservas con estética premium."
-        },
-        "gallery": {
-          "alt": "Sitio web para galería",
-          "tag": "Artes",
-          "title": "Galería / Portafolio",
-          "desc": "Layouts mínimos para que la obra sea protagonista."
-        },
-        "service": {
-          "alt": "Sitio web de servicio local",
-          "tag": "Servicios",
-          "title": "Negocio de servicios",
-          "desc": "Oferta clara, confianza y consultas sencillas."
-        }
+      "kicker": "Para quién funciona",
+      "h2a": "Hecho para negocios que necesitan",
+      "h2Accent": "mejores sistemas",
+      "h2b": " y mejor conversión",
+      "sub": "Esto funciona bien para negocios en San Miguel que quieren una presencia web más clara, un mejor flujo de consultas y menos fricción entre marketing, contacto y seguimiento.",
+      "cta": "Empezar un proyecto",
+      "examples": {
+        "13": "Un ejemplo de sitio para estudio creativo enfocado en narrativa visual, servicios más claros y una mejor ruta de consulta para un negocio artesanal.",
+        "14": "Un ejemplo de sitio para artista pensado para mostrar portafolio con claridad y facilitar comisiones, exposiciones o solicitudes de contacto.",
+        "15": "Un ejemplo de servicio para hogar centrado en captación de clientes, claridad de oferta y una ruta más directa hacia la solicitud de cotización.",
+        "16": "Un ejemplo de directorio de bodas diseñado para organizar proveedores, mejorar el descubrimiento y apoyar consultas dentro de una plataforma multi-negocio."
       }
     },
 
@@ -927,18 +897,18 @@ function dotClass(n: number) {
 
     "contact": {
       "kicker": "Contacto",
-      "h2a": "¿Listo para construir algo",
-      "h2Accent": "real",
-      "sub": "Cuéntanos qué haces y qué necesitas. Te diremos el camino más simple para un sitio que se sienta correcto—y funcione.",
+      "h2a": "¿Listo para una",
+      "h2Accent": "mejor presencia web",
+      "sub": "Cuéntanos sobre tu negocio y qué necesitas resolver. Te recomendaremos la versión más simple de un sitio o sistema administrado que te ayude a verte mejor y generar más consultas.",
       "emailBtn": "Escríbenos",
       "whatsBtn": "WhatsApp",
       "phoneK": "Teléfono",
       "emailK": "Correo",
       "formTitle": "Mensaje rápido",
-      "formSub": "Sin presión—solo lo suficiente para orientarte.",
-      "mailSubject": "Consulta de Sitio Web en San Miguel",
-      "mailBody": "Hola Headless Flower,\n\nMe interesa un sitio web para mi negocio en San Miguel de Allende.\n\nNombre del negocio:\nSitio actual (si existe):\nEn qué necesito ayuda:\nTiempo estimado:\n\nGracias!",
-      "whatsText": "¡Hola! Me interesa un sitio web para mi negocio en San Miguel de Allende. ¿Podemos platicar?"
+      "formSub": "Sin presión, solo el contexto suficiente para recomendarte la mejor configuración para tu negocio.",
+      "mailSubject": "Consulta de Servicios Web en San Miguel",
+      "mailBody": "Hola Headless Flower,\n\nMe interesan servicios web para mi negocio en San Miguel de Allende.\n\nNombre del negocio:\nSitio actual (si existe):\n¿Con qué necesitas ayuda (sitio web, consultas, flujo de reservas, sistema admin, mantenimiento, etc.)?:\nTiempo estimado:\n\nGracias!",
+      "whatsText": "¡Hola! Me interesan servicios web para mi negocio en San Miguel de Allende. ¿Podemos platicar?"
     },
 
     "form": {
@@ -949,12 +919,12 @@ function dotClass(n: number) {
       "email": "Correo",
       "emailPh": "tucorreo.com",
       "message": "Mensaje",
-      "messagePh": "¿Qué quieres que logre tu sitio? (Reservas, consultas, portafolio, etc.)",
+      "messagePh": "¿Para qué debe servir la página? (Consultas, reservas, visibilidad, portafolio, etc.)",
       "submit": "Enviar",
       "thanks": "Gracias — te respondemos pronto."
     },
 
-    "footer": { "note": "San Miguel de Allende · Sitios EN/ES · Hecho con cuidado" }
+    "footer": { "note": "San Miguel de Allende · Servicios web administrados · Hecho con cuidado" }
   }
 }
 </i18n>

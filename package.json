@@ -20,6 +20,7 @@
     "@vue/compiler-sfc": "^3.5.0",
     "caniuse-lite": "^1.0.30001748",
     "nuxt": "^4.1.0",
+    "nuxt-gtag": "^4.1.0",
     "vue": "^3.5.0"
   },
   "devDependencies": {

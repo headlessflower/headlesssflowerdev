@@ -16,6 +16,33 @@ export type CityLanding = {
 };
 
 export const cities: Record<string, CityLanding> = {
+  "east-los-angeles": {
+    slug: "east-los-angeles",
+    name: "East Los Angeles",
+    county: "Los Angeles County",
+    state: "CA",
+    heroHeadline: "Web Design in East Los Angeles That Turns Local Traffic Into Customers",
+    heroSubheadline:
+      "Managed websites, lead capture, and conversion-focused systems for businesses in and around the 90022 area.",
+    neighborhoods: [
+      "East Los Angeles",
+      "Boyle Heights",
+      "Monterey Park",
+      "Montebello",
+      "Commerce",
+    ],
+    industries: [
+      "Local services",
+      "Home services",
+      "Professional services",
+      "Beauty and wellness",
+      "Restaurants",
+    ],
+    seoTitle: "Web Design East Los Angeles | Headless Flower",
+    seoDescription:
+      "Headless Flower builds managed websites, lead capture flows, and conversion-focused pages for East Los Angeles businesses serving the 90022 area.",
+  },
+
   "los-angeles": {
     slug: "los-angeles",
     name: "Los Angeles",

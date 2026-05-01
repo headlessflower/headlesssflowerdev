@@ -24,21 +24,22 @@
           <div class="max-w-4xl">
             <!-- small “kicker” label -->
             <p class="text-[11px] font-medium tracking-[0.32em] text-white/65">
-              DIGITAL PRODUCTS FOR SERVICE BUSINESSES
+              CUSTOMER CONVERSION SYSTEMS FOR SMALL BUSINESSES
             </p>
 
             <h1
                 class="mt-6 font-serif font-normal leading-[0.88] tracking-tightest text-white
          text-[clamp(3rem,6.2vw,6.8rem)]"
             >
-              Modern websites
+              Turn more traffic
               <br />
-              with real-world performance.
+              into real customers.
             </h1>
 
             <p class="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
-              We design and build fast, accessible Nuxt sites with clean systems behind them—
-              so your business looks premium and converts.
+              We build and manage white-label business systems for small businesses:
+              websites, lead capture, booking flows, and admin tools that help you
+              win more qualified customers without adding more busywork.
             </p>
 
             <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -80,12 +81,12 @@
 
 <script setup>
 useHead({
-  title: "Headless Flower | Web Development Agency",
+  title: "Headless Flower | Customer Conversion Systems for Small Businesses",
   meta: [
     {
       name: "description",
       content:
-          "We design and build fast, accessible Nuxt websites for service businesses—clean systems, premium visuals, and real conversions.",
+          "We build and manage white-label websites, booking flows, and customer systems that help small businesses convert more traffic into paying customers.",
     },
   ],
 });

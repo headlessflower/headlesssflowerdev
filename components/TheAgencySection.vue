@@ -18,11 +18,11 @@
                             We Are Headless Flower
                         </h1>
                         <p class="mt-4 text-lg text-neutral-300">
-                            A creative web agency that designs, builds, and
-                            maintains websites with a focus on performance,
-                            security, and brand alignment. We empower businesses
-                            with modern technology and timeless design
-                            principles.
+                            A small-business technology partner focused on
+                            conversion, maintenance, and operational clarity. We
+                            create white-label websites and customer-facing
+                            systems that help businesses turn attention into
+                            leads, bookings, and repeatable growth.
                         </p>
                         <NuxtLink
                             to="/contact"
@@ -62,18 +62,18 @@
                         Our Mission
                     </h2>
                     <p class="mt-4 text-neutral-300">
-                        We believe your website should be more than just a
-                        presence—it should be a growth engine. By combining
-                        strategy, design, and development, we deliver sites that
-                        don’t just look beautiful but work hard for your
-                        business every day.
+                        We believe small businesses need more than a nice-looking
+                        site. They need a managed system that captures demand,
+                        supports customers, and stays reliable over time. That is
+                        why we combine strategy, design, development, and
+                        monthly upkeep into one ongoing service.
                     </p>
                     <ul class="mt-6 list-disc space-y-2 pl-5 text-neutral-300">
-                        <li>Security‑first development practices</li>
-                        <li>Performance tuned to Core Web Vitals</li>
-                        <li>Accessible, inclusive experiences</li>
-                        <li>Clear brand alignment across devices</li>
-                        <li>Ongoing monthly maintenance & reporting</li>
+                        <li>Conversion-focused pages and booking flows</li>
+                        <li>Managed website updates and monthly upkeep</li>
+                        <li>Admin dashboards and customer data tools</li>
+                        <li>White-label systems tailored to your brand</li>
+                        <li>Ongoing reporting and growth recommendations</li>
                     </ul>
                 </div>
                 <div>
@@ -99,9 +99,8 @@
                         Collaboration
                     </h3>
                     <p class="mt-2 text-neutral-300">
-                        We work closely with clients, treating your goals as our
-                        own and keeping communication open throughout the
-                        process.
+                        We work as an ongoing partner, shaping the system around
+                        your workflow and improving it as your business grows.
                     </p>
                 </div>
                 <div
@@ -111,8 +110,9 @@
                         Innovation
                     </h3>
                     <p class="mt-2 text-neutral-300">
-                        We stay current with modern frameworks, hosting, and
-                        best practices so your website stays ahead of the curve.
+                        We use modern tools to simplify operations, reduce manual
+                        work, and give small businesses capabilities that usually
+                        require a larger team.
                     </p>
                 </div>
                 <div
@@ -122,9 +122,9 @@
                         Integrity
                     </h3>
                     <p class="mt-2 text-neutral-300">
-                        Transparency and trust are at the heart of every
-                        project. We prioritize long‑term partnerships over
-                        short‑term wins.
+                        We prioritize clear scope, dependable upkeep, and systems
+                        you can actually rely on instead of flashy one-time
+                        builds that get neglected.
                     </p>
                 </div>
             </div>
@@ -136,11 +136,12 @@
                 class="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 p-10 text-center"
             >
                 <h2 class="text-2xl font-bold text-neutral-100">
-                    Let’s grow your online presence together
+                    Let’s build the system behind your next stage of growth
                 </h2>
                 <p class="mt-3 text-neutral-300">
-                    We’ll align strategy, design, and technology to create a
-                    website that delivers measurable results for your business.
+                    We align positioning, website management, lead capture, and
+                    operational tooling so your business has one clear platform
+                    to grow on.
                 </p>
                 <NuxtLink
                     to="/contact"
@@ -155,18 +156,18 @@
 
 <script setup lang="ts">
 useHead({
-    title: "About Headless Flower — Creative Web Agency",
+    title: "About Headless Flower — Managed Growth Systems for Small Businesses",
     meta: [
         {
             name: "description",
             content:
-                "Headless Flower is a creative web agency building secure, fast, and brand‑aligned websites with ongoing maintenance and support.",
+                "Headless Flower builds managed websites, booking flows, dashboards, and white-label business systems for small businesses that want more customers and less operational friction.",
         },
         { property: "og:title", content: "We Are Headless Flower" },
         {
             property: "og:description",
             content:
-                "Creative agency specializing in secure, fast, and brand‑aligned websites. Learn about our mission, values, and approach.",
+                "A small-business technology partner focused on customer conversion, maintenance, and white-label systems.",
         },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },

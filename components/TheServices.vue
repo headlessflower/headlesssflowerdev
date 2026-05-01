@@ -119,11 +119,11 @@ const props = withDefaults(
       services: undefined,
 
       labelLeft: "HEADLESS FLOWER",
-      labelRight: "WEB + SYSTEMS",
+      labelRight: "MANAGED GROWTH SYSTEMS",
 
-      titleBefore: "Services that make your ",
-      titleAccent: "business",
-      titleAfter: " feel premium and perform fast.",
+      titleBefore: "Managed services that turn more ",
+      titleAccent: "traffic",
+      titleAfter: " into customers.",
 
       ctaLabel: "READ OUR SERVICES",
       ctaTo: "/services",
@@ -131,34 +131,34 @@ const props = withDefaults(
       topLinkLabel: "LET’S TALK",
       topLinkTo: "",
 
-      footnote: "Strategy, design, and engineering — delivered with performance, security, and clarity.",
+      footnote: "Strategy, systems, and ongoing upkeep for small businesses that need leads, bookings, and smoother operations.",
     },
 );
 
 const defaultServices: Service[] = [
   {
-    title: "Security-first builds",
+    title: "Managed web presence",
     description:
-        "Hardened configs, dependency updates, and modern hosting patterns to keep your site safe and stable.",
-    href: "/security-first-websites",
+        "Your website is included as a managed business asset: positioning, page updates, uptime, and ongoing improvements handled for you.",
+    href: "/managed-web-presence",
   },
   {
-    title: "Performance tuning",
+    title: "Lead capture and booking",
     description:
-        "Fast loads and smooth interactions measured against Core Web Vitals and improved with real budgets.",
-    href: "/website-performance",
+        "Forms, intake flows, and booking paths designed to reduce friction and turn more visitors into qualified inquiries.",
+    href: "/lead-capture-booking",
   },
   {
-    title: "Accessible by default",
+    title: "Maintenance and upkeep",
     description:
-        "Inclusive UX that meets WCAG guidelines and works across devices, screen readers, and keyboards.",
-    href: "/web-accessibility",
+        "Security updates, content edits, performance checks, and reporting that keep your system healthy after launch.",
+    href: "/maintenance-upkeep",
   },
   {
-    title: "Systems that scale",
+    title: "White-label business apps",
     description:
-        "Clear content models, CMS options, and reusable components so your team can ship confidently.",
-    href: "/headless-cms-management",
+        "Admin dashboards, customer records, and custom internal tools that give small businesses one place to run the essentials.",
+    href: "/white-label-business-apps",
   },
 ];
 
