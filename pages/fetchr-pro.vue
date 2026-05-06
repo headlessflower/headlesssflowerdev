@@ -24,7 +24,7 @@
             <p class="badge">Buy once • Own forever</p>
             <h2 class="hero-strip__title">$10 Pro License</h2>
             <p class="hero-strip__body">
-              No subscriptions. One purchase unlocks the Pro URL limit and Pro downloads.
+              No subscriptions. One purchase unlocks unlimited URLs and Pro downloads.
             </p>
 
             <div class="hero-strip__cta">
@@ -35,7 +35,7 @@
 
             <ul class="hero-strip__meta" role="list">
               <li class="meta">
-                <span class="meta__label">Pro URL limit</span>
+                <span class="meta__label">Pro URLs</span>
                 <span class="meta__value">Unlimited URLs</span>
               </li>
               <li class="meta">
@@ -104,6 +104,15 @@
                 macOS: open the DMG and drag Fetchr into Applications.
               </li>
               <li class="note-card__item">
+                If macOS says Fetchr is “damaged” or cannot be opened, open Terminal and run
+                <code>xattr -cr /Applications/Fetchr.app</code>, then open Fetchr again from Applications.
+                Only do this for the official Fetchr download from your purchase page.
+              </li>
+              <li class="note-card__item">
+                If macOS still blocks the app, go to System Settings → Privacy &amp; Security and choose
+                Open Anyway for Fetchr.
+              </li>
+              <li class="note-card__item">
                 Linux AppImage: make executable (<code>chmod +x</code>) and run.
               </li>
             </ul>
@@ -150,7 +159,7 @@
           <article class="pro-card">
             <h3 class="pro-card__title">Fewer interruptions</h3>
             <p class="pro-card__body">
-              Higher URL limits reduce stop-and-restart friction when you’re processing playlists, references, or multi-source
+              Unlimited URLs reduce stop-and-restart friction when you’re processing playlists, references, or multi-source
               research lists.
             </p>
           </article>
@@ -179,7 +188,7 @@
           <article class="policy-card">
             <h3 class="policy-card__title">Buy once, own forever</h3>
             <p class="policy-card__body">
-              Pro is a one-time purchase that unlocks the Pro URL limit and access to Pro builds. No subscriptions.
+              Pro is a one-time purchase that unlocks unlimited URLs and access to Pro builds. No subscriptions.
             </p>
           </article>
 

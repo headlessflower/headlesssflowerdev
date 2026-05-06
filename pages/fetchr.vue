@@ -153,7 +153,7 @@
             <ul class="price-card__list" role="list">
               <li class="price-card__item">
                 <span class="check" aria-hidden="true">✓</span>
-                <span><strong>100 URLs</strong> download limit</span>
+                <span><strong>Unlimited URLs</strong></span>
               </li>
               <li class="price-card__item">
                 <span class="check" aria-hidden="true">✓</span>
