@@ -4,8 +4,9 @@ const brand = "HF"; // change to "HEADLESS FLOWER" if you want, but the big-top 
 const primaryLinks = [
   { label: "ABOUT", to: "/agency" },
   { label: "WORK", to: "/work" },
-  { label: "MAINTENANCE", to: "/monthly-maintenance-subscription" },
   { label: "SERVICES", to: "/services" },
+  { label: "BLOG", to: "/blog" },
+  { label: "MAINTENANCE", to: "/monthly-maintenance-subscription" },
 ];
 
 

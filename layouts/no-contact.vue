@@ -4,6 +4,7 @@
 <template>
     <TheHeader />
     <slot></slot>
+    <TheFooter />
 </template>
 
 <style scoped></style>

@@ -16,7 +16,7 @@ export const projects = ref([
     name: "Oranges&Lemons",
     img: "/ol_thumb_1920.webp",
     video: "",
-    tags: ["Booking Form" ],
+    tags: ["Booking Form"],
     link: "/work/orangesandlemons",
   },
   {
@@ -48,7 +48,7 @@ export const projects = ref([
     name: "SolarSustain",
     img: "/solar-sustain-thumbnail.png",
     video: "",
-    tags: ["SEO", "Booking Form" ],
+    tags: ["SEO", "Booking Form"],
     link: "https://www.solarsustain.pro",
   },
   {
@@ -64,13 +64,13 @@ export const projects = ref([
     name: "Fetchr",
     img: "/guava-music/guava-music-thumbnail.png",
     video: "",
-    tags: ["Desktop Application", ],
+    tags: ["Desktop Application",],
     link: "/fetchr-pro",
   },
   {
     id: 13,
     name: "Amatl Handmade Paper Studio",
-    img: "/san-miguel/san-miguel-studio.png",
+    img: "/san-miguel/san-miguel-studio.webp",
     video: "",
     tags: ["Artist Website", "San Miguel"],
     link: "/work",
@@ -78,7 +78,7 @@ export const projects = ref([
   {
     id: 14,
     name: "Lanzayoso",
-    img: "/san-miguel/san-miguel-streets-1.png",
+    img: "/san-miguel/san-miguel-streets-1.webp",
     video: "",
     tags: ["Artist Website", "Portfolio"],
     link: "/work",
@@ -94,10 +94,10 @@ export const projects = ref([
   {
     id: 16,
     name: "The San Miguel Wedding Collective",
-    img: "/san-miguel/san-miguel-hotel.png",
+    img: "/san-miguel/san-miguel-hotel.webp",
     video: "",
     tags: ["Directory Website", "San Miguel"],
-    link: "/work",
+    link: "https://www.sanmiguelweddingcollective.com",
   },
 
 ]);

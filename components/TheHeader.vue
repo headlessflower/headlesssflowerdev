@@ -55,6 +55,7 @@ const headerClass = computed(() => {
               <li><NuxtLink to="/agency" class="hover:text-white">ABOUT</NuxtLink></li>
               <li><NuxtLink to="/services" class="hover:text-white">SERVICES</NuxtLink></li>
               <li><NuxtLink to="/work/" class="hover:text-white">WORK</NuxtLink></li>
+              <li><NuxtLink to="/blog" class="hover:text-white">BLOG</NuxtLink></li>
             </ul>
 
             <!-- Right column (small aligned items like “EDA / ASICS”) -->
@@ -115,6 +116,7 @@ const headerClass = computed(() => {
             <NuxtLink to="/agency" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">ABOUT</NuxtLink>
             <NuxtLink to="/services" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">SERVICES</NuxtLink>
             <NuxtLink to="/work/" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">WORK</NuxtLink>
+            <NuxtLink to="/blog" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">BLOG</NuxtLink>
 
             <div class="mt-3">
               <NuxtLink

@@ -89,7 +89,5 @@ useHead(() => ({
 
             <WebDesignCityNav :city-slugs="citySlugs" />
         </main>
-
-        <TheFooter />
     </div>
 </template>

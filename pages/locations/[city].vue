@@ -57,7 +57,5 @@ useHead(() => ({
 
             <CityNav :city-slugs="citySlugs" />
         </main>
-
-        <TheFooter />
     </div>
 </template>
