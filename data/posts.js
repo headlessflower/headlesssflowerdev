@@ -578,6 +578,297 @@ const posts = [
       label: "Get started",
       to: "/#contact"
     }
+  },
+  {
+    slug: "local-seo-home-maintenance",
+    category: "SEO • Local Growth",
+    categoryShort: "SEO",
+    color: "emerald",
+    title: "Local SEO for Home Maintenance Businesses: How to Get Found and Book More Jobs",
+    description: "A practical guide for gutter cleaners, roofers, landscapers, pressure washers, pool cleaners, handymen, and other local service businesses that want more calls, quote requests, and booked jobs from Google.",
+    published: "May 20, 2026",
+    readingTime: "6–8 minutes",
+    sections: [
+      {
+        title: "",
+        subtitle: "Most home maintenance customers are not casually browsing. They usually search when they have a real problem.<br><br>Their gutters are overflowing. Their yard is overgrown. Their roof is leaking. Their pool needs service. Their driveway looks dirty. Their home needs repair before guests arrive.<br><br>When that happens, they usually search for something simple:",
+        type: "list",
+        items: [
+          "“gutter cleaning near me”",
+          "“roof repair in [city]”",
+          "“pressure washing company near me”",
+          "“landscaper in [city]”",
+          "“handyman near me”",
+          "“pool cleaning service [city]”"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "Local SEO helps your business show up when those searches happen. The goal is not just traffic. The goal is better visibility in your service area, more trust from potential customers, and more people contacting you when they are ready to book.<br><br>For home maintenance companies, local SEO is one of the most valuable long-term marketing channels because it works around the way customers already look for help.",
+        type: "text"
+      },
+      {
+        title: "What is local SEO?",
+        subtitle: "Local SEO is the process of improving your online presence so your business appears in local search results.<br><br>For a home maintenance business, that usually means improving:",
+        type: "list",
+        items: [
+          "Your Google Business Profile",
+          "Your website service pages",
+          "Your city or service area pages",
+          "Your online reviews",
+          "Your local business information across the web",
+          "Your website speed, structure, and trust signals",
+          "Your ability to turn visitors into calls or quote requests"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "A good local SEO strategy connects all of these pieces. Your website should support your Google Business Profile. Your service pages should support your city pages. Your reviews should support trust. Your forms and calls-to-action should help turn that visibility into actual leads.",
+        type: "text"
+      },
+      {
+        title: "Step 1: Build a strong Google Business Profile",
+        subtitle: "For most home service businesses, your Google Business Profile is one of the most important parts of local SEO.<br><br>This is the listing that can show up in Google Maps and the local results when someone searches for your service nearby.<br><br>At minimum, make sure your profile includes:",
+        type: "list",
+        items: [
+          "Correct business name",
+          "Correct phone number",
+          "Website link",
+          "Accurate service areas",
+          "Primary service category",
+          "Secondary categories when relevant",
+          "Business hours",
+          "Photos of real work",
+          "Photos of trucks, equipment, team members, and completed jobs",
+          "Services listed clearly",
+          "A short but useful business description"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "For example, a gutter cleaning company should not only say “home services.” It should clearly mention gutter cleaning, downspout clearing, roofline debris removal, rain gutter maintenance, and the cities served.<br><br>The goal is to make it easy for Google and potential customers to understand what you do, where you work, and why someone should contact you.",
+        type: "text"
+      },
+      {
+        title: "Step 2: Create dedicated service pages",
+        subtitle: "A common mistake is putting every service on one general page.<br><br>That may be simple, but it makes it harder to rank for specific searches.<br><br>A better structure is to create a dedicated page for each important service.<br><br>For example, a home maintenance company might have pages like:",
+        type: "list",
+        items: [
+          "Gutter Cleaning",
+          "Roof Debris Removal",
+          "Pressure Washing",
+          "Window Cleaning",
+          "Yard Cleanup",
+          "Handyman Repairs",
+          "Pool Cleaning",
+          "Seasonal Maintenance"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "Each service page should explain:",
+        type: "list",
+        items: [
+          "What the service includes",
+          "Who it is for",
+          "Common problems it solves",
+          "Signs the customer needs the service",
+          "What areas you serve",
+          "What makes your company trustworthy",
+          "How to request a quote or book service"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "A good service page should not feel like filler content. It should answer the questions a real customer might have before contacting you.",
+        type: "text"
+      },
+      {
+        title: "Step 3: Build useful city and service area pages",
+        subtitle: "If your business serves multiple cities, your website should make that clear.<br><br>A single homepage usually is not enough to rank across every city you serve. City pages help you target specific local searches like:",
+        type: "list",
+        items: [
+          "“gutter cleaning in Pasadena”",
+          "“pressure washing in Glendale”",
+          "“landscaper in Burbank”",
+          "“pool cleaning in Whittier”",
+          "“handyman in Long Beach”"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "A strong city page should include more than just the city name swapped into the same paragraph.<br><br>Useful city pages can include:",
+        type: "list",
+        items: [
+          "The specific services offered in that city",
+          "Common property types in the area",
+          "Local maintenance problems customers deal with",
+          "Nearby neighborhoods served",
+          "Photos from real jobs when available",
+          "Reviews from customers in or near that area",
+          "Clear quote request buttons",
+          "FAQs specific to that service area"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "For example, a gutter cleaning page for a hillside area might mention roofline debris, trees near the home, seasonal rain preparation, and downspout blockages. A pressure washing page for a dense urban area might mention driveways, patios, apartment walkways, storefronts, or garage entries.<br><br>The page should feel like it was written for that local customer, not generated from a template.",
+        type: "text"
+      },
+      {
+        title: "Step 4: Make your website easy to convert",
+        subtitle: "Getting found is only part of the job. Your website also needs to turn visitors into leads.<br><br>For home maintenance businesses, the most important conversion actions are usually:",
+        type: "list",
+        items: [
+          "Phone calls",
+          "Quote requests",
+          "Booking form submissions",
+          "Text message inquiries",
+          "Email inquiries"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "Your website should make these actions obvious.<br><br>A strong contractor website usually includes:",
+        type: "list",
+        items: [
+          "A clear headline that says what you do and where you work",
+          "A visible phone number",
+          "A strong “Request a Quote” button",
+          "Simple service descriptions",
+          "Trust signals near the top of the page",
+          "Reviews or testimonials",
+          "Before-and-after photos",
+          "Service area information",
+          "A short contact form",
+          "Mobile-friendly layout"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "Most customers will view your website on a phone. That means your quote buttons, phone number, forms, and service information need to be easy to use on a small screen.<br><br>If someone has to pinch, zoom, hunt for the phone number, or fill out a long form, you may lose the lead.",
+        type: "text"
+      },
+      {
+        title: "Step 5: Collect and use reviews",
+        subtitle: "Reviews are one of the strongest trust signals for local home service businesses.<br><br>A customer looking for a contractor is often asking themselves:",
+        type: "list",
+        items: [
+          "Will this company show up?",
+          "Will they do clean work?",
+          "Are they honest?",
+          "Are they easy to contact?",
+          "Do other homeowners trust them?"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "Good reviews help answer those questions before the customer calls.<br><br>After a successful job, ask the customer for a review while the experience is still fresh. Keep the request simple and direct.<br><br>You can also use reviews across your website. Add them to your homepage, service pages, and city pages when relevant.<br><br>For example, if a customer in Glendale leaves a review for your gutter cleaning service, that review can support both your gutter cleaning page and your Glendale service area page.",
+        type: "text"
+      },
+      {
+        title: "Step 6: Add helpful content around customer problems",
+        subtitle: "Blog content can help build authority, but only if it answers real questions.<br><br>For home maintenance businesses, useful topics might include:",
+        type: "list",
+        items: [
+          "How often should gutters be cleaned?",
+          "What happens if you ignore clogged gutters?",
+          "When is the best time to pressure wash a driveway?",
+          "How often should a pool be serviced?",
+          "What should homeowners do before roof repair?",
+          "How do you prepare your home for rainy season?",
+          "What maintenance should homeowners do before summer?",
+          "What is included in a seasonal yard cleanup?"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "This type of content helps you rank for informational searches and gives potential customers a reason to trust your expertise.<br><br>It also gives you more internal links to your main service pages.<br><br>For example, a blog post about clogged gutters should link to your gutter cleaning service page. A post about preparing for rainy season should link to gutter cleaning, roof maintenance, and drainage-related services.",
+        type: "text"
+      },
+      {
+        title: "Step 7: Track the leads that come from your website",
+        subtitle: "A lot of contractors know they are getting calls, but they do not know where those calls are coming from.<br><br>That makes it hard to know what is working.<br><br>At minimum, your website should track:",
+        type: "list",
+        items: [
+          "Form submissions",
+          "Phone button clicks",
+          "Quote request clicks",
+          "Booking requests",
+          "Traffic by city page",
+          "Traffic by service page",
+          "Search terms that bring visitors to the site"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "This helps you answer important questions:",
+        type: "list",
+        items: [
+          "Which services get the most interest?",
+          "Which city pages are bringing in traffic?",
+          "Which pages need improvement?",
+          "Are visitors contacting you or leaving?",
+          "Is your SEO work creating real leads?"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "Without tracking, you are guessing. With tracking, you can improve the website over time.",
+        type: "text"
+      },
+      {
+        title: "Step 8: Keep improving every month",
+        subtitle: "Local SEO is not a one-time setup. It works best when you keep improving the system.<br><br>Monthly improvements might include:",
+        type: "list",
+        items: [
+          "Adding new service pages",
+          "Improving existing city pages",
+          "Adding recent project photos",
+          "Publishing helpful blog posts",
+          "Updating business information",
+          "Adding new reviews to the site",
+          "Improving page speed",
+          "Checking broken links",
+          "Reviewing analytics",
+          "Testing better calls-to-action"
+        ]
+      },
+      {
+        title: "",
+        subtitle: "For home maintenance businesses, this is especially important because demand changes throughout the year.<br><br>Gutter cleaning may spike before rainy season. Landscaping may pick up in spring. Pool cleaning may rise before summer. Pressure washing may increase before events, listings, or seasonal cleaning periods.<br><br>Your website should keep up with those seasonal opportunities.",
+        type: "text"
+      },
+      {
+        title: "A simple local SEO checklist for home maintenance businesses",
+        subtitle: "Use this as a starting point:",
+        type: "list",
+        items: [
+          "Claim and complete your Google Business Profile",
+          "Add real photos of your work",
+          "Ask happy customers for reviews",
+          "Create one page for each major service",
+          "Create useful city pages for key service areas",
+          "Make your phone number and quote button easy to find",
+          "Keep forms short and mobile-friendly",
+          "Add testimonials and before-and-after photos",
+          "Publish helpful content based on customer questions",
+          "Track calls, forms, and quote requests",
+          "Review and improve the site every month"
+        ]
+      },
+      {
+        title: "Final thoughts",
+        subtitle: "For home maintenance businesses, local SEO is not just about ranking higher. It is about building a web presence that makes customers feel confident enough to contact you.<br><br>The best local SEO strategy connects visibility, trust, and conversion.<br><br>Your Google Business Profile helps people find you. Your website helps them understand your services. Your reviews help them trust you. Your quote forms and phone buttons help them take action.<br><br>When all of those pieces work together, your website becomes more than an online brochure. It becomes a local growth system for your business.",
+        type: "text"
+      }
+    ],
+    cta: {
+      title: "Grow your contractor business",
+      subtitle: "We build local SEO pages, service websites, quote funnels, and lead tracking that book more jobs.",
+      label: "Get started",
+      to: "/#contact"
+    }
   }
 ];
 

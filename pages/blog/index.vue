@@ -147,7 +147,7 @@ const searchQuery = ref("");
 const selectedCategory = ref("All");
 
 // Categories lists
-const categories = ["All", "Conversions", "CMS", "Security", "Performance", "Accessibility"];
+const categories = ["All", "Conversions", "CMS", "Security", "Performance", "Accessibility", "SEO"];
 
 // Recent posts (3 max)
 const recentPosts = computed(() => {

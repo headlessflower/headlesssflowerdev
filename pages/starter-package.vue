@@ -11,17 +11,16 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-yellow-300">
-            Presence Management
+            Starter Website + Local SEO Setup
             <span class="inline-block size-1.5 rounded-full bg-yellow-300"></span>
             Launch-Ready
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            A managed web presence built to turn early traffic into real leads.
+            A serious web presence built for newer contractors.
           </h1>
           <p class="mt-5 text-neutral-300">
-            This package gives small businesses a polished customer-facing system:
-            a high-trust website, working lead capture, and dependable upkeep so
-            you can turn attention into qualified inquiries.
+            Get a custom, high-converting website, Google Business Profile optimization,
+            and localized service pages to start ranking on Google and winning local jobs.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -85,9 +84,7 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A managed one-page website with the essentials in place: clear
-            positioning, contact flow, strong trust signals, and maintenance
-            foundations that keep things running smoothly.
+            Everything newer contractors need to build a high-performing local presence, capture leads, and rank on Google Maps.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300">
@@ -101,38 +98,33 @@
           <div class="grid gap-6 sm:grid-cols-2">
             <!-- Card -->
             <FeatureCard
-                title="Managed 1‑Page Website"
-                desc="Hero, offer, services, and contact flow shaped to match your brand and make it easy for customers to take action."
+                title="Professional Website"
+                desc="A custom-designed, fast-loading, mobile-friendly website tailored to present your services and build instant trust with local homeowners."
             />
             <FeatureCard
-                title="Lead Capture Setup"
-                desc="A contact path designed to reduce friction, protect against spam, and turn more visitors into real inquiries."
+                title="Google Business Profile Basics"
+                desc="Core configuration of your GBP, primary categories, listing settings, and optimization tips to show up on Google Maps."
                 :icon="'brand'"
             />
             <FeatureCard
-                title="Security Built‑In"
-                desc="HTTPS/SSL setup, secure form handling, and privacy-forward implementation to protect trust from day one."
+                title="Service Pages"
+                desc="Dedicated areas detailing your core services so visitors know exactly what you offer, where, and why you are the best choice."
                 :icon="'shield'"
             />
             <FeatureCard
-                title="Accessibility Compliance"
-                desc="WCAG‑informed color contrast, semantic structure, keyboard navigation, and screen‑reader support."
+                title="Contact / Quote Form"
+                desc="A streamlined, custom contact form optimized for mobile taps to capture high-intent service inquiries without friction."
                 :icon="'a11y'"
             />
             <FeatureCard
-                title="Search + Performance"
-                desc="Metadata, alt text, clean structure, image optimization, and fast load times to support discovery and conversion."
+                title="Analytics Integration"
+                desc="Traffic monitoring and form submission tracking to measure exactly how visitors engage with your site and where your leads come from."
                 :icon="'speed'"
             />
             <FeatureCard
-                title="Brand‑Aligned Design"
-                desc="Design choices in type, color, and spacing that make your business feel credible instead of generic."
+                title="Basic City Targeting"
+                desc="Location-based optimization to help your business rank for localized contractor searches in your primary service city."
                 :icon="'brand'"
-            />
-            <FeatureCard
-                title="Maintenance Foundation"
-                desc="A clean, supportable setup that makes future edits, content updates, and ongoing upkeep easier."
-                :icon="'mobile'"
             />
           </div>
         </div>
@@ -159,6 +151,42 @@
             <AddonItem title="CMS Integration" price="$500–$1,000"
                        desc="Sanity or Contentful setup for easy content updates as you grow." />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Growth Results -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 border-t border-neutral-900">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Tangible Growth Results to Expect
+        </h2>
+        <p class="mt-4 text-base text-neutral-300">
+          Laying a solid local foundation shifts your business from chasing cold prospects to capturing active, warm inbound calls.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-yellow-300">20% - 30%</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Increase in Bookings</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            A fast-loading, mobile-friendly landing page with high-contrast click-to-call buttons makes scheduling calls effortless.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-yellow-300">3x</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">More Local Impressions</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            Optimized Google Business Profile basics and localized service page tags put you in front of people searching at the exact moment they need help.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-yellow-300">Zero</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Missed Opportunities</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            Spam-protected contact forms ensure every inquiry gets verified and sent straight to your email, so you never lose a hot lead.
+          </p>
         </div>
       </div>
     </section>
@@ -292,30 +320,30 @@
  * Proper meta head for SEO & social sharing
  */
 useHead({
-  title: 'Presence Management Package | Managed Website + Lead Capture',
+  title: 'Starter Website + Local SEO Setup | Headless Flower',
   meta: [
     {
       name: 'description',
       content:
-          'A managed website package for small businesses that need a polished web presence, lead capture, performance foundations, and ongoing upkeep.',
+          'A starter website and local SEO package for newer contractors who need a serious web presence, Google Business Profile basics, and service page optimization.',
     },
     { name: 'robots', content: 'index,follow' },
     // Open Graph
-    { property: 'og:title', content: 'Presence Management Package | Managed Website + Lead Capture' },
+    { property: 'og:title', content: 'Starter Website + Local SEO Setup | Headless Flower' },
     {
       property: 'og:description',
       content:
-          'A managed web presence for small businesses that need a trustworthy website, lead capture, and dependable upkeep.',
+          'Designed for newer contractors who need a serious web presence, local search setup, and lead capture forms.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/starter-package' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Presence Management Package | Managed Website + Lead Capture' },
+    { name: 'twitter:title', content: 'Starter Website + Local SEO Setup | Headless Flower' },
     {
       name: 'twitter:description',
       content:
-          'A managed website package with lead capture, strong foundations, and optional monthly maintenance for small businesses.',
+          'Starter website and local SEO package with lead capture, Google Business Profile configuration, and performance tracking.',
     },
   ],
   link: [
@@ -327,9 +355,9 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Product',
-        name: 'Presence Management Package',
+        name: 'Starter Website + Local SEO Setup',
         description:
-            'Managed website package with lead capture, brand-aligned design, performance foundations, and optional maintenance subscription.',
+            'Website package for newer contractors. Includes service pages, Google Business Profile basics, contact forms, basic city targeting, and analytics.',
         brand: { '@type': 'Brand', name: 'Headless Flower' },
         offers: {
           '@type': 'AggregateOffer',

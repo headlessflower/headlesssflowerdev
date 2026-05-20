@@ -10,17 +10,16 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-fuchsia-400/20 bg-fuchsia-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-fuchsia-300">
-            Business System Management
+            Maintenance + Optimization Plan
             <span class="inline-block size-1.5 rounded-full bg-fuchsia-300"></span>
-            High-Impact
+            Recurring Value
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            A white-label business system for teams that need more than a website.
+            Maintenance + Optimization Plan
           </h1>
           <p class="mt-5 text-neutral-300">
-            This package is for businesses that need customer-facing pages,
-            internal tools, and operational workflows working together under one
-            branded system.
+            For ongoing growth and dependable upkeep. We manage website updates, SEO improvements, performance checks,
+            fresh content additions, form/lead tracking, analytics reviews, and technical support.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -68,9 +67,7 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A feature-rich system that combines website management, internal
-            tooling, and advanced integrations for businesses ready to operate
-            from one central platform.
+            A structured maintenance and growth plan designed to maximize recurring lead capture and keep systems running flawlessly.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300"><span class="font-semibold text-neutral-100">Monthly investment:</span> $475/mo</p>
@@ -80,14 +77,13 @@
 
         <div class="lg:col-span-2">
           <div class="grid gap-6 sm:grid-cols-2">
-            <FeatureCard title="Custom Branded System UI" desc="A unique design system for both the public website and the business-facing parts of the platform." :icon="'design'" />
-            <FeatureCard title="Customer Intake + Workflow Logic" desc="Advanced forms, conditional flows, and structured intake that support sales and fulfillment." :icon="'forms'" />
-            <FeatureCard title="Admin Dashboard or Customer Database" desc="A central place to review inquiries, customer records, or internal workflow data." :icon="'scale'" />
-            <FeatureCard title="Content or CMS Integration" desc="Dynamic pages, blog or CMS tooling, and content management that support long-term growth." :icon="'blog'" />
-            <FeatureCard title="Third-Party Integrations" desc="Connect booking tools, CRM, email platforms, payments, or APIs specific to your workflow." :icon="'shop'" />
-            <FeatureCard title="Scalable Architecture" desc="A modular Nuxt setup that can grow into deeper application features without a rebuild." :icon="'scale'" />
-            <FeatureCard title="Accessibility + SEO" desc="Strong accessibility and search foundations for both customer trust and discoverability." :icon="'seo'" />
-            <FeatureCard title="Ongoing System Management" desc="Built for continuous updates, support, and iterative improvements after launch." :icon="'growth'" />
+            <FeatureCard title="Website Updates" desc="Regular text, image, layout, and service area adjustments to keep your site fresh and accurate as your business grows." :icon="'design'" />
+            <FeatureCard title="SEO Improvements" desc="Ongoing optimization of metadata, image tags, internal linking, and search-focused updates to sustain search positions." :icon="'forms'" />
+            <FeatureCard title="Performance Checks" desc="Regular testing of load speeds, mobile responsiveness, and Core Web Vitals to prevent slow speeds from hurting conversions." :icon="'scale'" />
+            <FeatureCard title="New Content Additions" desc="Regular publishing of customer-provided blogs, case studies, reviews, or new service area cities to expand search coverage." :icon="'blog'" />
+            <FeatureCard title="Form & Lead Tracking" desc="Continuous checks and maintenance of your intake forms, phone number tracking, and booking widgets so no lead goes missing." :icon="'shop'" />
+            <FeatureCard title="Analytics Review" desc="Periodic deep-dives into your traffic trends, booking conversion rates, and search rankings to find new opportunities." :icon="'scale'" />
+            <FeatureCard title="Technical Support" desc="Priority troubleshooting, email support, and fix resolutions for any domain, hosting, email routing, or script conflicts." :icon="'seo'" />
           </div>
         </div>
       </div>
@@ -109,6 +105,42 @@
             <AddonItem title="Branding + Visual Identity" price="$1,200–$2,000" desc="Logo, type, brand guide, and social media toolkit." />
             <AddonItem title="Custom Integrations" price="Custom Quote" desc="Integration with CRMs, booking tools, or APIs specific to your business needs." />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Growth Results -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 border-t border-neutral-900">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Tangible Growth Results to Expect
+        </h2>
+        <p class="mt-4 text-base text-neutral-300">
+          Consistent updates, active performance checks, and continuous optimizations protect your pipeline and grow your revenue.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-fuchsia-300">25% - 35%</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Higher Customer Lifetime Value</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            Targeted monthly updates, customer review workflows, and optimization prevent retention drops.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-fuchsia-300">99.9%</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Uptime & Peak Performance</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            Regular caching, plugin updates, and continuous speed optimization keep your search presence ranks stable.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-fuchsia-300">20%+</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Organic Lead Improvement</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            Iterative form optimization, metadata testing, and fresh copy additions keep you ahead of competitors.
+          </p>
         </div>
       </div>
     </section>
@@ -195,28 +227,28 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Business System Management | White-Label Website and Admin Tools',
+  title: 'Maintenance + Optimization Plan | Headless Flower',
   meta: [
     {
       name: 'description',
       content:
-          'A white-label business system for teams that need a managed website, internal tools, customer workflows, and deeper integrations under one branded platform.',
+          'Ongoing website management, SEO tuning, performance monitoring, form tracking, analytics reviews, and priority technical support under one simple monthly subscription.',
     },
     { name: 'robots', content: 'index,follow' },
-    { property: 'og:title', content: 'Business System Management | White-Label Website and Admin Tools' },
+    { property: 'og:title', content: 'Maintenance + Optimization Plan | Headless Flower' },
     {
       property: 'og:description',
       content:
-          'A managed white-label platform with customer-facing pages, admin tooling, integrations, and ongoing support.',
+          'Keep your presence fresh and ranking. Plan includes website updates, SEO tuning, speed optimizations, and technical support.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/premium-package' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Business System Management | White-Label Website and Admin Tools' },
+    { name: 'twitter:title', content: 'Maintenance + Optimization Plan | Headless Flower' },
     {
       name: 'twitter:description',
       content:
-          'A branded business platform with website management, customer workflows, admin tooling, and integrations for growing teams.',
+          'Recurring website updates, SEO optimization, and priority troubleshooting to protect and grow your search presence.',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://headlessflower.dev/premium-package' }],

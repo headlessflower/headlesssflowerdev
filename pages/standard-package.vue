@@ -10,17 +10,16 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-sky-300">
-            Lead Flow Management
+            Growth System
             <span class="inline-block size-1.5 rounded-full bg-sky-300"></span>
             Growth‑Ready
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            A managed lead-generation system built around your website.
+            Growth System
           </h1>
           <p class="mt-5 text-neutral-300">
-            This package connects your website, intake flow, and booking path so
-            growing businesses can turn more traffic into qualified inquiries
-            without piecing together disconnected tools.
+            For businesses already getting some leads. We improve your website, implement local SEO content,
+            build dedicated city landing pages, and optimize your entire booking engine to turn traffic into bookings.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -84,9 +83,7 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A professional <span class="font-semibold text-neutral-100">3–5 page</span>
-            managed website with better lead flow, clearer service messaging,
-            and the operational basics needed to support consistent follow-up.
+            A complete lead flow package optimized for businesses ready to dominate their service area and capture active inquiries.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300">
@@ -99,48 +96,38 @@
         <div class="lg:col-span-2">
           <div class="grid gap-6 sm:grid-cols-2">
             <FeatureCard
-                title="3–5 Pages + Navigation"
-                desc="Home, About, Services, Contact, and one optional page structured to guide visitors toward inquiry or booking."
+                title="Website Improvements"
+                desc="Tuning layout, copy, and performance to eliminate bottlenecks and make sure your existing traffic converts."
                 :icon="'pages'"
             />
             <FeatureCard
-                title="Secure, Spam‑Resistant Forms"
-                desc="Accessible forms with validation, spam protection, and clear states so more qualified leads actually complete the flow."
+                title="Local SEO Content"
+                desc="Targeted keyword research and content pieces that address specific local customer questions to drive organic traffic."
                 :icon="'forms'"
             />
             <FeatureCard
-                title="Booking or Intake Flow"
-                desc="A stronger path from visit to consultation, quote request, or booking so the site works like part of your sales process."
+                title="City Landing Pages"
+                desc="Dedicated local pages optimized for nearby cities and service areas to rank locally and feel relevant to regional searches."
                 :icon="'blocks'"
             />
             <FeatureCard
-                title="Security Built‑In"
-                desc="HTTPS/SSL setup, secure headers, and privacy‑forward implementation to protect data and trust."
+                title="Review Acquisition Strategy"
+                desc="Systems and guidance to collect positive reviews from your happy customers, boosting search rankings and community trust."
                 :icon="'shield'"
             />
             <FeatureCard
-                title="Accessibility Compliance"
-                desc="WCAG‑informed color contrast, semantic structure, keyboard navigation, and screen‑reader support."
-                :icon="'a11y'"
-            />
-            <FeatureCard
-                title="SEO + Performance"
-                desc="Metadata, structured headings, sitemap, alt text, image optimization, and fast loads to support local visibility and conversion."
+                title="Lead Tracking & Attribution"
+                desc="Analytics integration to trace calls, form clicks, and booking paths directly back to their search source."
                 :icon="'speed'"
             />
             <FeatureCard
-                title="Brand‑Aligned Design System"
-                desc="Type, color, and spacing tuned to your business so the site feels credible, coherent, and ready for ongoing use."
+                title="Booking & Quote Systems"
+                desc="Interactive booking pathways, calendar integrations, and intake logic that convert casual traffic into scheduled bookings."
                 :icon="'brand'"
             />
             <FeatureCard
-                title="Content Blocks & Reusability"
-                desc="Modular sections for services, testimonials, FAQs, and CTAs so your site can evolve without a full rebuild."
-                :icon="'blocks'"
-            />
-            <FeatureCard
-                title="Maintenance & Reporting Ready"
-                desc="Built for ongoing support, optimization, and future iteration instead of a one-time launch-and-forget project."
+                title="Monthly Reporting & Insights"
+                desc="Clear monthly reports showing traffic trends, ranking shifts, and real leads generated, with clear advice for next steps."
                 :icon="'mobile'"
             />
           </div>
@@ -168,6 +155,42 @@
             <AddonItem title="CMS Integration" price="$500–$1,000"
                        desc="Sanity or Contentful setup for easy page/content updates. Roles & drafts optional." />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Growth Results -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 border-t border-neutral-900">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Tangible Growth Results to Expect
+        </h2>
+        <p class="mt-4 text-base text-neutral-300">
+          Scaling your reach across cities and maximizing conversion rates transforms traffic into consistent monthly growth.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-sky-300">30% - 40%</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Growth in Local Bookings</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            A custom booking funnel integrated into optimized city pages reduces scheduling friction dramatically.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-sky-300">2.5x</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Regional Keyword Rankings</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            By targeting neighboring towns and cities with localized landing pages, you capture search traffic across the whole map.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/30 p-6">
+          <p class="text-4xl font-extrabold text-sky-300">15+ hrs</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Saved per Month</h3>
+          <p class="mt-2 text-sm text-neutral-400">
+            Automated quote flows, review prompts, and system scheduling free up your calendar so you can focus on field work.
+          </p>
         </div>
       </div>
     </section>
@@ -286,30 +309,30 @@
  * Proper meta head for SEO & social sharing
  */
 useHead({
-  title: 'Lead Flow Management Package | Website, Intake, and Booking',
+  title: 'Growth System Package | Web Improvements, Local SEO, and Booking',
   meta: [
     {
       name: 'description',
       content:
-          'A managed package for growing businesses that need a multi-page website, stronger intake flow, booking support, and ongoing optimization.',
+          'A managed package for growing businesses that need website improvements, local SEO content, city pages, review strategy, lead tracking, booking setups, and monthly reporting.',
     },
     { name: 'robots', content: 'index,follow' },
     // Open Graph
-    { property: 'og:title', content: 'Lead Flow Management Package | Website, Intake, and Booking' },
+    { property: 'og:title', content: 'Growth System Package | Web Improvements, Local SEO, and Booking' },
     {
       property: 'og:description',
       content:
-          'A managed lead-generation package with website pages, intake flow, booking support, and ongoing maintenance options.',
+          'Our Growth System connects web improvements, city pages, local SEO content, and lead tracking under one monthly package.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/standard-package' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Lead Flow Management Package | Website, Intake, and Booking' },
+    { name: 'twitter:title', content: 'Growth System Package | Web Improvements, Local SEO, and Booking' },
     {
       name: 'twitter:description',
       content:
-          'A managed website package for growing businesses that need more leads, better intake flow, and dependable upkeep.',
+          'Growth System managed package for active service businesses. Includes city landing pages, local SEO content, lead tracking, and quote flows.',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://headlessflower.dev/standard-package' }],
@@ -319,9 +342,9 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Product',
-        name: 'Lead Flow Management Package',
+        name: 'Growth System Package',
         description:
-            'Managed multi-page website with lead-ready forms, intake and booking support, and optional maintenance subscription.',
+            'Managed Growth System for businesses already getting some leads. Includes local SEO content, city landing pages, review strategies, booking integrations, and monthly reporting.',
         brand: { '@type': 'Brand', name: 'Headless Flower' },
         offers: {
           '@type': 'AggregateOffer',
