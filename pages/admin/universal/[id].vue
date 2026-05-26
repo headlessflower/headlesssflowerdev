@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import {
+  globalContactFieldLabels,
+  globalContactOrderedKeys,
+  globalContactSubmissionsTable,
+} from "~/data/globalContactSubmission.schema";
+
 definePageMeta({ layout: "admin", middleware: "admin" })
 
 const supabase = useSupabaseClient()
@@ -14,7 +20,7 @@ async function load() {
   try {
     const id = String(route.params.id || "")
     const { data, error } = await supabase
-        .from("form_submissions")
+        .from(globalContactSubmissionsTable)
         .select("*")
         .eq("id", id)
         .single()
@@ -33,34 +39,8 @@ function fmtDate(iso: string) {
   try { return new Date(iso).toLocaleString() } catch { return iso }
 }
 
-// label map + ordering for your schema keys
-const fieldLabels: Record<string, string> = {
-  full_name: "Name",
-  email: "Email",
-  phone: "Phone",
-  company: "Company",
-  city: "City",
-  website_url: "Website",
-  service_interest: "Service interest",
-  budget_range: "Budget range",
-  timeline: "Timeline",
-  message: "Message",
-  newsletter_opt_in: "Newsletter opt-in",
-}
-
-const orderedKeys = [
-  "full_name",
-  "email",
-  "phone",
-  "company",
-  "city",
-  "website_url",
-  "service_interest",
-  "budget_range",
-  "timeline",
-  "message",
-  "newsletter_opt_in",
-]
+const fieldLabels = globalContactFieldLabels
+const orderedKeys = globalContactOrderedKeys
 
 function formatValue(key: string, v: any) {
   if (v === null || v === undefined || v === "") return "—"
@@ -70,9 +50,12 @@ function formatValue(key: string, v: any) {
   if (key === "timeline") {
     const map: Record<string, string> = {
       "0-1": "ASAP (0–1 month)",
+      asap: "ASAP (2–3 weeks)",
+      month: "This month",
       "1-2": "1–2 months",
       "2-3": "2–3 months",
       "3+": "3+ months",
+      flexible: "Flexible",
     }
     return map[String(v)] || String(v)
   }
@@ -82,7 +65,10 @@ function formatValue(key: string, v: any) {
       "0-1": "Under $1k",
       "1-3": "$1k–$3k",
       "3-5": "$3k–$5k",
+      "3-6": "$3k–$6k",
+      "6-10": "$6k–$10k",
       "5+": "$5k+",
+      "10+": "$10k+",
     }
     return map[String(v)] || String(v)
   }
@@ -94,7 +80,7 @@ function formatValue(key: string, v: any) {
 const knownKeySet = new Set(orderedKeys)
 
 const extras = computed(() => {
-  const fields = item.value?.fields || {}
+  const fields = item.value?.raw_fields || {}
   const out: Array<{ key: string; label: string; value: any }> = []
   for (const k of Object.keys(fields)) {
     if (!knownKeySet.has(k)) {
@@ -109,11 +95,11 @@ const extras = computed(() => {
   <main class="bg-[#f2f2f0] text-neutral-950">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
       <NuxtLink to="/admin/universal" class="text-sm font-semibold underline underline-offset-4 text-neutral-700 hover:text-neutral-950">
-        ← Back to Universal
+        ← Back to Global contact
       </NuxtLink>
 
       <div class="mt-6 rounded-2xl border border-neutral-900/10 bg-white p-6">
-        <h1 class="text-xl font-semibold">Universal submission</h1>
+        <h1 class="text-xl font-semibold">Global contact submission</h1>
 
         <p v-if="loading" class="mt-4 text-sm text-neutral-700">Loading…</p>
         <p v-if="err" class="mt-4 text-sm text-red-700">{{ err }}</p>
@@ -143,7 +129,7 @@ const extras = computed(() => {
                 </dt>
 
                 <dd class="mt-2 text-sm text-neutral-900 whitespace-pre-wrap">
-                  {{ formatValue(k, item.fields?.[k]) }}
+                  {{ formatValue(k, item?.[k]) }}
                 </dd>
               </div>
             </dl>

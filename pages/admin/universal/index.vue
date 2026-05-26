@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { globalContactSubmissionsTable } from "~/data/globalContactSubmission.schema";
+
 definePageMeta({ layout: "admin", middleware: "admin" })
 
 const supabase = useSupabaseClient()
@@ -15,10 +17,10 @@ async function load() {
 
   try {
     const [countRes, listRes] = await Promise.all([
-      supabase.from("form_submissions").select("id", { count: "exact", head: true }),
+      supabase.from(globalContactSubmissionsTable).select("id", { count: "exact", head: true }),
       supabase
-          .from("form_submissions")
-          .select("id, created_at, form_key, form_version, fields")
+          .from(globalContactSubmissionsTable)
+          .select("id, created_at, form_key, form_version, full_name, email, service_interest, message")
           .order("created_at", { ascending: false })
           .limit(200),
     ])
@@ -41,22 +43,13 @@ function fmtDate(iso: string) {
   try { return new Date(iso).toLocaleString() } catch { return iso }
 }
 
-function pickName(fields: any) {
-  return fields?.full_name || fields?.fullName || fields?.name || "—"
-}
-function pickEmail(fields: any) {
-  return fields?.email || fields?.emailAddress || fields?.replyTo || "—"
-}
-function pickMessage(fields: any) {
-  return fields?.message || fields?.notes || ""
-}
 </script>
 
 <template>
   <div>
     <div class="flex items-end justify-between gap-4">
       <div>
-        <h1 class="text-2xl font-semibold tracking-tight">Universal forms</h1>
+        <h1 class="text-2xl font-semibold tracking-tight">Global contact forms</h1>
         <p class="mt-1 text-sm text-neutral-700">
           Total: <span class="font-semibold">{{ total }}</span>
         </p>
@@ -83,7 +76,7 @@ function pickMessage(fields: any) {
             <th class="px-4 py-3 font-semibold">Date</th>
             <th class="px-4 py-3 font-semibold">Name</th>
             <th class="px-4 py-3 font-semibold">Email</th>
-            <th class="px-4 py-3 font-semibold">Form</th>
+            <th class="px-4 py-3 font-semibold">Interest</th>
             <th class="px-4 py-3 font-semibold">Message</th>
           </tr>
           </thead>
@@ -96,13 +89,12 @@ function pickMessage(fields: any) {
                   class="grid grid-cols-1 gap-1 px-4 py-3 hover:bg-neutral-50 sm:grid-cols-[12rem_14rem_16rem_12rem_1fr] sm:items-center"
               >
                 <div class="whitespace-nowrap text-neutral-700">{{ fmtDate(row.created_at) }}</div>
-                <div class="font-semibold truncate">{{ pickName(row.fields) }}</div>
-                <div class="truncate">{{ pickEmail(row.fields) }}</div>
+                <div class="font-semibold truncate">{{ row.full_name }}</div>
+                <div class="truncate">{{ row.email }}</div>
                 <div class="text-xs text-neutral-600">
-                  <span class="font-semibold text-neutral-900">{{ row.form_key }}</span>
-                  <span class="text-neutral-500"> v{{ row.form_version }}</span>
+                  <span class="font-semibold text-neutral-900">{{ row.service_interest }}</span>
                 </div>
-                <div class="text-neutral-800 line-clamp-2">{{ pickMessage(row.fields) || "—" }}</div>
+                <div class="text-neutral-800 line-clamp-2">{{ row.message || "—" }}</div>
               </NuxtLink>
             </td>
           </tr>

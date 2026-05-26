@@ -40,7 +40,7 @@ function isActive(path: string) {
               isActive('/admin/universal') ? 'text-neutral-950 font-semibold' : 'text-neutral-600 hover:text-neutral-950'
             ]"
           >
-            Universal Forms
+            Global Contact
           </NuxtLink>
 
           <NuxtLink

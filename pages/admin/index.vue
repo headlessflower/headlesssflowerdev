@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { globalContactSubmissionsTable } from "~/data/globalContactSubmission.schema";
+
 definePageMeta({ layout: "admin", middleware: "admin" })
 
 const supabase = useSupabaseClient()
@@ -7,11 +9,11 @@ const loading = ref(true)
 const err = ref<string | null>(null)
 
 const totals = reactive({
-  universal: 0,
+  globalContact: 0,
   sanMiguel: 0,
 })
 
-const latestUniversal = ref<any[]>([])
+const latestGlobalContact = ref<any[]>([])
 const latestSanMiguel = ref<any[]>([])
 
 async function load() {
@@ -20,12 +22,12 @@ async function load() {
 
   try {
     const [uCount, sCount, uLatest, sLatest] = await Promise.all([
-      supabase.from("form_submissions").select("id", { count: "exact", head: true }),
+      supabase.from(globalContactSubmissionsTable).select("id", { count: "exact", head: true }),
       supabase.from("web_inquiries").select("id", { count: "exact", head: true }),
 
       supabase
-          .from("form_submissions")
-          .select("id, created_at, form_key, form_version, fields")
+          .from(globalContactSubmissionsTable)
+          .select("id, created_at, form_key, form_version, full_name, email, service_interest, message")
           .order("created_at", { ascending: false })
           .limit(10),
 
@@ -41,10 +43,10 @@ async function load() {
     if (uLatest.error) throw uLatest.error
     if (sLatest.error) throw sLatest.error
 
-    totals.universal = uCount.count || 0
+    totals.globalContact = uCount.count || 0
     totals.sanMiguel = sCount.count || 0
 
-    latestUniversal.value = uLatest.data || []
+    latestGlobalContact.value = uLatest.data || []
     latestSanMiguel.value = sLatest.data || []
   } catch (e: any) {
     err.value = e?.message || "Failed to load dashboard."
@@ -63,15 +65,6 @@ function fmtDate(iso: string) {
   }
 }
 
-function pickName(fields: any) {
-  return fields?.full_name || fields?.fullName || fields?.name || "—"
-}
-function pickEmail(fields: any) {
-  return fields?.email || fields?.emailAddress || fields?.replyTo || "—"
-}
-function pickMessage(fields: any) {
-  return fields?.message || fields?.notes || ""
-}
 </script>
 
 <template>
@@ -106,10 +99,10 @@ function pickMessage(fields: any) {
         <div class="flex items-start justify-between gap-4">
           <div>
             <p class="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-600">
-              Universal contact forms
+              Global contact forms
             </p>
-            <p class="mt-2 text-3xl font-semibold">{{ totals.universal }}</p>
-            <p class="mt-1 text-sm text-neutral-600">All schema-driven submissions</p>
+            <p class="mt-2 text-3xl font-semibold">{{ totals.globalContact }}</p>
+            <p class="mt-1 text-sm text-neutral-600">global_contact_submissions table</p>
           </div>
 
           <NuxtLink
@@ -141,10 +134,10 @@ function pickMessage(fields: any) {
       </div>
     </section>
 
-    <!-- Latest Universal -->
+    <!-- Latest Global Contact -->
     <section class="mt-10">
       <div class="flex items-end justify-between gap-4">
-        <h2 class="text-lg font-semibold">Latest universal submissions</h2>
+        <h2 class="text-lg font-semibold">Latest global contact submissions</h2>
         <NuxtLink
             to="/admin/universal"
             class="text-sm font-semibold text-neutral-700 hover:text-neutral-950 underline underline-offset-4"
@@ -161,31 +154,30 @@ function pickMessage(fields: any) {
               <th class="px-4 py-3 font-semibold">Date</th>
               <th class="px-4 py-3 font-semibold">Name</th>
               <th class="px-4 py-3 font-semibold">Email</th>
-              <th class="px-4 py-3 font-semibold">Form</th>
+              <th class="px-4 py-3 font-semibold">Interest</th>
               <th class="px-4 py-3 font-semibold">Message</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr v-for="row in latestUniversal" :key="row.id" class="border-b border-neutral-900/5">
+            <tr v-for="row in latestGlobalContact" :key="row.id" class="border-b border-neutral-900/5">
               <td colspan="5" class="p-0">
                 <NuxtLink
                     :to="`/admin/universal/${row.id}`"
                     class="grid grid-cols-1 gap-1 px-4 py-3 hover:bg-neutral-50 sm:grid-cols-[12rem_14rem_16rem_12rem_1fr] sm:items-center"
                 >
                   <div class="whitespace-nowrap text-neutral-700">{{ fmtDate(row.created_at) }}</div>
-                  <div class="font-semibold truncate">{{ pickName(row.fields) }}</div>
-                  <div class="truncate">{{ pickEmail(row.fields) }}</div>
+                  <div class="font-semibold truncate">{{ row.full_name }}</div>
+                  <div class="truncate">{{ row.email }}</div>
                   <div class="text-xs text-neutral-600">
-                    <span class="font-semibold text-neutral-900">{{ row.form_key }}</span>
-                    <span class="text-neutral-500"> v{{ row.form_version }}</span>
+                    <span class="font-semibold text-neutral-900">{{ row.service_interest }}</span>
                   </div>
-                  <div class="text-neutral-800 line-clamp-2">{{ pickMessage(row.fields) || "—" }}</div>
+                  <div class="text-neutral-800 line-clamp-2">{{ row.message || "—" }}</div>
                 </NuxtLink>
               </td>
             </tr>
 
-            <tr v-if="!loading && latestUniversal.length === 0">
+            <tr v-if="!loading && latestGlobalContact.length === 0">
               <td class="px-4 py-6 text-neutral-600" colspan="5">No submissions yet.</td>
             </tr>
             </tbody>

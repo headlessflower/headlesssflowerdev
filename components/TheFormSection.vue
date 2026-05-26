@@ -40,6 +40,10 @@
 <script setup lang="ts">
 import TheForm from "~/components/TheForm.vue";
 import { contactFormSchema } from "~/data/contactForm.schema";
+import {
+  globalContactSubmissionsTable,
+  toGlobalContactSubmission,
+} from "~/data/globalContactSubmission.schema";
 
 
 const supabase = useSupabaseClient()
@@ -51,8 +55,8 @@ async function submitToSupabase(payload: {
   meta: Record<string, any>
 }) {
   const { error } = await supabase
-      .from("form_submissions")
-      .insert(payload)
+      .from(globalContactSubmissionsTable)
+      .insert(toGlobalContactSubmission(payload))
 
   if (error) throw error
 }

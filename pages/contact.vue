@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import {
+    globalContactSubmissionsTable,
+    toGlobalContactSubmission,
+} from "~/data/globalContactSubmission.schema";
+
 type ContactFormState = {
     fullName: string;
     emailAddress: string;
@@ -109,9 +114,9 @@ async function submitContactForm() {
             },
         };
 
-        const { error } = await supabase.from("form_submissions").insert(
-            payload,
-        );
+        const { error } = await supabase
+            .from(globalContactSubmissionsTable)
+            .insert(toGlobalContactSubmission(payload));
 
         if (error) {
             throw error;
