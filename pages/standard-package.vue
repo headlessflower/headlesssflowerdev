@@ -12,14 +12,14 @@
           <p class="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-sky-300">
             Growth System
             <span class="inline-block size-1.5 rounded-full bg-sky-300"></span>
-            Growth‑Ready
+            Popular
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
             Growth System
           </h1>
           <p class="mt-5 text-neutral-300">
-            For businesses already getting some leads. We improve your website, implement local SEO content,
-            build dedicated city landing pages, and optimize your entire booking engine to turn traffic into bookings.
+            For businesses already getting leads and ready to combine SEO with Ads, Social,
+            or Email, tighter strategy, conversion testing, and clearer performance reporting.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -38,13 +38,6 @@
             </a>
           </div>
 
-          <p class="mt-6 text-sm text-neutral-400">
-            Monthly plan: <span class="font-semibold text-neutral-200">$350/mo</span>
-          </p>
-          <p class="mt-2 text-sm text-neutral-500">
-            6-month minimum contract.
-            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">View plan terms</NuxtLink>.
-          </p>
         </div>
       </div>
     </div>
@@ -83,51 +76,51 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A complete lead flow package optimized for businesses ready to dominate their service area and capture active inquiries.
+            A complete lead-flow package for businesses ready to coordinate channels, test offers, and improve conversion quality.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300">
-              <span class="font-semibold text-neutral-100">Monthly investment:</span> $350/mo
+              <span class="font-semibold text-neutral-100">Best fit:</span> active businesses that need SEO plus Ads, Social, or Email working from one strategy.
             </p>
-            <p class="mt-1 text-sm text-neutral-400">6-month minimum commitment applies.</p>
+            <p class="mt-1 text-sm text-neutral-400">Built for tighter prioritization, faster learning, and better visibility into what creates qualified leads.</p>
           </div>
         </div>
 
         <div class="lg:col-span-2">
           <div class="grid gap-6 sm:grid-cols-2">
             <FeatureCard
-                title="Website Improvements"
-                desc="Tuning layout, copy, and performance to eliminate bottlenecks and make sure your existing traffic converts."
+                title="Combined Channel Strategy"
+                desc="SEO plus Ads, Social, or Email coordinated around the same offer, landing pages, and lead goals."
                 :icon="'pages'"
             />
             <FeatureCard
-                title="Local SEO Content"
-                desc="Targeted keyword research and content pieces that address specific local customer questions to drive organic traffic."
+                title="Bi-weekly Strategy Calls"
+                desc="Regular working sessions to review progress, prioritize tests, and keep growth decisions moving."
                 :icon="'forms'"
             />
             <FeatureCard
-                title="City Landing Pages"
-                desc="Dedicated local pages optimized for nearby cities and service areas to rank locally and feel relevant to regional searches."
+                title="Full Marketing Audit"
+                desc="A deeper review of SEO, ads, social, email, landing pages, messaging, and the customer path."
                 :icon="'blocks'"
             />
             <FeatureCard
-                title="Review Acquisition Strategy"
-                desc="Systems and guidance to collect positive reviews from your happy customers, boosting search rankings and community trust."
+                title="Weekly Performance Report"
+                desc="Clear weekly reporting across traffic, competitors, SEO movement, funnel behavior, and next actions."
                 :icon="'shield'"
             />
             <FeatureCard
-                title="Lead Tracking & Attribution"
-                desc="Analytics integration to trace calls, form clicks, and booking paths directly back to their search source."
+                title="A/B Testing"
+                desc="Structured tests for landing pages, CTA copy, forms, and key conversion points."
                 :icon="'speed'"
             />
             <FeatureCard
-                title="Booking & Quote Systems"
-                desc="Interactive booking pathways, calendar integrations, and intake logic that convert casual traffic into scheduled bookings."
+                title="Dashboard Access"
+                desc="A reporting view that makes channel performance, inquiries, and funnel health easier to review."
                 :icon="'brand'"
             />
             <FeatureCard
-                title="Monthly Reporting & Insights"
-                desc="Clear monthly reports showing traffic trends, ranking shifts, and real leads generated, with clear advice for next steps."
+                title="Booking & Quote Optimization"
+                desc="Improvements to intake paths, calendar flows, and quote requests so traffic can become real opportunities."
                 :icon="'mobile'"
             />
           </div>
@@ -140,19 +133,19 @@
       <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold">Standalone one-time services</h3>
+            <h3 class="text-2xl font-bold">Focused service add-ons</h3>
             <p class="mt-2 text-neutral-300">
-              These one-time services are available independently for businesses that need targeted help without a monthly engagement.
+              These can be used independently or as focused entry points before a larger growth engagement.
             </p>
           </div>
           <div class="grid w-full gap-4 sm:grid-cols-2 lg:max-w-3xl">
-            <AddonItem title="SEO Audit + Metadata" price="$300–$600"
+            <AddonItem title="SEO Audit + Metadata" label="Visibility foundation"
                        desc="Fix technical gaps, refine titles/descriptions, schema basics, and improve discoverability." />
-            <AddonItem title="Copywriting (per page)" price="$150–$300"
+            <AddonItem title="Conversion Copy + Page Flow" label="Messaging clarity"
                        desc="Clear, on‑brand messaging and CTAs tailored to your target customer." />
-            <AddonItem title="Branding Package" price="$800–$1,200"
+            <AddonItem title="Branding Package" label="Visual direction"
                        desc="Logo, color palette, and type stack to unify your visual identity." />
-            <AddonItem title="CMS Integration" price="$500–$1,000"
+            <AddonItem title="CMS Integration" label="Content operations"
                        desc="Sanity or Contentful setup for easy page/content updates. Roles & drafts optional." />
           </div>
         </div>
@@ -217,10 +210,6 @@
           </ul>
 
           <div class="mt-6 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p class="text-sm text-sky-100/90">Monthly rate</p>
-              <p class="text-3xl font-extrabold text-sky-100">$150<span class="text-lg font-semibold">/mo</span></p>
-            </div>
             <NuxtLink
                 to="#contact"
                 class="inline-flex items-center justify-center rounded-xl bg-sky-300 px-5 py-3 font-semibold text-neutral-900 shadow-lg shadow-sky-300/20 transition hover:-translate-y-0.5 hover:shadow-sky-300/40 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-neutral-900"
@@ -264,10 +253,6 @@
               Talk to us about your goals
             </NuxtLink>
           </div>
-          <p class="mt-4 text-sm text-neutral-500">
-            Managed plans are contracted for a 6-month minimum term. Early cancellation fees may apply.
-            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">Read plan terms</NuxtLink>.
-          </p>
         </div>
       </div>
     </section>
@@ -309,30 +294,30 @@
  * Proper meta head for SEO & social sharing
  */
 useHead({
-  title: 'Growth System Package | Web Improvements, Local SEO, and Booking',
+  title: 'Growth System Package | Headless Flower',
   meta: [
     {
       name: 'description',
       content:
-          'A managed package for growing businesses that need website improvements, local SEO content, city pages, review strategy, lead tracking, booking setups, and monthly reporting.',
+          'A growth package with combined channel strategy, bi-weekly strategy calls, full marketing audit, weekly reporting, A/B testing, dashboard access, and booking optimization.',
     },
     { name: 'robots', content: 'index,follow' },
     // Open Graph
-    { property: 'og:title', content: 'Growth System Package | Web Improvements, Local SEO, and Booking' },
+    { property: 'og:title', content: 'Growth System Package | Headless Flower' },
     {
       property: 'og:description',
       content:
-          'Our Growth System connects web improvements, city pages, local SEO content, and lead tracking under one monthly package.',
+          'Our Growth System connects channel strategy, marketing audits, A/B testing, reporting, dashboards, and booking optimization.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/standard-package' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Growth System Package | Web Improvements, Local SEO, and Booking' },
+    { name: 'twitter:title', content: 'Growth System Package | Headless Flower' },
     {
       name: 'twitter:description',
       content:
-          'Growth System managed package for active service businesses. Includes city landing pages, local SEO content, lead tracking, and quote flows.',
+          'Growth System package for active service businesses. Includes combined channel strategy, audits, A/B testing, dashboard access, and weekly reporting.',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://headlessflower.dev/standard-package' }],
@@ -341,26 +326,13 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Service',
         name: 'Growth System Package',
         description:
-            'Managed Growth System for businesses already getting some leads. Includes local SEO content, city landing pages, review strategies, booking integrations, and monthly reporting.',
+            'Growth system for active service businesses. Includes combined channel strategy, bi-weekly strategy calls, full marketing audit, weekly reporting, A/B testing, dashboard access, and booking optimization.',
         brand: { '@type': 'Brand', name: 'Headless Flower' },
-        offers: {
-          '@type': 'AggregateOffer',
-          lowPrice: 2200,
-          highPrice: 3200,
-          priceCurrency: 'USD',
-          url: 'https://headlessflower.dev/standard-package',
-          availability: 'https://schema.org/InStock',
-        },
-        isRelatedTo: [
-          {
-            '@type': 'Service',
-            name: 'Monthly Website Maintenance',
-            offers: { '@type': 'Offer', price: 150, priceCurrency: 'USD' },
-          },
-        ],
+        url: 'https://headlessflower.dev/standard-package',
+        serviceType: 'Multi-channel marketing strategy, audits, reporting, A/B testing, dashboards, and booking optimization',
       }),
     },
   ],
@@ -480,14 +452,14 @@ export default {
       name: 'AddonItem',
       props: {
         title: { type: String, required: true },
-        price: { type: String, required: true },
+        label: { type: String, required: true },
         desc: { type: String, required: true },
       },
       render() {
         return h('div', { class: 'rounded-xl border border-neutral-800 bg-neutral-900 p-5' }, [
           h('div', { class: 'flex items-baseline justify-between gap-3' }, [
             h('p', { class: 'font-semibold text-neutral-100' }, this.title),
-            h('p', { class: 'text-sm text-neutral-300' }, this.price),
+            h('p', { class: 'text-sm text-neutral-300' }, this.label),
           ]),
           h('p', { class: 'mt-2 text-sm text-neutral-400' }, this.desc),
         ]);

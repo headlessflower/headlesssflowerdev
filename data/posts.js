@@ -1,5 +1,206 @@
 const posts = [
   {
+    slug: "solar-panel-cleaning-seo-los-angeles",
+    category: "SEO • Case Study",
+    categoryShort: "SEO",
+    color: "emerald",
+    title: "How a Los Angeles Solar Panel Cleaning Business Grew Organic Traffic 30% in 8 Months",
+    description: "A local SEO case study on how a slow, fully organic strategy using helpful content, technical structure, and schema markup helped a Los Angeles solar panel cleaning business grow search traffic by 30%.",
+    published: "May 26, 2026",
+    readingTime: "7-9 minutes",
+    sections: [
+      {
+        title: "",
+        subtitle: "Solar panel cleaning is a practical home maintenance service, but in Los Angeles it sits in a very competitive search environment. Homeowners are searching for solar cleaning, bird proofing, roof debris removal, panel efficiency help, and local maintenance support across neighborhoods from Pasadena and Glendale to Santa Monica, Long Beach, Burbank, and the San Fernando Valley.<br><br>For this client, the goal was not to create a quick traffic spike with ads. The goal was to build durable local visibility using a 100% organic strategy: helpful content, clear technical SEO, crawlable page structure, and schema markup that helped search engines understand the business, services, and service areas.<br><br>After 8 months, organic traffic increased by 30%. The growth was slow, steady, and exactly what we expected from a local SEO foundation built without paid traffic.",
+        type: "text"
+      },
+      {
+        title: "The local service page had to do the selling quickly",
+        subtitle: "For a Los Angeles home maintenance business, the first screen matters. Visitors need to know the service area, the service value, and the next step without digging through the site. The landing page put the quote flow, phone number, trust signals, and service coverage directly in front of homeowners.",
+        type: "image",
+        image: {
+          src: "/blog/solar-sustain/landing-hero.png",
+          alt: "Solar Sustain landing page hero showing Los Angeles service areas, an instant quote form, phone number, and trust signals for solar panel cleaning.",
+          caption: "The landing page paired Los Angeles service-area clarity with a fast quote path, helping organic visitors move from search intent to action."
+        }
+      },
+      {
+        title: "The starting point",
+        subtitle: "The business already had real-world expertise. They knew how Los Angeles roofs collect dust, pollen, ash, bird debris, and grime. They understood how dry months, wildfire residue, marine layer moisture, and seasonal rain affect solar panels in Southern California.<br><br>The problem was that the website did not fully communicate that expertise to search engines or customers. The service was local, but the site felt too general. The business served Los Angeles, but the content did not consistently mention the neighborhoods, property types, and maintenance concerns that local homeowners actually search for.",
+        type: "text"
+      },
+      {
+        title: "What we measured",
+        subtitle: "Before making changes, we clarified which metrics mattered. We were not chasing empty pageviews. We wanted to understand whether more qualified local visitors were finding the site and moving toward a call or quote request.",
+        type: "list",
+        items: [
+          "Organic search traffic from Google",
+          "Clicks and impressions for Los Angeles solar panel cleaning keywords",
+          "Visibility for city and neighborhood service queries",
+          "Landing page performance for service pages and blog content",
+          "Phone taps, quote form submissions, and contact page visits",
+          "Crawlability issues, indexing gaps, and technical page errors"
+        ]
+      },
+      {
+        title: "Why growth was intentionally slow",
+        subtitle: "A 100% organic SEO strategy usually compounds gradually. We were not buying attention, boosting posts, or relying on a short-lived campaign. Instead, we built a foundation that could keep working after the first month, the third month, and the eighth month.<br><br>The slow growth came from doing the unglamorous work consistently: improving page structure, adding schema, publishing useful content, building internal links, clarifying service areas, and making the site easier for search engines to crawl.<br><br>That pace matters. For local home maintenance businesses, sustainable SEO often looks boring at first. Then the curve starts to move.",
+        type: "text"
+      },
+      {
+        title: "The Los Angeles local SEO strategy",
+        subtitle: "Los Angeles is not one simple market. A homeowner in Highland Park may search differently than someone in Santa Monica, Pasadena, Studio City, or Long Beach. Roof types, tree coverage, dust exposure, bird activity, and solar adoption vary across the area.<br><br>We used that local context throughout the strategy. Instead of writing generic solar content, we focused on pages and articles that matched actual homeowner concerns in LA County.",
+        type: "list",
+        items: [
+          "<strong>Service-area clarity:</strong> We made Los Angeles and surrounding cities more visible in headings, body copy, metadata, and internal links.",
+          "<strong>Local intent:</strong> We prioritized searches like solar panel cleaning Los Angeles, solar panel bird proofing Los Angeles, and solar maintenance near me.",
+          "<strong>Neighborhood relevance:</strong> We referenced real service areas and local conditions instead of relying on broad California language.",
+          "<strong>Seasonal context:</strong> We planned content around dust buildup, dry weather, rainy season preparation, and post-wind cleanup.",
+          "<strong>Conversion paths:</strong> We kept calls, quote requests, and trust signals close to the content that introduced the service."
+        ]
+      },
+      {
+        title: "Service-area pages gave Google stronger local signals",
+        subtitle: "We made the Los Angeles footprint explicit by showing the neighborhoods and nearby cities the business actually serves. This helped the site support local queries beyond one generic homepage.",
+        type: "image",
+        image: {
+          src: "/blog/solar-sustain/service-areas.png",
+          alt: "Solar Sustain service area section listing East Los Angeles, Commerce, Montebello, Pasadena, Glendale, Long Beach, and other Los Angeles County cities.",
+          caption: "Service-area content made the business easier to understand for homeowners and more crawlable for location-based search queries."
+        }
+      },
+      {
+        title: "Helpful content came first",
+        subtitle: "The content strategy was built around customer questions, not keyword stuffing. Solar panel cleaning customers want practical answers before they book. They want to know whether dirty panels affect output, how often panels should be cleaned in Los Angeles, whether cleaning is safe for the roof, and when professional service is worth it.<br><br>We created and improved content around questions like:",
+        type: "list",
+        items: [
+          "How often should solar panels be cleaned in Los Angeles?",
+          "Does dust reduce solar panel efficiency?",
+          "What happens after ash, pollen, or bird droppings build up on panels?",
+          "Is DIY solar panel cleaning safe?",
+          "What is included in professional solar panel cleaning?",
+          "When should homeowners schedule cleaning before rainy season?",
+          "Why do panels in Los Angeles get dirty so quickly?"
+        ]
+      },
+      {
+        title: "Unique expertise made the pages stronger",
+        subtitle: "The most useful content came from first-hand work in the field. We used details that only come from servicing real homes: panels near trees collecting sticky debris, hillside properties dealing with dust, coastal homes seeing moisture-related residue, and bird activity creating repeat maintenance problems.<br><br>That first-hand experience helped the pages feel specific. Instead of saying solar panels get dirty, the content explained what Los Angeles homeowners actually see on their roofs and why regular cleaning can matter for long-term performance.",
+        type: "text"
+      },
+      {
+        title: "Technical SEO made the content easier to understand",
+        subtitle: "Helpful copy is stronger when the site is technically clean. We focused on technical improvements that supported crawling, indexing, and clear interpretation by search engines.",
+        type: "list",
+        items: [
+          "<strong>Clean title tags:</strong> Service plus location appeared naturally in page titles.",
+          "<strong>Descriptive meta descriptions:</strong> Each page explained the service, area, and next step.",
+          "<strong>Logical headings:</strong> Pages used a clear H1, followed by organized H2 sections.",
+          "<strong>Internal links:</strong> Blog posts linked back to service pages, city pages, and quote paths.",
+          "<strong>Image optimization:</strong> Job photos were compressed, named clearly, and supported with descriptive alt text.",
+          "<strong>Mobile performance:</strong> The site was kept fast and easy to use for homeowners searching from a phone.",
+          "<strong>Indexability checks:</strong> We reviewed crawl issues, thin pages, missing metadata, and broken internal paths."
+        ]
+      },
+      {
+        title: "Schema markup supported local crawlability",
+        subtitle: "Schema was a major part of the strategy because local service businesses need search engines to understand what they do, where they work, and how customers can contact them.<br><br>We used structured data to reinforce the visible page content. The goal was not to hide extra keywords inside code. The goal was to make the business information machine-readable and consistent with what visitors could see on the page.",
+        type: "list",
+        items: [
+          "LocalBusiness schema for core business details",
+          "Service schema for solar panel cleaning and related maintenance services",
+          "FAQPage schema for customer questions answered on the page",
+          "BreadcrumbList schema for clearer site hierarchy",
+          "Review or AggregateRating schema only when supported by visible, legitimate review content",
+          "AreaServed details for Los Angeles and surrounding service areas"
+        ]
+      },
+      {
+        title: "Example schema direction",
+        subtitle: "A simplified schema structure for a Los Angeles solar panel cleaning business can look like this:<br><pre class=\"bg-neutral-900 border border-neutral-800 rounded-xl p-4 text-xs overflow-x-auto text-emerald-400 mt-4\">{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"HomeAndConstructionBusiness\",\n  \"name\": \"Los Angeles Solar Panel Cleaning Company\",\n  \"areaServed\": [\"Los Angeles\", \"Pasadena\", \"Glendale\", \"Burbank\", \"Santa Monica\", \"Long Beach\"],\n  \"serviceType\": \"Solar panel cleaning and exterior home maintenance\",\n  \"description\": \"Local solar panel cleaning services for homeowners across Los Angeles County.\"\n}</pre><br>The exact schema should match the real business name, service area, phone number, URL, reviews, and services shown on the website. Consistency is what makes the markup trustworthy.",
+        type: "text"
+      },
+      {
+        title: "Clear page structure helped humans and crawlers",
+        subtitle: "We organized the site so both customers and search engines could understand it quickly. That meant fewer vague pages and more focused sections with a clear purpose.",
+        type: "ordered-list",
+        items: [
+          "<strong>Homepage:</strong> Explain the business, primary service, Los Angeles service area, and strongest trust signals.",
+          "<strong>Main service page:</strong> Describe solar panel cleaning, who needs it, what is included, and how to request a quote.",
+          "<strong>Supporting service pages:</strong> Cover related needs like bird proofing, panel maintenance, roof debris removal, or seasonal cleaning when relevant.",
+          "<strong>City and service-area pages:</strong> Support searches in key Los Angeles-area locations without duplicating thin content.",
+          "<strong>Blog posts:</strong> Answer real homeowner questions and internally link to the appropriate service page.",
+          "<strong>Contact path:</strong> Keep phone calls and quote requests easy to access on mobile."
+        ]
+      },
+      {
+        title: "Trust signals were placed where decisions happen",
+        subtitle: "For home maintenance services, trust often matters as much as ranking. A homeowner is deciding whether to let someone onto their roof or property. The website needs to reduce uncertainty.",
+        type: "list",
+        items: [
+          "Real project photos instead of generic stock imagery",
+          "Before-and-after examples when available",
+          "Customer reviews and testimonials",
+          "Clear service area language for Los Angeles homeowners",
+          "Straightforward explanations of the cleaning process",
+          "Visible phone number and quote request options",
+          "Business details that match Google Business Profile information",
+          "Helpful FAQs that answer safety, timing, and maintenance questions"
+        ]
+      },
+      {
+        title: "Lead tracking connected SEO to real operations",
+        subtitle: "Traffic only matters if the business can respond to the demand it creates. The admin dashboard made quote volume, scheduled cleanings, invoices, and completed job value visible so the team could connect organic growth to actual work.",
+        type: "image",
+        image: {
+          src: "/blog/solar-sustain/dashboard.png",
+          alt: "Solar Sustain admin dashboard showing quote requests, scheduled cleaning date, quote value, scheduled job value, completed job value, invoices, workflow, and scheduled queue.",
+          caption: "The dashboard helped the business see whether organic visibility was turning into quotes, scheduled cleanings, and revenue."
+        }
+      },
+      {
+        title: "The result: 30% more organic traffic in 8 months",
+        subtitle: "After 8 months, the site generated 30% more organic traffic. More importantly, the traffic was better aligned with the business: people searching for solar panel cleaning, solar maintenance, and related Los Angeles home maintenance terms were finding the site more often.<br><br>This was not a viral jump. It was the result of a consistent organic system: useful content, technically sound pages, structured data, local relevance, internal linking, and trust signals that supported both rankings and conversions.",
+        type: "text"
+      },
+      {
+        title: "Analytics confirmed organic momentum",
+        subtitle: "The reporting view showed search visibility turning into stronger engagement signals. We used analytics as a feedback loop, not as decoration: pages that gained traction informed the next round of content, internal links, and service-area improvements.",
+        type: "image",
+        image: {
+          src: "/blog/solar-sustain/analytics.png",
+          alt: "Google Analytics dashboard for Solar Sustain showing views, event count, active users, average engagement, and growth percentages over the last 28 days.",
+          caption: "Analytics helped verify that the organic strategy was gaining momentum and gave the next SEO iterations a clearer direction."
+        }
+      },
+      {
+        title: "What other Los Angeles home maintenance businesses can learn",
+        subtitle: "The same approach applies beyond solar panel cleaning. Gutter cleaners, roof maintenance companies, pressure washers, landscapers, pool cleaners, and handyman businesses in Los Angeles all benefit from the same foundation.",
+        type: "list",
+        items: [
+          "Write for real customer questions before writing for keywords.",
+          "Make the city and service area obvious on every important page.",
+          "Use schema to clarify the business, not to exaggerate it.",
+          "Publish content that reflects first-hand field experience.",
+          "Add trust signals close to calls-to-action.",
+          "Keep service pages crawlable, internally linked, and technically clean.",
+          "Measure calls, forms, and quote requests alongside organic traffic."
+        ]
+      },
+      {
+        title: "Final takeaway",
+        subtitle: "Local SEO works best when it feels useful, specific, and honest. For this Los Angeles solar panel cleaning business, the 30% traffic lift came from building a website that clearly answered customer questions, showed real expertise, explained the service area, and gave search engines structured information they could crawl and understand.<br><br>That is the kind of growth we like: slower at the start, stronger over time, and built on assets the business owns.",
+        type: "text"
+      }
+    ],
+    cta: {
+      title: "Build a stronger local SEO foundation",
+      subtitle: "Helpful content, technical structure, schema, and Los Angeles-focused service pages that compound over time.",
+      label: "Start an SEO project",
+      to: "/#contact"
+    }
+  },
+  {
     slug: "conversion-ready-websites",
     category: "Conversions • A/B Testing",
     categoryShort: "Conversions",

@@ -8,6 +8,7 @@ defineProps<{
 const route = useRoute()
 
 function isActive(path: string) {
+  if (path === "/admin") return route.path === "/admin"
   return route.path.startsWith(path)
 }
 </script>
@@ -41,6 +42,16 @@ function isActive(path: string) {
             ]"
           >
             Global Contact
+          </NuxtLink>
+
+          <NuxtLink
+              to="/admin/audits"
+              :class="[
+              'transition',
+              isActive('/admin/audits') ? 'text-neutral-950 font-semibold' : 'text-neutral-600 hover:text-neutral-950'
+            ]"
+          >
+            Audits
           </NuxtLink>
 
           <NuxtLink

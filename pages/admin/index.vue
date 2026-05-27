@@ -11,6 +11,7 @@ const err = ref<string | null>(null)
 const totals = reactive({
   globalContact: 0,
   sanMiguel: 0,
+  audits: 0,
 })
 
 const latestGlobalContact = ref<any[]>([])
@@ -21,9 +22,10 @@ async function load() {
   err.value = null
 
   try {
-    const [uCount, sCount, uLatest, sLatest] = await Promise.all([
+    const [uCount, sCount, aCount, uLatest, sLatest] = await Promise.all([
       supabase.from(globalContactSubmissionsTable).select("id", { count: "exact", head: true }),
       supabase.from("web_inquiries").select("id", { count: "exact", head: true }),
+      supabase.from("audits").select("id", { count: "exact", head: true }),
 
       supabase
           .from(globalContactSubmissionsTable)
@@ -40,11 +42,13 @@ async function load() {
 
     if (uCount.error) throw uCount.error
     if (sCount.error) throw sCount.error
+    if (aCount.error) throw aCount.error
     if (uLatest.error) throw uLatest.error
     if (sLatest.error) throw sLatest.error
 
     totals.globalContact = uCount.count || 0
     totals.sanMiguel = sCount.count || 0
+    totals.audits = aCount.count || 0
 
     latestGlobalContact.value = uLatest.data || []
     latestSanMiguel.value = sLatest.data || []
@@ -94,7 +98,7 @@ function fmtDate(iso: string) {
     </p>
 
     <!-- Totals -->
-    <section class="mt-8 grid gap-4 sm:grid-cols-2">
+    <section class="mt-8 grid gap-4 lg:grid-cols-3">
       <div class="rounded-2xl border border-neutral-900/10 bg-white p-5">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -107,6 +111,25 @@ function fmtDate(iso: string) {
 
           <NuxtLink
               to="/admin/universal"
+              class="inline-flex h-10 items-center justify-center rounded-full border border-neutral-900/15 bg-white px-4 text-sm font-semibold hover:bg-neutral-50"
+          >
+            View all
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-neutral-900/10 bg-white p-5">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-600">
+              Website audits
+            </p>
+            <p class="mt-2 text-3xl font-semibold">{{ totals.audits }}</p>
+            <p class="mt-1 text-sm text-neutral-600">audits table</p>
+          </div>
+
+          <NuxtLink
+              to="/admin/audits"
               class="inline-flex h-10 items-center justify-center rounded-full border border-neutral-900/15 bg-white px-4 text-sm font-semibold hover:bg-neutral-50"
           >
             View all

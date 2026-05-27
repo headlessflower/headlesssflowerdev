@@ -54,6 +54,19 @@
           
           <!-- Subtitle / paragraph -->
           <p v-if="sec.subtitle" class="mt-3 text-neutral-300 leading-relaxed" v-html="sec.subtitle"></p>
+
+          <!-- Image / screenshot -->
+          <figure v-if="sec.image" class="mt-6 overflow-hidden rounded-2xl border border-neutral-800/70 bg-neutral-900/60 shadow-2xl shadow-neutral-950/40">
+            <img
+              :src="sec.image.src"
+              :alt="sec.image.alt"
+              class="w-full object-cover"
+              loading="lazy"
+            />
+            <figcaption v-if="sec.image.caption" class="border-t border-neutral-800/70 px-4 py-3 text-xs leading-relaxed text-neutral-400">
+              {{ sec.image.caption }}
+            </figcaption>
+          </figure>
           
           <!-- Unordered List -->
           <ul v-if="sec.type === 'list' && sec.items" class="mt-4 list-disc space-y-3 pl-5 text-neutral-300 leading-relaxed">

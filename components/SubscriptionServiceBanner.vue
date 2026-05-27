@@ -23,8 +23,8 @@
           </h3>
 
           <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/70">
-            Starting at $150/month for a basic managed website. We handle updates, backups,
-            monitoring, and quick content edits so your site stays secure, current, and useful.
+            Ongoing support for managed websites that need updates, backups,
+            monitoring, and practical content help so the site stays secure, current, and useful.
           </p>
 
           <ul class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -70,12 +70,12 @@
             </NuxtLink>
 
             <span class="text-xs font-medium tracking-[0.12em] text-white/55">
-              6-month minimum contract
+              Built for ongoing support
             </span>
           </div>
         </div>
 
-        <!-- Pricing card -->
+        <!-- Care plan card -->
         <div class="lg:pt-2">
           <div
               class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.45)]
@@ -101,19 +101,10 @@
 
             <div class="mt-6">
               <p class="text-[11px] font-semibold tracking-[0.22em] text-white/55">
-                STARTING AT
+                WHAT IT SUPPORTS
               </p>
-              <div class="mt-2 flex items-end justify-between gap-3">
-                <p class="font-serif text-4xl leading-none text-white">
-                  {{ price }}
-                </p>
-                <p class="text-xs font-medium tracking-[0.14em] text-white/60">/ MONTH</p>
-              </div>
-              <p class="mt-2 text-sm text-white/55">
-                Billed monthly with a 6-month minimum term.
-                <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 decoration-white/25 hover:decoration-white/60">
-                  View plan terms
-                </NuxtLink>.
+              <p class="mt-2 text-sm leading-relaxed text-white/65">
+                A healthier website, fewer surprise issues, and a reliable path for small improvements after launch.
               </p>
             </div>
 
@@ -165,12 +156,10 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  price?: string;
   primaryLink?: string;
   secondaryLink?: string;
 }>();
 
-const price = props.price ?? "$150";
 const primaryLink = props.primaryLink ?? "#contact";
 const secondaryLink = props.secondaryLink ?? "/monthly-maintenance-subscription";
 

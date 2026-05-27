@@ -5,9 +5,11 @@
         <TheHero />
       <FeaturesSection />
       <TheServices />
-      <TheWorkSection />
-        <WebDevPricing />
+    <WebDevPricing />
+        <TheWorkSection />
+        
         <SubscriptionServiceBanner />
+        <RecentArticlesSection />
 
 
 

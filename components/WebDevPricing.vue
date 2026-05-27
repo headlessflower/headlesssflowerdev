@@ -10,17 +10,17 @@
       <!-- Header -->
       <div class="text-center">
         <p class="text-[11px] font-semibold tracking-[0.28em] text-white/65">
-          PRICING
+          SERVICE PACKAGES
         </p>
         <h2
             class="mt-5 font-serif font-normal leading-[0.95] tracking-tight text-white
                  text-[clamp(2.2rem,4.2vw,3.6rem)]"
         >
-          Managed Growth Packages
+          Pick the right growth path.
         </h2>
         <p class="mt-5 mx-auto max-w-2xl text-base leading-relaxed text-white/70">
-          Ongoing service packages for small businesses that need a managed web presence,
-          lead capture, customer workflows, and reliable upkeep under one roof.
+          Service paths for small businesses that need a stronger web presence,
+          better lead capture, useful workflows, and reliable upkeep under one roof.
         </p>
       </div>
 
@@ -58,27 +58,21 @@
             
           </div>
 
-          <!-- Price -->
-          <div class="mt-6">
+          <!-- Funnel context -->
+          <div class="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
             <p class="text-[11px] font-semibold tracking-[0.22em] text-white/55">
-              MONTHLY RATE
+              BEST FIT
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-white/75">
+              {{ plan.fit }}
             </p>
 
-            <div class="mt-2 flex items-end justify-between gap-3">
-              <p class="font-serif font-normal leading-none text-white text-[clamp(2rem,3vw,2.4rem)]">
-                {{ plan.price }}
-              </p>
-              <p class="text-xs font-medium tracking-[0.14em] text-white/60">/ MONTH</p>
-            </div>
-            <p class="mt-2 text-sm leading-relaxed text-white/55">
-              6-month minimum contract.
+            <p class="mt-4 text-[11px] font-semibold tracking-[0.22em] text-white/55">
+              PRIMARY OUTCOME
             </p>
-            <NuxtLink
-                to="/terms#managed-plans"
-                class="mt-2 inline-flex items-center text-xs font-semibold tracking-[0.14em] text-white/75 underline decoration-white/25 underline-offset-4 transition hover:text-white hover:decoration-white/55"
-            >
-              VIEW PLAN TERMS <span class="ml-2 text-white/50">↗</span>
-            </NuxtLink>
+            <p class="mt-2 text-sm leading-relaxed text-white/75">
+              {{ plan.outcome }}
+            </p>
           </div>
 
           <!-- Features -->
@@ -110,7 +104,7 @@
                      bg-white/10 px-5 py-3 text-[12px] font-semibold tracking-[0.2em] text-white
                      backdrop-blur-md transition hover:bg-white/15 hover:border-white/30"
             >
-              {{ plan.cta }}
+              {{ plan.cta }} <span class="ml-2 text-white/60">↗</span>
             </NuxtLink>
 
             <NuxtLink
@@ -119,7 +113,7 @@
                      bg-transparent px-5 py-3 text-[12px] font-semibold tracking-[0.2em] text-white/90
                      transition hover:border-white/25 hover:text-white"
             >
-              GET A QUOTE <span class="ml-2 text-white/60">↗</span>
+              TALK THROUGH FIT <span class="ml-2 text-white/60">↗</span>
             </NuxtLink>
           </div>
         </article>
@@ -129,33 +123,37 @@
       <div class="mt-16">
         <div class="text-center">
           <p class="text-[11px] font-semibold tracking-[0.28em] text-white/65">
-            ONE-TIME SERVICES
+            SERVICE ENTRY POINTS
           </p>
           <h4 class="mt-4 font-serif font-normal tracking-tight text-white text-2xl sm:text-3xl">
-            Standalone Services
+            Start with the piece you need most.
           </h4>
           <p class="mt-4 text-white/70 max-w-2xl mx-auto">
-            One-time services available on their own for businesses that need focused support without a monthly management plan.
+            Focused services that can stand alone or become the first step toward a larger managed package.
           </p>
         </div>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div
+          <NuxtLink
               v-for="service in services"
               :key="service.title"
-              class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md
-                   transition hover:border-white/20 hover:bg-white/7"
+              :to="service.href"
+              class="group rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md
+                   transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/7"
           >
             <h5 class="text-sm font-semibold tracking-tight text-white">
               {{ service.title }}
             </h5>
             <p class="mt-2 text-[11px] font-semibold tracking-[0.2em] text-white/55">
-              {{ service.price }}
+              {{ service.kicker }}
             </p>
             <p class="mt-3 text-sm leading-relaxed text-white/75">
               {{ service.description }}
             </p>
-          </div>
+            <span class="mt-5 inline-flex text-[11px] font-semibold tracking-[0.16em] text-white/65 transition group-hover:text-white">
+              LEARN MORE ↗
+            </span>
+          </NuxtLink>
         </div>
 
         <div class="mt-10 flex justify-center">
@@ -172,7 +170,7 @@
 
       <!-- Note -->
       <p class="mt-12 text-center text-xs font-medium tracking-[0.12em] text-white/55">
-        Monthly pricing depends on scope, integrations, and support needs. Plans include a 6-month minimum term and early cancellation terms.
+        Every package is scoped around goals, site complexity, integrations, and the level of support your business needs.
       </p>
     </div>
   </section>
@@ -182,19 +180,19 @@
 const plans = [
   {
     slug: "starter",
-    name: "Starter Website + Local SEO Setup",
-    badge: "For newer contractors",
+    name: "Starter Growth Foundation",
+    badge: "1 marketing channel",
     description:
-        "For newer contractors who need a serious web presence.",
-    hours: "15–20 hrs",
-    price: "$200",
+        "For freelancers, newer service businesses, and small brands that need a confident growth foundation.",
+    fit: "You want one focused channel, a credible website, and a clear way to measure early traction.",
+    outcome: "A polished web presence, one primary acquisition channel, and plain-English reporting that shows what to improve next.",
     features: [
-      "Website",
-      "Google Business Profile basics",
-      "Service pages",
-      "Contact/quote form",
-      "Analytics",
-      "Basic city targeting",
+      "Website + conversion-ready service pages",
+      "1 marketing channel: SEO, Ads, Social, or Email",
+      "Monthly strategy call",
+      "Competitor and setup audit",
+      "Monthly performance report",
+      "Email support",
     ],
     cta: "View Package",
     ctaLink: "/starter-package",
@@ -202,39 +200,37 @@ const plans = [
   {
     slug: "standard",
     name: "Growth System",
-    badge: "For active businesses",
+    badge: "Most popular",
     description:
-        "For businesses already getting some leads.",
-    hours: "25–35 hrs",
-    price: "$350",
+        "For businesses ready to combine channels, tighten strategy, and scale with better visibility.",
+    fit: "You already get some leads and need stronger channel strategy, reporting, and conversion testing.",
+    outcome: "A coordinated growth system with better lead tracking, sharper messaging, and weekly visibility into performance.",
     features: [
-      "Website improvements",
-      "Local SEO content",
-      "City pages",
-      "Review strategy",
-      "Lead tracking",
-      "Booking/quote system",
-      "Monthly reporting",
+      "SEO plus Ads, Social, or Email strategy",
+      "Bi-weekly strategy calls",
+      "Full marketing and funnel audit",
+      "Weekly performance report",
+      "A/B testing for pages and CTAs",
+      "Reporting dashboard access",
     ],
     cta: "View Package",
     ctaLink: "/standard-package",
   },
   {
     slug: "premium",
-    name: "Maintenance + Optimization Plan",
-    badge: "For recurring revenue",
+    name: "Agency Execution System",
+    badge: "Full-stack support",
     description:
-        "For recurring revenue and ongoing support.",
-    hours: "45–55 hrs",
-    price: "$475",
+        "For serious teams that need full-stack execution, conversion optimization, and dedicated support.",
+    fit: "You need all major marketing channels coordinated with your website, analytics, content, and conversion systems.",
+    outcome: "A full-funnel growth engine with custom KPI tracking, faster iteration, and ongoing optimization across the whole customer journey.",
     features: [
-      "Website updates",
-      "SEO improvements",
-      "Performance checks",
-      "New content",
-      "Form/lead tracking",
-      "Analytics review",
-      "Technical support",
+      "All 4 channels: SEO, Ads, Social, and Email",
+      "Weekly strategy calls",
+      "Full marketing audit plus CRO",
+      "Custom KPI reporting dashboard",
+      "Unlimited A/B testing roadmap",
+      "Priority implementation support",
     ],
     cta: "View Package",
     ctaLink: "/premium-package",
@@ -244,22 +240,26 @@ const plans = [
 const services = [
   {
     title: "SEO Audit + Metadata",
-    price: "$300–$600",
+    kicker: "Visibility foundation",
+    href: "/seo-analytics",
     description: "Technical audit, meta improvements, and quick wins to improve visibility.",
   },
   {
-    title: "Copywriting (per page)",
-    price: "$150–$300",
-    description: "Clear, brand-aligned copy to connect with your target audience.",
+    title: "Conversion Copy + Page Flow",
+    kicker: "Messaging clarity",
+    href: "/brand-aligned-design",
+    description: "Clear, brand-aligned copy and page structure that helps visitors understand what to do next.",
   },
   {
     title: "Branding Package",
-    price: "$800–$1,200",
+    kicker: "Visual direction",
+    href: "/brand-aligned-design",
     description: "Logo, color palette, and type system to unify your brand presence.",
   },
   {
     title: "CMS Integration",
-    price: "$500–$1,000",
+    kicker: "Content operations",
+    href: "/databases",
     description: "Sanity/Contentful setup with content models and editorial workflow.",
   },
 ];

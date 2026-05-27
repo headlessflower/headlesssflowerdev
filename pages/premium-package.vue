@@ -10,16 +10,16 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-fuchsia-400/20 bg-fuchsia-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-fuchsia-300">
-            Maintenance + Optimization Plan
+            Agency Execution System
             <span class="inline-block size-1.5 rounded-full bg-fuchsia-300"></span>
-            Recurring Value
+            Full-Stack Support
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Maintenance + Optimization Plan
+            Agency Execution System
           </h1>
           <p class="mt-5 text-neutral-300">
-            For ongoing growth and dependable upkeep. We manage website updates, SEO improvements, performance checks,
-            fresh content additions, form/lead tracking, analytics reviews, and technical support.
+            For serious teams that need all major marketing channels, conversion optimization,
+            custom KPI tracking, testing, reporting, and dedicated implementation support.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -38,13 +38,6 @@
             </a>
           </div>
 
-          <p class="mt-6 text-sm text-neutral-400">
-            Monthly plan: <span class="font-semibold text-neutral-200">$475/mo</span>
-          </p>
-          <p class="mt-2 text-sm text-neutral-500">
-            6-month minimum contract.
-            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">View plan terms</NuxtLink>.
-          </p>
         </div>
       </div>
     </div>
@@ -67,23 +60,22 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            A structured maintenance and growth plan designed to maximize recurring lead capture and keep systems running flawlessly.
+            A full-stack growth plan designed for teams that need execution across web, funnels, channels, analytics, and optimization.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
-            <p class="text-sm text-neutral-300"><span class="font-semibold text-neutral-100">Monthly investment:</span> $475/mo</p>
-            <p class="mt-1 text-sm text-neutral-400">6-month minimum commitment applies.</p>
+            <p class="text-sm text-neutral-300"><span class="font-semibold text-neutral-100">Best fit:</span> serious teams that need SEO, Ads, Social, and Email working together.</p>
+            <p class="mt-1 text-sm text-neutral-400">Built for sharper visibility, conversion rate improvement, and faster decision-making.</p>
           </div>
         </div>
 
         <div class="lg:col-span-2">
           <div class="grid gap-6 sm:grid-cols-2">
-            <FeatureCard title="Website Updates" desc="Regular text, image, layout, and service area adjustments to keep your site fresh and accurate as your business grows." :icon="'design'" />
-            <FeatureCard title="SEO Improvements" desc="Ongoing optimization of metadata, image tags, internal linking, and search-focused updates to sustain search positions." :icon="'forms'" />
-            <FeatureCard title="Performance Checks" desc="Regular testing of load speeds, mobile responsiveness, and Core Web Vitals to prevent slow speeds from hurting conversions." :icon="'scale'" />
-            <FeatureCard title="New Content Additions" desc="Regular publishing of customer-provided blogs, case studies, reviews, or new service area cities to expand search coverage." :icon="'blog'" />
-            <FeatureCard title="Form & Lead Tracking" desc="Continuous checks and maintenance of your intake forms, phone number tracking, and booking widgets so no lead goes missing." :icon="'shop'" />
-            <FeatureCard title="Analytics Review" desc="Periodic deep-dives into your traffic trends, booking conversion rates, and search rankings to find new opportunities." :icon="'scale'" />
-            <FeatureCard title="Technical Support" desc="Priority troubleshooting, email support, and fix resolutions for any domain, hosting, email routing, or script conflicts." :icon="'seo'" />
+            <FeatureCard title="All 4 Marketing Channels" desc="SEO, Ads, Social, and Email coordinated around the same offer, audience, funnel, and reporting model." :icon="'design'" />
+            <FeatureCard title="Weekly Strategy Calls" desc="Dedicated weekly review for priorities, experiment planning, channel direction, and implementation decisions." :icon="'forms'" />
+            <FeatureCard title="Full Marketing Audit + CRO" desc="A complete review of visibility, acquisition, landing pages, forms, CTAs, and conversion opportunities." :icon="'scale'" />
+            <FeatureCard title="Custom KPI Dashboard" desc="A reporting dashboard built around the metrics that matter: leads, channel performance, conversion quality, and funnel health." :icon="'blog'" />
+            <FeatureCard title="Unlimited A/B Testing Roadmap" desc="Continuous testing across ads, pages, emails, subject lines, forms, and calls to action." :icon="'shop'" />
+            <FeatureCard title="Dedicated Implementation Support" desc="Priority execution support for website updates, tracking changes, campaign assets, integrations, and technical fixes." :icon="'seo'" />
           </div>
         </div>
       </div>
@@ -94,16 +86,16 @@
       <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold">Standalone one-time services</h3>
+            <h3 class="text-2xl font-bold">Focused service add-ons</h3>
             <p class="mt-2 text-neutral-300">
-              These focused services can be booked separately when you need strategic or implementation help outside a managed plan.
+              These can be used independently or as focused entry points before a larger agency-style engagement.
             </p>
           </div>
           <div class="grid w-full gap-4 sm:grid-cols-2 lg:max-w-3xl">
-            <AddonItem title="SEO Audit + Strategy" price="$600–$1,000" desc="Comprehensive audit, keyword research, and implementation roadmap." />
-            <AddonItem title="Copywriting Package" price="$500–$1,000" desc="Full content package including blog posts, service pages, and calls to action." />
-            <AddonItem title="Branding + Visual Identity" price="$1,200–$2,000" desc="Logo, type, brand guide, and social media toolkit." />
-            <AddonItem title="Custom Integrations" price="Custom Quote" desc="Integration with CRMs, booking tools, or APIs specific to your business needs." />
+            <AddonItem title="SEO Audit + Strategy" label="Channel clarity" desc="Comprehensive audit, keyword research, and implementation roadmap." />
+            <AddonItem title="Copywriting Package" label="Conversion content" desc="Full content package including blog posts, service pages, and calls to action." />
+            <AddonItem title="Branding + Visual Identity" label="Brand system" desc="Logo, type, brand guide, and social media toolkit." />
+            <AddonItem title="Custom Integrations" label="Operational systems" desc="Integration with CRMs, booking tools, or APIs specific to your business needs." />
           </div>
         </div>
       </div>
@@ -165,10 +157,6 @@
             <li class="flex gap-3"><CheckIcon class="mt-1 size-5 shrink-0" /><span>Priority support for system updates and small changes</span></li>
           </ul>
           <div class="mt-6 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p class="text-sm text-fuchsia-100/90">Monthly rate</p>
-              <p class="text-3xl font-extrabold text-fuchsia-100">$200<span class="text-lg font-semibold">/mo</span></p>
-            </div>
             <NuxtLink
                 to="#contact"
                 class="inline-flex items-center justify-center rounded-xl bg-fuchsia-300 px-5 py-3 font-semibold text-neutral-900 shadow-lg shadow-fuchsia-300/20 transition hover:-translate-y-0.5 hover:shadow-fuchsia-300/40 focus:outline-none focus:ring-2 focus:ring-fuchsia-300 focus:ring-offset-2 focus:ring-offset-neutral-900"
@@ -185,10 +173,6 @@
             When the website, customer intake, and internal tools all feel like
             one system, the business runs smoother and the customer experience
             feels far more premium.
-          </p>
-          <p class="mt-6 text-sm text-neutral-500">
-            Managed plans are contracted for a 6-month minimum term. Early cancellation fees may apply.
-            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">Read plan terms</NuxtLink>.
           </p>
         </div>
       </div>
@@ -227,28 +211,28 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Maintenance + Optimization Plan | Headless Flower',
+  title: 'Agency Execution System | Headless Flower',
   meta: [
     {
       name: 'description',
       content:
-          'Ongoing website management, SEO tuning, performance monitoring, form tracking, analytics reviews, and priority technical support under one simple monthly subscription.',
+          'Full-stack growth execution for serious teams, including SEO, Ads, Social, Email, CRO, custom KPI dashboards, A/B testing, and dedicated implementation support.',
     },
     { name: 'robots', content: 'index,follow' },
-    { property: 'og:title', content: 'Maintenance + Optimization Plan | Headless Flower' },
+    { property: 'og:title', content: 'Agency Execution System | Headless Flower' },
     {
       property: 'og:description',
       content:
-          'Keep your presence fresh and ranking. Plan includes website updates, SEO tuning, speed optimizations, and technical support.',
+          'Full-stack service support across marketing channels, conversion optimization, reporting dashboards, experiments, and implementation.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/premium-package' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Maintenance + Optimization Plan | Headless Flower' },
+    { name: 'twitter:title', content: 'Agency Execution System | Headless Flower' },
     {
       name: 'twitter:description',
       content:
-          'Recurring website updates, SEO optimization, and priority troubleshooting to protect and grow your search presence.',
+          'Agency-style execution across SEO, Ads, Social, Email, CRO, KPI dashboards, A/B testing, and implementation support.',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://headlessflower.dev/premium-package' }],
@@ -326,12 +310,12 @@ export default {
       },
     }),
     AddonItem: defineComponent({
-      props: { title: String, price: String, desc: String },
+      props: { title: String, label: String, desc: String },
       render() {
         return h('div', { class: 'rounded-xl border border-neutral-800 bg-neutral-900 p-5' }, [
           h('div', { class: 'flex items-baseline justify-between gap-3' }, [
             h('p', { class: 'font-semibold text-neutral-100' }, this.title),
-            h('p', { class: 'text-sm text-neutral-300' }, this.price),
+            h('p', { class: 'text-sm text-neutral-300' }, this.label),
           ]),
           h('p', { class: 'mt-2 text-sm text-neutral-400' }, this.desc),
         ]);

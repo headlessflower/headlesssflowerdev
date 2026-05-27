@@ -11,16 +11,16 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-14">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-yellow-300">
-            Starter Website + Local SEO Setup
+            Starter Growth Foundation
             <span class="inline-block size-1.5 rounded-full bg-yellow-300"></span>
-            Launch-Ready
+            1 Channel
           </p>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            A serious web presence built for newer contractors.
+            A focused foundation for newer service businesses.
           </h1>
           <p class="mt-5 text-neutral-300">
-            Get a custom, high-converting website, Google Business Profile optimization,
-            and localized service pages to start ranking on Google and winning local jobs.
+            Start with a credible website, one clear marketing channel, a competitor audit,
+            monthly strategy, and simple reporting so you can grow with confidence.
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -39,13 +39,6 @@
             </a>
           </div>
 
-          <p class="mt-6 text-sm text-neutral-400">
-            Monthly plan: <span class="font-semibold text-neutral-200">$200/mo</span>
-          </p>
-          <p class="mt-2 text-sm text-neutral-500">
-            6-month minimum contract.
-            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">View plan terms</NuxtLink>.
-          </p>
         </div>
       </div>
     </div>
@@ -84,13 +77,13 @@
         <div class="lg:col-span-1">
           <h2 class="text-3xl font-bold">What’s included</h2>
           <p class="mt-3 text-neutral-300">
-            Everything newer contractors need to build a high-performing local presence, capture leads, and rank on Google Maps.
+            Everything a small brand or service business needs to launch a clear presence, focus one channel, and understand what is working.
           </p>
           <div class="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5">
             <p class="text-sm text-neutral-300">
-              <span class="font-semibold text-neutral-100">Monthly investment:</span> $200/mo
+              <span class="font-semibold text-neutral-100">Best fit:</span> newer businesses choosing between SEO, Ads, Social, or Email as their first serious growth channel.
             </p>
-            <p class="mt-1 text-sm text-neutral-400">6-month minimum commitment applies.</p>
+            <p class="mt-1 text-sm text-neutral-400">Built to create a cleaner first impression and a measurable starting point.</p>
           </div>
         </div>
 
@@ -102,28 +95,28 @@
                 desc="A custom-designed, fast-loading, mobile-friendly website tailored to present your services and build instant trust with local homeowners."
             />
             <FeatureCard
-                title="Google Business Profile Basics"
-                desc="Core configuration of your GBP, primary categories, listing settings, and optimization tips to show up on Google Maps."
+                title="1 Marketing Channel"
+                desc="Choose SEO, Ads, Social, or Email as the primary channel, then build the site and message around that first growth motion."
                 :icon="'brand'"
             />
             <FeatureCard
-                title="Service Pages"
-                desc="Dedicated areas detailing your core services so visitors know exactly what you offer, where, and why you are the best choice."
+                title="Monthly Strategy Call"
+                desc="A focused review of progress, priorities, and next steps so you are not guessing about where to improve."
                 :icon="'shield'"
             />
             <FeatureCard
-                title="Contact / Quote Form"
-                desc="A streamlined, custom contact form optimized for mobile taps to capture high-intent service inquiries without friction."
+                title="Competitor Audit"
+                desc="A setup and competitor review that identifies gaps in positioning, visibility, page structure, and calls to action."
                 :icon="'a11y'"
             />
             <FeatureCard
-                title="Analytics Integration"
-                desc="Traffic monitoring and form submission tracking to measure exactly how visitors engage with your site and where your leads come from."
+                title="Monthly Performance Report"
+                desc="Clear metrics in plain English, including traffic, inquiries, channel progress, and recommended next actions."
                 :icon="'speed'"
             />
             <FeatureCard
-                title="Basic City Targeting"
-                desc="Location-based optimization to help your business rank for localized contractor searches in your primary service city."
+                title="Email Support"
+                desc="Reliable async support for questions, follow-up items, and small clarifications as your foundation takes shape."
                 :icon="'brand'"
             />
           </div>
@@ -136,19 +129,19 @@
       <div class="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div class="max-w-2xl">
-            <h3 class="text-2xl font-bold">Standalone one-time services</h3>
+            <h3 class="text-2xl font-bold">Focused service add-ons</h3>
             <p class="mt-2 text-neutral-300">
-              These services can be booked on their own when you need focused support without enrolling in a monthly plan.
+              These can be used to strengthen the foundation or prepare for a larger growth package.
             </p>
           </div>
           <div class="grid w-full gap-4 sm:grid-cols-2 lg:max-w-3xl">
-            <AddonItem title="SEO Audit + Metadata" price="$300–$600"
+            <AddonItem title="SEO Audit + Metadata" label="Visibility foundation"
                        desc="Fix technical gaps, refine titles/descriptions, and improve search visibility." />
-            <AddonItem title="Copywriting (per page)" price="$150–$300"
+            <AddonItem title="Conversion Copy + Page Flow" label="Messaging clarity"
                        desc="Persuasive, on‑brand messaging that speaks to your ideal customer." />
-            <AddonItem title="Branding Package" price="$800–$1,200"
+            <AddonItem title="Branding Package" label="Visual direction"
                        desc="Logo, color palette, and type system for a cohesive visual identity." />
-            <AddonItem title="CMS Integration" price="$500–$1,000"
+            <AddonItem title="CMS Integration" label="Content operations"
                        desc="Sanity or Contentful setup for easy content updates as you grow." />
           </div>
         </div>
@@ -228,10 +221,6 @@
           </ul>
 
           <div class="mt-6 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p class="text-sm text-yellow-100/90">Monthly rate</p>
-              <p class="text-3xl font-extrabold text-yellow-100">$150<span class="text-lg font-semibold">/mo</span></p>
-            </div>
             <NuxtLink
                 to="#contact"
                 class="inline-flex items-center justify-center rounded-xl bg-yellow-300 px-5 py-3 font-semibold text-neutral-900 shadow-lg shadow-yellow-300/20 transition hover:-translate-y-0.5 hover:shadow-yellow-300/40 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-neutral-900"
@@ -275,10 +264,6 @@
               Talk to us about your goals
             </NuxtLink>
           </div>
-          <p class="mt-4 text-sm text-neutral-500">
-            Managed plans are contracted for a 6-month minimum term. Early cancellation fees may apply.
-            <NuxtLink to="/terms#managed-plans" class="underline underline-offset-4 hover:text-neutral-300">Read plan terms</NuxtLink>.
-          </p>
         </div>
       </div>
     </section>
@@ -320,30 +305,30 @@
  * Proper meta head for SEO & social sharing
  */
 useHead({
-  title: 'Starter Website + Local SEO Setup | Headless Flower',
+  title: 'Starter Growth Foundation | Headless Flower',
   meta: [
     {
       name: 'description',
       content:
-          'A starter website and local SEO package for newer contractors who need a serious web presence, Google Business Profile basics, and service page optimization.',
+          'A starter growth package with a website foundation, one marketing channel, competitor audit, monthly strategy, performance reporting, and email support.',
     },
     { name: 'robots', content: 'index,follow' },
     // Open Graph
-    { property: 'og:title', content: 'Starter Website + Local SEO Setup | Headless Flower' },
+    { property: 'og:title', content: 'Starter Growth Foundation | Headless Flower' },
     {
       property: 'og:description',
       content:
-          'Designed for newer contractors who need a serious web presence, local search setup, and lead capture forms.',
+          'Designed for newer service businesses that need one focused growth channel, a credible website, competitor insight, and clear reporting.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://headlessflower.dev/starter-package' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Starter Website + Local SEO Setup | Headless Flower' },
+    { name: 'twitter:title', content: 'Starter Growth Foundation | Headless Flower' },
     {
       name: 'twitter:description',
       content:
-          'Starter website and local SEO package with lead capture, Google Business Profile configuration, and performance tracking.',
+          'Starter package with website foundation, one marketing channel, competitor audit, monthly strategy, and performance reporting.',
     },
   ],
   link: [
@@ -354,22 +339,13 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: 'Starter Website + Local SEO Setup',
+        '@type': 'Service',
+        name: 'Starter Growth Foundation',
         description:
-            'Website package for newer contractors. Includes service pages, Google Business Profile basics, contact forms, basic city targeting, and analytics.',
+            'Starter growth package for newer service businesses. Includes a website foundation, one marketing channel, competitor audit, monthly strategy, reporting, and email support.',
         brand: { '@type': 'Brand', name: 'Headless Flower' },
-        offers: {
-          '@type': 'AggregateOffer',
-          lowPrice: 1400,
-          highPrice: 1800,
-          priceCurrency: 'USD',
-          url: 'https://headlessflower.dev/starter-package',
-          availability: 'https://schema.org/InStock',
-        },
-        isRelatedTo: [
-          { '@type': 'Service', name: 'Monthly Website Maintenance', offers: { '@type': 'Offer', price: 150, priceCurrency: 'USD' } }
-        ]
+        url: 'https://headlessflower.dev/starter-package',
+        serviceType: 'Website, single-channel marketing, competitor audit, strategy, and reporting',
       }),
     },
   ],
@@ -461,14 +437,14 @@ export default {
       name: 'AddonItem',
       props: {
         title: { type: String, required: true },
-        price: { type: String, required: true },
+        label: { type: String, required: true },
         desc: { type: String, required: true }
       },
       render() {
         return h('div', { class: 'rounded-xl border border-neutral-800 bg-neutral-900 p-5' }, [
           h('div', { class: 'flex items-baseline justify-between gap-3' }, [
             h('p', { class: 'font-semibold text-neutral-100' }, this.title),
-            h('p', { class: 'text-sm text-neutral-300' }, this.price)
+            h('p', { class: 'text-sm text-neutral-300' }, this.label)
           ]),
           h('p', { class: 'mt-2 text-sm text-neutral-400' }, this.desc)
         ]);
