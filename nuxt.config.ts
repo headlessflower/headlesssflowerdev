@@ -70,10 +70,20 @@ export default defineNuxtConfig({
     id: process.env.NUXT_PUBLIC_GTAG_ID || "G-NG3LHEM1JD",
   },
 
+  nitro: {
+    prerender: {
+      routes: [
+        "/admin",
+        "/admin/audits",
+        "/admin/audits/new",
+      ],
+    },
+  },
+
   supabase: {
     // optional, only if you’re using auth redirects
     url: process.env.SUPABASE_URL,
-    key: process.env.SUPABASE_KEY,
+    key: process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY,
     redirect: false,
   },
 

@@ -1,5 +1,167 @@
 const posts = [
   {
+    slug: "powerful-website-features-convert-sales-pasadena-case-study",
+    category: "Conversions • Case Study",
+    categoryShort: "Conversions",
+    color: "teal",
+    title: "Powerful Website Features That Actually Convert Into Sales: A Pasadena Case Study",
+    description: "A practical look at the website features that turn local traffic into booked calls, quote requests, and real sales, based on a Pasadena service-business case study.",
+    published: "June 2, 2026",
+    readingTime: "7-9 minutes",
+    sections: [
+      {
+        title: "",
+        subtitle: "A website can look polished and still fail at the job that matters most: turning visitors into customers. For local service businesses, conversion is rarely about adding more decoration. It is about helping a busy person understand the offer, trust the company, and take the next step before they get distracted.<br><br>This Pasadena case study looks at a local service business that had steady word-of-mouth, a decent amount of website traffic, and a homepage that looked professional enough at first glance. The issue was not that the site was ugly. The issue was that the site did not make action easy, measurable, or persuasive.",
+        type: "text"
+      },
+      {
+        title: "The Pasadena starting point",
+        subtitle: "The business served Pasadena and nearby neighborhoods, including Altadena, South Pasadena, San Marino, Eagle Rock, and parts of Northeast Los Angeles. People were finding the site, but too many visitors left without calling, requesting a quote, or understanding why this company was the safer choice.<br><br>The website had common local-business problems: a vague hero section, a phone number that was not prominent on mobile, service details scattered across the page, weak proof near the quote form, and no reliable tracking for phone taps or form submissions.",
+        type: "text"
+      },
+      {
+        title: "What we wanted the website to do",
+        subtitle: "Before changing the layout, we defined the site's real job. The website did not need to impress other designers. It needed to help a Pasadena homeowner or business owner move from interest to action.",
+        type: "list",
+        items: [
+          "Make the service and service area obvious within the first few seconds.",
+          "Give mobile visitors a fast way to call or request a quote.",
+          "Show enough trust signals to reduce hesitation.",
+          "Answer the practical questions prospects ask before buying.",
+          "Route high-intent visitors toward one clear next step.",
+          "Track which pages and actions were creating sales opportunities."
+        ]
+      },
+      {
+        title: "Feature 1: A specific hero section",
+        subtitle: "The first screen of the site became more direct. Instead of a broad headline like quality service you can trust, the hero stated the service, the Pasadena-area market, and the reason to act.<br><br>A strong local hero section should usually answer three questions quickly: What do you do? Where do you do it? What should I do next?",
+        type: "list",
+        items: [
+          "<strong>Before:</strong> A generic headline that could have belonged to any service company.",
+          "<strong>After:</strong> A service-specific headline tied to Pasadena and nearby areas.",
+          "<strong>Conversion purpose:</strong> Help visitors confirm they are in the right place before they scroll.",
+          "<strong>Sales impact:</strong> Better-qualified visitors reached the call and quote options faster."
+        ]
+      },
+      {
+        title: "Feature 2: Mobile-first call and quote actions",
+        subtitle: "Most local-service traffic includes people searching from a phone. If the phone number is hidden in the header, buried in the footer, or not clickable, the site is leaking leads.<br><br>For the Pasadena project, the mobile path was tightened around two actions: call now and request a quote. The buttons were repeated at natural decision points instead of appearing only once at the top.",
+        type: "list",
+        items: [
+          "Tap-to-call phone links in the header and mobile action areas.",
+          "A short quote button near the hero, service sections, proof, and final CTA.",
+          "Button labels that matched buyer intent, such as Get a Quote and Call Now.",
+          "No competing calls-to-action fighting for attention.",
+          "A layout that kept buttons easy to tap without blocking content."
+        ]
+      },
+      {
+        title: "Feature 3: A shorter, more useful quote form",
+        subtitle: "Long forms often feel thorough to the business, but heavy to the customer. The first form asked for too much too soon. We trimmed it to the fields needed to start the sales conversation and moved extra qualifying questions later in the process.<br><br>The improved form asked for name, contact info, service need, location, and a short message. That was enough to follow up without making the prospect feel like they were filling out paperwork.",
+        type: "ordered-list",
+        items: [
+          "<strong>Keep the first ask small.</strong> A lead form should start a conversation, not complete the whole sales process.",
+          "<strong>Use plain labels.</strong> People should never have to decode what a field means.",
+          "<strong>Make errors clear.</strong> If someone misses a required field, the fix should be obvious.",
+          "<strong>Confirm the next step.</strong> After submission, tell the visitor what happens next and how soon to expect a reply."
+        ]
+      },
+      {
+        title: "Feature 4: Trust signals near decisions",
+        subtitle: "Reviews, project photos, guarantees, years in business, licenses, insurance details, and process explanations all help. But placement matters. Trust signals buried on a separate page do not support the moment when a visitor is deciding whether to call.<br><br>On the Pasadena site, trust moved closer to the conversion points. Reviews appeared near the quote section. Project examples supported service descriptions. The process section explained what happens after someone reaches out.",
+        type: "list",
+        items: [
+          "Reviews near the primary quote form.",
+          "Real project or work photos instead of generic stock imagery.",
+          "A short process section explaining what happens after contact.",
+          "Service-area language that made Pasadena coverage explicit.",
+          "Proof points close to buttons, not only on an About page."
+        ]
+      },
+      {
+        title: "Feature 5: Service pages that match buyer intent",
+        subtitle: "One homepage cannot sell every service equally well. Visitors who search for a specific service are usually further along than visitors who search the business name. They need a page that speaks directly to that need.<br><br>For the Pasadena case study, service content was reorganized so each major service had a clearer explanation, stronger internal links, local context, FAQs, and a direct quote path.",
+        type: "list",
+        items: [
+          "<strong>Problem:</strong> What issue is the customer trying to solve?",
+          "<strong>Service:</strong> What does the business actually do?",
+          "<strong>Local context:</strong> Why does this matter in Pasadena and nearby areas?",
+          "<strong>Proof:</strong> What makes the company credible?",
+          "<strong>Action:</strong> What should the visitor do next?"
+        ]
+      },
+      {
+        title: "Feature 6: FAQs that remove sales friction",
+        subtitle: "Frequently asked questions are not filler. Good FAQs handle hesitation before it becomes a lost sale. They also support SEO because they reflect the language customers actually use before they buy.",
+        type: "list",
+        items: [
+          "How soon can someone schedule service in Pasadena?",
+          "What areas around Pasadena are covered?",
+          "Is an on-site estimate required?",
+          "What information is needed for a quote?",
+          "How does the process work after the form is submitted?",
+          "What makes the company different from cheaper alternatives?"
+        ]
+      },
+      {
+        title: "Feature 7: Local proof and neighborhood relevance",
+        subtitle: "Local buyers want to know whether a business understands their area. Pasadena is not just a keyword. Older homes, hillside neighborhoods, historic properties, dense commercial corridors, and nearby cities can all shape how customers evaluate a service provider.<br><br>The site became more persuasive when the content reflected the actual market. Instead of saying we serve the area, the copy referenced Pasadena and nearby communities naturally, then connected that local presence to the service process.",
+        type: "text"
+      },
+      {
+        title: "Feature 8: Conversion tracking",
+        subtitle: "If a website does not track actions, the business is guessing. We set up the site to measure the actions that mattered most to sales, not just pageviews.",
+        type: "list",
+        items: [
+          "Phone tap events",
+          "Quote form submissions",
+          "Contact page visits",
+          "CTA clicks by page",
+          "Traffic by service page",
+          "Traffic by city or service-area page",
+          "Lead source details for follow-up"
+        ]
+      },
+      {
+        title: "Feature 9: Follow-up that matches intent",
+        subtitle: "The website can create the lead, but the sales process still has to catch it. One of the biggest opportunities for local service businesses is improving what happens after the form submission.<br><br>The Pasadena workflow made each lead easier to review and respond to. Instead of letting inquiries disappear into a crowded inbox, the business could see who reached out, what they needed, where they were located, and which page helped produce the lead.",
+        type: "text"
+      },
+      {
+        title: "The result: a website that supported sales instead of just traffic",
+        subtitle: "The biggest change was not one magic button. It was the combination of features working together. A clearer hero made the offer easier to understand. Better mobile actions made contact easier. Trust near the quote path reduced hesitation. Service pages matched buyer intent. FAQs answered objections. Tracking showed which improvements were creating opportunities.<br><br>That is what conversion-focused web design should do. It should make the buying path feel obvious, trustworthy, and low-friction.",
+        type: "text"
+      },
+      {
+        title: "The sales features that matter most",
+        subtitle: "If you run a local service business, these are the website features worth prioritizing before chasing trendy visuals:",
+        type: "ordered-list",
+        items: [
+          "A specific headline that names the service and market.",
+          "A tap-to-call button for mobile visitors.",
+          "A short quote form with clear next-step messaging.",
+          "Reviews and proof near conversion sections.",
+          "Dedicated pages for important services.",
+          "Local service-area language that feels real.",
+          "FAQs that answer buying objections.",
+          "Tracking for phone taps, form submissions, and CTA clicks.",
+          "A follow-up system that keeps leads from getting lost."
+        ]
+      },
+      {
+        title: "Final takeaway",
+        subtitle: "Powerful website features are not powerful because they are flashy. They are powerful because they remove friction from the sales conversation.<br><br>For the Pasadena case study, the winning moves were practical: clearer positioning, easier mobile contact, stronger proof, better service pages, cleaner forms, and measurement. Those are the features that turn a website from a brochure into a sales system.",
+        type: "text"
+      }
+    ],
+    cta: {
+      title: "Turn your website into a sales system",
+      subtitle: "We build local service websites with clear quote paths, trust signals, tracking, and conversion-focused structure.",
+      label: "Get a conversion review",
+      to: "/#contact"
+    }
+  },
+  {
     slug: "solar-panel-cleaning-seo-los-angeles",
     category: "SEO • Case Study",
     categoryShort: "SEO",
