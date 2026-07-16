@@ -1,175 +1,112 @@
 <template>
-  <section class="relative overflow-hidden bg-neutral-950">
-    <!-- Subtle background texture -->
-    <div class="pointer-events-none absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-white/0 via-white/0 to-white/0" />
-      <div class="absolute inset-0 shadow-[inset_0_0_160px_rgba(0,0,0,0.85)]" />
-    </div>
+  <section class="bg-[#080808] px-5 py-20 text-[#f7f7f4] sm:px-8 lg:py-28">
+    <div class="mx-auto max-w-[96rem]">
+      <div class="grid gap-12 lg:grid-cols-[0.38fr_0.62fr]">
+        <p class="text-2xl font-semibold">(Service packages)</p>
 
-    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-12">
-      <!-- Header -->
-      <div class="text-center">
-        <p class="text-[11px] font-semibold tracking-[0.28em] text-white/65">
-          SERVICE PACKAGES
-        </p>
-        <h2
-            class="mt-5 font-serif font-normal leading-[0.95] tracking-tight text-white
-                 text-[clamp(2.2rem,4.2vw,3.6rem)]"
-        >
-          Pick the right growth path.
-        </h2>
-        <p class="mt-5 mx-auto max-w-2xl text-base leading-relaxed text-white/70">
-          Service paths for small businesses that need a stronger web presence,
-          better lead capture, useful workflows, and reliable upkeep under one roof.
-        </p>
+        <div>
+          <h2 class="max-w-5xl text-[clamp(3.5rem,7vw,8rem)] font-bold leading-[0.9] tracking-normal">
+            Pick the right growth path.
+          </h2>
+          <p class="mt-8 max-w-3xl text-2xl font-semibold leading-tight text-white/42">
+            Service paths for small businesses that need a stronger web presence, better lead capture, useful workflows, and reliable upkeep under one roof.
+          </p>
+        </div>
       </div>
 
-      <!-- Plans -->
-      <div class="mt-12 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-20 border-t border-white/14">
         <article
-            v-for="plan in plans"
-            :key="plan.slug"
-            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.45)]
-                 backdrop-blur-md transition
-                 hover:border-white/20 hover:bg-white/7"
+          v-for="(plan, index) in plans"
+          :key="plan.slug"
+          class="grid gap-8 border-b border-white/14 py-10 lg:grid-cols-[0.16fr_0.34fr_0.28fr_0.22fr] lg:items-start"
         >
-          <!-- top sheen -->
-          <div
-              class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
-          />
+          <div class="text-2xl font-semibold text-white/46">
+            {{ String(index + 1).padStart(2, "0") }}
+          </div>
 
-          <div class="flex flex-col items-start justify-between gap-4">
-            <span
-                v-if="plan.badge"
-                class="shrink-0 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1
-                     text-[11px] font-semibold tracking-[0.14em] text-white/85"
-            >
+          <div>
+            <p v-if="plan.badge" class="text-lg font-semibold text-white/42">
               {{ plan.badge }}
-            </span>
+            </p>
+            <h3 class="mt-3 text-[clamp(2.25rem,4.3vw,5rem)] font-bold leading-[0.94] tracking-normal">
+              {{ plan.name }}
+            </h3>
+            <p class="mt-6 max-w-xl text-xl font-semibold leading-tight text-white/48">
+              {{ plan.description }}
+            </p>
+          </div>
+
+          <div class="space-y-7">
             <div>
-              <h3 class="text-lg font-semibold tracking-tight text-white">
-                {{ plan.name }}
-              </h3>
-              <p class="mt-2 text-sm  leading-relaxed text-white/70">
-                {{ plan.description }}
+              <p class="text-lg font-semibold text-white">Best fit</p>
+              <p class="mt-3 text-lg font-semibold leading-tight text-white/42">
+                {{ plan.fit }}
               </p>
             </div>
 
-            
+            <div>
+              <p class="text-lg font-semibold text-white">Primary outcome</p>
+              <p class="mt-3 text-lg font-semibold leading-tight text-white/42">
+                {{ plan.outcome }}
+              </p>
+            </div>
           </div>
 
-          <!-- Funnel context -->
-          <div class="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-            <p class="text-[11px] font-semibold tracking-[0.22em] text-white/55">
-              BEST FIT
-            </p>
-            <p class="mt-2 text-sm leading-relaxed text-white/75">
-              {{ plan.fit }}
-            </p>
+          <div>
+            <ul class="space-y-3 text-lg font-semibold leading-tight text-white/58">
+              <li v-for="feature in plan.features" :key="feature">
+                {{ feature }}
+              </li>
+            </ul>
 
-            <p class="mt-4 text-[11px] font-semibold tracking-[0.22em] text-white/55">
-              PRIMARY OUTCOME
-            </p>
-            <p class="mt-2 text-sm leading-relaxed text-white/75">
-              {{ plan.outcome }}
-            </p>
-          </div>
-
-          <!-- Features -->
-          <ul class="mt-6 space-y-3">
-            <li v-for="f in plan.features" :key="f" class="flex items-start gap-3">
-              <span
-                  class="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/80"
-                  aria-hidden="true"
-              >
-                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
-                  <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="text-sm leading-relaxed text-white/80">{{ f }}</span>
-            </li>
-          </ul>
-
-          <!-- CTAs -->
-          <div class="mt-8 flex flex-col gap-3">
-            <NuxtLink
-                :to="plan.ctaLink"
-                class="inline-flex w-full items-center justify-center rounded-full border border-white/20
-                     bg-white/10 px-5 py-3 text-[12px] font-semibold tracking-[0.2em] text-white
-                     backdrop-blur-md transition hover:bg-white/15 hover:border-white/30"
-            >
-              {{ plan.cta }} <span class="ml-2 text-white/60">↗</span>
-            </NuxtLink>
-
-            <NuxtLink
-                to="#contact"
-                class="inline-flex w-full items-center justify-center rounded-full border border-white/15
-                     bg-transparent px-5 py-3 text-[12px] font-semibold tracking-[0.2em] text-white/90
-                     transition hover:border-white/25 hover:text-white"
-            >
-              TALK THROUGH FIT <span class="ml-2 text-white/60">↗</span>
-            </NuxtLink>
+            <div class="mt-8 flex flex-col items-start gap-3 text-lg font-semibold">
+              <NuxtLink :to="plan.ctaLink">
+                {{ plan.cta }} →
+              </NuxtLink>
+              <NuxtLink to="#contact" class="text-white/54">
+                Talk through fit
+              </NuxtLink>
+            </div>
           </div>
         </article>
       </div>
 
-      <!-- Standalone services -->
-      <div class="mt-16">
-        <div class="text-center">
-          <p class="text-[11px] font-semibold tracking-[0.28em] text-white/65">
-            SERVICE ENTRY POINTS
-          </p>
-          <h4 class="mt-4 font-serif font-normal tracking-tight text-white text-2xl sm:text-3xl">
+      <div class="mt-24 grid gap-12 border-t border-white/14 pt-10 lg:grid-cols-[0.38fr_0.62fr]">
+        <p class="text-2xl font-semibold">(Entry points)</p>
+
+        <div>
+          <h3 class="max-w-4xl text-[clamp(2.75rem,5vw,5.5rem)] font-bold leading-[0.94] tracking-normal">
             Start with the piece you need most.
-          </h4>
-          <p class="mt-4 text-white/70 max-w-2xl mx-auto">
+          </h3>
+          <p class="mt-6 max-w-2xl text-2xl font-semibold leading-tight text-white/42">
             Focused services that can stand alone or become the first step toward a larger managed package.
           </p>
-        </div>
 
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <NuxtLink
+          <div class="mt-14 grid border-t border-white/14 md:grid-cols-2">
+            <NuxtLink
               v-for="service in services"
               :key="service.title"
               :to="service.href"
-              class="group rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md
-                   transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/7"
-          >
-            <h5 class="text-sm font-semibold tracking-tight text-white">
-              {{ service.title }}
-            </h5>
-            <p class="mt-2 text-[11px] font-semibold tracking-[0.2em] text-white/55">
-              {{ service.kicker }}
-            </p>
-            <p class="mt-3 text-sm leading-relaxed text-white/75">
-              {{ service.description }}
-            </p>
-            <span class="mt-5 inline-flex text-[11px] font-semibold tracking-[0.16em] text-white/65 transition group-hover:text-white">
-              LEARN MORE ↗
-            </span>
-          </NuxtLink>
-        </div>
-
-        <div class="mt-10 flex justify-center">
-          <NuxtLink
-              to="/services"
-              class="inline-flex items-center justify-center rounded-full border border-white/20
-                   bg-white/10 px-6 py-3 text-[12px] font-semibold tracking-[0.2em] text-white
-                   backdrop-blur-md transition hover:bg-white/15 hover:border-white/30"
-          >
-            EXPLORE SERVICES <span class="ml-2 text-white/60">↗</span>
-          </NuxtLink>
+              class="group border-b border-white/14 py-7 md:odd:pr-8 md:even:border-l md:even:border-white/14 md:even:pl-8"
+            >
+              <p class="text-lg font-semibold text-white/42">
+                {{ service.kicker }}
+              </p>
+              <h4 class="mt-3 text-3xl font-bold leading-none">
+                {{ service.title }}
+              </h4>
+              <p class="mt-5 text-lg font-semibold leading-tight text-white/46">
+                {{ service.description }}
+              </p>
+              <span class="mt-7 inline-block text-lg font-semibold text-white/72">
+                Learn more →
+              </span>
+            </NuxtLink>
+          </div>
         </div>
       </div>
 
-      <!-- Note -->
-      <p class="mt-12 text-center text-xs font-medium tracking-[0.12em] text-white/55">
+      <p class="mt-14 max-w-3xl text-lg font-semibold leading-tight text-white/36 lg:ml-[38%]">
         Every package is scoped around goals, site complexity, integrations, and the level of support your business needs.
       </p>
     </div>

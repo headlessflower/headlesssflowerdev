@@ -1,16 +1,28 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 const mobileOpen = ref(false);
 const scrolled = ref(false);
+const route = useRoute();
 
-const onKey = (e: KeyboardEvent) => {
-  if (e.key === "Escape") mobileOpen.value = false;
-};
+const navLinks = [
+  { label: "Work", to: "/work" },
+  { label: "About", to: "/agency" },
+  { label: "Services", to: "/services" },
+  { label: "News", to: "/blog" },
+];
 
-const onScroll = () => {
-  scrolled.value = window.scrollY > 8;
-};
+function closeMenu() {
+  mobileOpen.value = false;
+}
+
+function onKey(event: KeyboardEvent) {
+  if (event.key === "Escape") closeMenu();
+}
+
+function onScroll() {
+  scrolled.value = window.scrollY > 10;
+}
 
 onMounted(() => {
   window.addEventListener("keydown", onKey);
@@ -24,114 +36,85 @@ onBeforeUnmount(() => {
 });
 
 const headerClass = computed(() => {
+  const startsOnDark = route.path === "/" || route.path === "/agency";
   return [
-    "fixed top-0 left-0 right-0 z-50",
-    "text-white",
-    scrolled.value
-        ? "bg-neutral-950/30 backdrop-blur-md border-b border-white/10"
-        : "bg-transparent border-b border-transparent",
+    "fixed left-0 right-0 top-0 z-50 transition-colors duration-200",
+    scrolled.value || mobileOpen.value
+      ? "bg-[#f7f7f4]/88 text-[#080808] backdrop-blur-xl"
+      : startsOnDark
+        ? "bg-transparent text-[#f7f7f4]"
+        : "bg-transparent text-[#080808]",
   ].join(" ");
 });
 </script>
 
 <template>
   <header :class="headerClass">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
-      <div class="flex h-16 items-center justify-between md:h-20">
-        <!-- Left: Wordmark -->
+    <div class="mx-auto flex h-16 max-w-[96rem] items-center justify-between px-5 sm:px-8 lg:h-20">
+      <NuxtLink
+        to="/"
+        class="text-[clamp(1.7rem,3vw,2.75rem)] font-bold leading-none tracking-normal"
+        aria-label="Headless Flower home"
+      >
+        Headless Flower
+      </NuxtLink>
+
+      <nav class="hidden items-center gap-10 text-[clamp(1rem,1.35vw,1.45rem)] font-semibold md:flex">
         <NuxtLink
-            to="/"
-            class="text-2xl font-black tracking-tight sm:text-3xl"
-            aria-label="Headless Flower home"
+          v-for="link in navLinks"
+          :key="link.label"
+          :to="link.to"
         >
-          HEADLESSFLOWER
+          {{ link.label }}
         </NuxtLink>
+      </nav>
 
-        <!-- Center: Stacked nav (desktop) -->
-        <nav class="hidden md:block">
-          <div class="grid grid-cols-[auto_auto] gap-x-8">
-            <!-- Left column (stack) -->
-            <ul class="space-y-1 text-[12px] font-medium leading-tight tracking-[0.18em] text-white/90">
-              <li><NuxtLink to="/agency" class="hover:text-white">ABOUT</NuxtLink></li>
-              <li><NuxtLink to="/services" class="hover:text-white">SERVICES</NuxtLink></li>
-              <li><NuxtLink to="/work/" class="hover:text-white">WORK</NuxtLink></li>
-              <li><NuxtLink to="/blog" class="hover:text-white">BLOG</NuxtLink></li>
-            </ul>
+      <NuxtLink
+        to="#contact"
+        class="hidden text-[clamp(1rem,1.35vw,1.45rem)] font-semibold md:inline-flex"
+      >
+        Start a project
+      </NuxtLink>
 
-            <!-- Right column (small aligned items like “EDA / ASICS”) -->
-
-          </div>
-        </nav>
-
-        <!-- Right: CTA -->
-        <div class="flex items-center gap-3">
-          <NuxtLink
-              to="#contact"
-              class="hidden sm:inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-white/90 hover:text-white"
-          >
-            LET’S TALK
-            <span
-                class="inline-flex h-5 w-5 items-center justify-center rounded border border-white/30 text-[11px] text-white/80"
-                aria-hidden="true"
-            >
-              ↗
-            </span>
-          </NuxtLink>
-
-          <!-- Mobile toggle -->
-          <button
-              class="inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:bg-white/10 md:hidden"
-              @click="mobileOpen = !mobileOpen"
-              :aria-expanded="mobileOpen"
-              aria-controls="mobile-menu"
-          >
-            <span class="sr-only">Toggle menu</span>
-            <svg v-if="!mobileOpen" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg v-else class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <button
+        class="inline-flex h-10 w-10 items-center justify-center text-3xl leading-none md:hidden"
+        type="button"
+        :aria-expanded="mobileOpen"
+        aria-controls="mobile-menu"
+        @click="mobileOpen = !mobileOpen"
+      >
+        <span class="sr-only">Toggle menu</span>
+        <span aria-hidden="true">{{ mobileOpen ? "×" : "+" }}</span>
+      </button>
     </div>
 
-    <!-- Mobile menu -->
     <transition
-        enter-active-class="duration-200 ease-out"
-        enter-from-class="opacity-0 -translate-y-2"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="duration-150 ease-in"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-2"
+      enter-active-class="duration-200 ease-out"
+      enter-from-class="opacity-0 -translate-y-2"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="duration-150 ease-in"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-2"
     >
       <div
-          v-if="mobileOpen"
-          id="mobile-menu"
-          class="md:hidden border-t border-white/10 bg-neutral-950/85 backdrop-blur-md"
+        v-if="mobileOpen"
+        id="mobile-menu"
+        class="border-t border-black/10 bg-[#f7f7f4] px-5 pb-8 pt-4 text-[#080808] md:hidden"
       >
-        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-12">
-          <div class="grid gap-3 text-sm font-semibold tracking-[0.16em] text-white/90">
-            <NuxtLink to="/agency" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">ABOUT</NuxtLink>
-            <NuxtLink to="/services" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">SERVICES</NuxtLink>
-            <NuxtLink to="/work/" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">WORK</NuxtLink>
-            <NuxtLink to="/blog" class="rounded-lg px-3 py-3 hover:bg-white/10" @click="mobileOpen = false">BLOG</NuxtLink>
-
-            <div class="mt-3">
-              <NuxtLink
-                  to="#contact"
-                  class="inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[12px] font-semibold tracking-[0.2em] text-white hover:bg-white/15"
-                  @click="mobileOpen = false"
-              >
-                LET’S TALK
-                <span class="inline-flex h-6 w-6 items-center justify-center rounded border border-white/30 text-[11px] text-white/80">
-                  ↗
-                </span>
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
+        <nav class="grid gap-2 text-4xl font-bold leading-tight">
+          <NuxtLink
+            v-for="link in navLinks"
+            :key="link.label"
+            :to="link.to"
+            class="border-b border-black/10 py-3"
+            @click="closeMenu"
+          >
+            {{ link.label }}
+          </NuxtLink>
+          <NuxtLink to="#contact" class="py-3" @click="closeMenu">
+            Start a project
+          </NuxtLink>
+        </nav>
       </div>
     </transition>
   </header>

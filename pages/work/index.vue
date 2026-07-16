@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <WorkHero   kicker="Our Work"
-              :headline="{ before: 'Bringing ', accent: 'Web Solutions', after: ' to the physical world' }"
-              :posterSrc="''"/>
+  <WorkHero />
   <TheWorkSection/>
 
   <Timeline />

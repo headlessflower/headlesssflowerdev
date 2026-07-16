@@ -55,6 +55,16 @@ function isActive(path: string) {
           </NuxtLink>
 
           <NuxtLink
+              to="/admin/contact-messages"
+              :class="[
+              'transition',
+              isActive('/admin/contact-messages') ? 'text-neutral-950 font-semibold' : 'text-neutral-600 hover:text-neutral-950'
+            ]"
+          >
+            Jennifer
+          </NuxtLink>
+
+          <NuxtLink
               to="/admin/san-miguel"
               :class="[
               'transition',

@@ -1,170 +1,102 @@
+<script setup lang="ts">
+import { computed, ref } from "vue";
+
+const services = [
+  {
+    title: "Web Design",
+    description:
+      "Clear, high-trust websites built around positioning, conversion paths, and the details that make a service brand feel credible.",
+    image: "/monarch_laptop_mockup2.webp",
+    href: "/web-design",
+  },
+  {
+    title: "Lead Capture",
+    description:
+      "Forms, quote paths, booking flows, and follow-up systems that help visitors become useful conversations.",
+    image: "/Flow.webp",
+    href: "/lead-capture-booking",
+  },
+  {
+    title: "Business Systems",
+    description:
+      "Dashboards, customer records, internal tools, and workflows that make the daily operation easier to run.",
+    image: "/headless-dev-hero.png",
+    href: "/white-label-business-apps",
+  },
+  {
+    title: "Managed Presence",
+    description:
+      "Ongoing updates, performance checks, content edits, and measured improvements after the first launch.",
+    image: "/dev-hero-alt.png",
+    href: "/managed-web-presence",
+  },
+];
+
+const activeIndex = ref(0);
+const active = computed(() => services[activeIndex.value]);
+</script>
+
 <template>
-  <section class="w-full bg-neutral-100 text-neutral-950">
-    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
-      <!-- Top label -->
-      <div class="flex items-start justify-between gap-6">
-        <p class="text-[12px] font-semibold tracking-[0.18em] text-neutral-800/80">
-          <span class="uppercase">{{ labelLeft }}</span>
-          <span class="mx-2 text-neutral-500/80">·</span>
-          <span class="uppercase">{{ labelRight }}</span>
-        </p>
+  <section class="bg-[#f7f7f4] px-5 py-20 text-[#080808] sm:px-8 lg:py-28">
+    <div class="mx-auto max-w-[96rem]">
+      <div class="grid gap-12 lg:grid-cols-[0.73fr_0.27fr]">
+        <div>
+          <p class="text-2xl font-semibold">(Services)</p>
 
-        <!-- Optional small top-right link, if you want parity later -->
-        <NuxtLink
-            v-if="topLinkTo"
-            :to="topLinkTo"
-            class="hidden sm:inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-neutral-900/70 hover:text-neutral-900"
-        >
-          {{ topLinkLabel }}
-          <span
-              class="inline-flex h-5 w-5 items-center justify-center rounded border border-neutral-900/20 text-[11px]"
-              aria-hidden="true"
-          >
-            ↗
-          </span>
-        </NuxtLink>
-      </div>
+          <div class="mt-20 space-y-3">
+            <NuxtLink
+              v-for="(service, index) in services"
+              :key="service.title"
+              :to="service.href"
+              class="service-link no-link-underline block text-[clamp(4rem,9.7vw,11rem)] font-bold leading-[0.86] tracking-normal"
+              :class="index === activeIndex ? 'is-active text-[#080808]' : 'text-black/10'"
+              :data-title="service.title"
+              @mouseenter="activeIndex = index"
+              @focus="activeIndex = index"
+            >
+              {{ service.title }}
+            </NuxtLink>
+          </div>
+        </div>
 
-      <!-- Big editorial headline -->
-      <h2
-          class="mt-10 font-serif font-normal leading-[0.92] tracking-tight text-neutral-950
-               text-[clamp(2.4rem,6vw,4.9rem)]"
-      >
-        <span>{{ titleBefore }}</span>
-        <span class="text-red-600">{{ titleAccent }}</span>
-        <span>{{ titleAfter }}</span>
-      </h2>
-
-      <!-- Bottom columns (services) -->
-      <div class="mt-16 grid gap-8 md:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-10">
-        <NuxtLink
-            v-for="(s, i) in columns"
-            :key="i"
-            :to="s.href"
-            class="group block text-[14px] leading-relaxed text-neutral-900/80
-         transition-colors hover:text-neutral-950 focus:outline-none"
-        >
-          <p
-              class="font-medium text-neutral-950 underline-offset-4
-           decoration-neutral-900/0 transition
-           group-hover:underline group-hover:decoration-neutral-900/40"
-          >
-            {{ s.title }}
-          </p>
-
-          <p class="mt-3">
-            {{ s.description }}
-          </p>
-
-          <!-- subtle affordance -->
-          <span
-              class="mt-4 inline-block text-[12px] font-semibold tracking-[0.18em]
-           text-neutral-900/60 opacity-0 transition
-           group-hover:opacity-100"
-              aria-hidden="true"
-          >
-    READ MORE ↗
-  </span>
-        </NuxtLink>
-
-      </div>
-
-      <!-- Bottom bar -->
-      <div class="mt-16 flex flex-col gap-6 border-t border-neutral-900/10 pt-8 md:flex-row md:items-end md:justify-between">
-        <p class="text-[12px] font-semibold tracking-[0.16em] text-neutral-900/70">
-          {{ footnote }}
-        </p>
-
-
+        <aside class="lg:pt-10">
+          <img
+            :src="active.image"
+            :alt="`${active.title} service preview`"
+            class="aspect-[1.05/1] w-full object-cover"
+          />
+          <h2 class="mt-8 text-3xl font-semibold leading-tight">
+            {{ active.description }}
+          </h2>
+        </aside>
       </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
-import { computed } from "vue";
+<style scoped>
+.service-link {
+  position: relative;
+}
 
-type Service = {
-  title: string;
-  description: string;
-  href?: string;
-  tags?: string[];
-};
+.service-link::after {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  overflow: hidden;
+  color: rgba(8, 8, 8, 0.48);
+  content: attr(data-title);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: width 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-const props = withDefaults(
-    defineProps<{
-      services?: Service[];
+.service-link:hover::after,
+.service-link:focus-visible::after {
+  width: 100%;
+}
 
-      // Header label
-      labelLeft?: string;
-      labelRight?: string;
-
-      // Title split (lets us color one word without v-html)
-      titleBefore?: string;
-      titleAccent?: string;
-      titleAfter?: string;
-
-      // CTA
-      ctaLabel?: string;
-      ctaTo?: string;
-
-      // Optional top-right link
-      topLinkLabel?: string;
-      topLinkTo?: string;
-
-      // Small footer line
-      footnote?: string;
-    }>(),
-    {
-      services: undefined,
-
-      labelLeft: "HEADLESS FLOWER",
-      labelRight: "MANAGED GROWTH SYSTEMS",
-
-      titleBefore: "Managed services that turn more ",
-      titleAccent: "traffic",
-      titleAfter: " into customers.",
-
-      ctaLabel: "READ OUR SERVICES",
-      ctaTo: "/services",
-
-      topLinkLabel: "LET’S TALK",
-      topLinkTo: "",
-
-      footnote: "Strategy, systems, and ongoing upkeep for small businesses that need leads, bookings, and smoother operations.",
-    },
-);
-
-const defaultServices: Service[] = [
-  {
-    title: "Managed web presence",
-    description:
-        "Your website is included as a managed business asset: positioning, page updates, uptime, and ongoing improvements handled for you.",
-    href: "/managed-web-presence",
-  },
-  {
-    title: "Lead capture and booking",
-    description:
-        "Forms, intake flows, and booking paths designed to reduce friction and turn more visitors into qualified inquiries.",
-    href: "/lead-capture-booking",
-  },
-  {
-    title: "Maintenance and upkeep",
-    description:
-        "Security updates, content edits, performance checks, and reporting that keep your system healthy after launch.",
-    href: "/maintenance-upkeep",
-  },
-  {
-    title: "White-label business apps",
-    description:
-        "Admin dashboards, customer records, and custom internal tools that give small businesses one place to run the essentials.",
-    href: "/white-label-business-apps",
-  },
-];
-
-const columns = computed(() => {
-  const list = props.services?.length ? props.services : defaultServices;
-  // The reference layout shows 4 columns — we match that.
-  return list.slice(0, 4);
-});
-</script>
+.service-link.is-active::after {
+  width: 0;
+}
+</style>

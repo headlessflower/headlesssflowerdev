@@ -1,5 +1,5 @@
 <template>
-  <form class="space-y-6" @submit.prevent="onSubmit">
+  <form class="space-y-8" @submit.prevent="onSubmit">
     <!-- Honeypot -->
     <div class="hidden">
       <label>
@@ -8,15 +8,15 @@
       </label>
     </div>
 
-    <div class="grid gap-5 sm:grid-cols-2">
+    <div class="grid gap-x-8 gap-y-9 sm:grid-cols-2">
       <template v-for="field in visibleFields" :key="field.key">
         <!-- Textarea -->
         <div v-if="field.type === 'textarea'" class="sm:col-span-2">
           <div class="flex items-baseline justify-between gap-3">
-            <label class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
-              {{ field.label }} <span v-if="field.required" class="text-white/45">*</span>
+            <label class="text-2xl font-semibold leading-tight text-[#080808]">
+              {{ field.label }}<span v-if="field.required">*</span>
             </label>
-            <span v-if="errors[field.key]" class="text-xs font-medium text-red-400">
+            <span v-if="errors[field.key]" class="text-sm font-semibold text-[#080808]">
               {{ errors[field.key] }}
             </span>
           </div>
@@ -29,16 +29,16 @@
               rows="6"
           />
 
-          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+          <p v-if="field.help" class="mt-2 text-sm font-semibold text-black/45">{{ field.help }}</p>
         </div>
 
         <!-- Select -->
         <div v-else-if="field.type === 'select'" class="sm:col-span-1">
           <div class="flex items-baseline justify-between gap-3">
-            <label class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
-              {{ field.label }} <span v-if="field.required" class="text-white/45">*</span>
+            <label class="text-2xl font-semibold leading-tight text-[#080808]">
+              {{ field.label }}<span v-if="field.required">*</span>
             </label>
-            <span v-if="errors[field.key]" class="text-xs font-medium text-red-400">
+            <span v-if="errors[field.key]" class="text-sm font-semibold text-[#080808]">
               {{ errors[field.key] }}
             </span>
           </div>
@@ -50,7 +50,7 @@
             </option>
           </select>
 
-          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+          <p v-if="field.help" class="mt-2 text-sm font-semibold text-black/45">{{ field.help }}</p>
         </div>
 
         <!-- Checkbox -->
@@ -59,27 +59,27 @@
             <input
                 v-model="values[field.key]"
                 type="checkbox"
-                class="mt-1 h-4 w-4 rounded border-white/25 bg-white/5"
+                class="mt-1 h-4 w-4 rounded border-black/20 bg-transparent text-[#080808]"
             />
-            <span class="text-sm leading-relaxed text-white/75">
+            <span class="text-2xl font-semibold leading-tight text-[#080808]">
               {{ field.label }}
             </span>
           </label>
 
-          <p v-if="errors[field.key]" class="mt-2 text-xs font-medium text-red-400">
+          <p v-if="errors[field.key]" class="mt-2 text-sm font-semibold text-[#080808]">
             {{ errors[field.key] }}
           </p>
 
-          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+          <p v-if="field.help" class="mt-2 text-sm font-semibold text-black/45">{{ field.help }}</p>
         </div>
 
         <!-- Text / Email / Tel -->
         <div v-else class="sm:col-span-1">
           <div class="flex items-baseline justify-between gap-3">
-            <label class="text-[12px] font-semibold tracking-[0.18em] text-white/70">
-              {{ field.label }} <span v-if="field.required" class="text-white/45">*</span>
+            <label class="text-2xl font-semibold leading-tight text-[#080808]">
+              {{ field.label }}<span v-if="field.required">*</span>
             </label>
-            <span v-if="errors[field.key]" class="text-xs font-medium text-red-400">
+            <span v-if="errors[field.key]" class="text-sm font-semibold text-[#080808]">
               {{ errors[field.key] }}
             </span>
           </div>
@@ -93,7 +93,7 @@
               :autocomplete="autoCompleteFor(field.key)"
           />
 
-          <p v-if="field.help" class="mt-2 text-xs text-white/50">{{ field.help }}</p>
+          <p v-if="field.help" class="mt-2 text-sm font-semibold text-black/45">{{ field.help }}</p>
         </div>
       </template>
 
@@ -111,19 +111,18 @@
 
     </div>
 
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
       <button type="submit" class="hf-btn" :disabled="submitting">
         {{ submitting ? "SENDING…" : submitLabel }}
-        <span class="ml-2 text-white/60">↗</span>
       </button>
 
-      <p class="text-xs font-medium tracking-[0.12em] text-white/50">
+      <p class="text-sm font-semibold text-black/45">
         {{ privacyLine }}
       </p>
     </div>
 
-    <p v-if="submitError" class="text-sm text-red-400">{{ submitError }}</p>
-    <p v-if="submitSuccess" class="text-sm text-white/75">{{ submitSuccess }}</p>
+    <p v-if="submitError" class="text-lg font-semibold text-[#080808]">{{ submitError }}</p>
+    <p v-if="submitSuccess" class="text-lg font-semibold text-[#080808]">{{ submitSuccess }}</p>
   </form>
 </template>
 
@@ -146,8 +145,8 @@ const props = withDefaults(
       }) => Promise<void>;
     }>(),
     {
-      submitLabel: "BOOK A CONSULTATION",
-      privacyLine: "No spam • Your info stays private",
+      submitLabel: "Submit",
+      privacyLine: "No spam. Your info stays private.",
     }
 );
 
@@ -285,43 +284,45 @@ async function onSubmit() {
 <style scoped>
 .hf-input {
   width: 100%;
-  margin-top: 10px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  padding: 12px 14px;
-  color: white;
+  margin-top: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(8, 8, 8, 0.12);
+  background: transparent;
+  padding: 22px 24px;
+  color: #080808;
   outline: none;
-  backdrop-filter: blur(10px);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
 }
 .hf-input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(8, 8, 8, 0.42);
 }
 .hf-input:focus {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(8, 8, 8, 0.38);
+  background: rgba(255, 255, 255, 0.38);
 }
 .hf-textarea {
-  border-radius: 18px;
+  min-height: 220px;
+  border-radius: 16px;
 }
 .hf-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.10);
-  padding: 12px 18px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: white;
+  border: 1px solid #080808;
+  background: #080808;
+  min-width: 170px;
+  padding: 20px 34px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #f7f7f4;
   transition: 150ms ease;
-  backdrop-filter: blur(10px);
 }
 .hf-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.26);
+  background: transparent;
+  color: #080808;
 }
 .hf-btn:disabled {
   opacity: 0.6;

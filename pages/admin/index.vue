@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { contactMessagesTable } from "~/data/contactMessage.schema";
 import { globalContactSubmissionsTable } from "~/data/globalContactSubmission.schema";
 
 definePageMeta({ layout: "admin", middleware: "admin" })
@@ -10,11 +11,13 @@ const err = ref<string | null>(null)
 
 const totals = reactive({
   globalContact: 0,
+  contactMessages: 0,
   sanMiguel: 0,
   audits: 0,
 })
 
 const latestGlobalContact = ref<any[]>([])
+const latestContactMessages = ref<any[]>([])
 const latestSanMiguel = ref<any[]>([])
 
 async function load() {
@@ -22,14 +25,21 @@ async function load() {
   err.value = null
 
   try {
-    const [uCount, sCount, aCount, uLatest, sLatest] = await Promise.all([
+    const [uCount, cCount, sCount, aCount, uLatest, cLatest, sLatest] = await Promise.all([
       supabase.from(globalContactSubmissionsTable).select("id", { count: "exact", head: true }),
+      supabase.from(contactMessagesTable).select("id", { count: "exact", head: true }),
       supabase.from("web_inquiries").select("id", { count: "exact", head: true }),
       supabase.from("audits").select("id", { count: "exact", head: true }),
 
       supabase
           .from(globalContactSubmissionsTable)
           .select("id, created_at, form_key, form_version, full_name, email, service_interest, message")
+          .order("created_at", { ascending: false })
+          .limit(10),
+
+      supabase
+          .from(contactMessagesTable)
+          .select("id, created_at, name, email, organization, message")
           .order("created_at", { ascending: false })
           .limit(10),
 
@@ -41,16 +51,20 @@ async function load() {
     ])
 
     if (uCount.error) throw uCount.error
+    if (cCount.error) throw cCount.error
     if (sCount.error) throw sCount.error
     if (aCount.error) throw aCount.error
     if (uLatest.error) throw uLatest.error
+    if (cLatest.error) throw cLatest.error
     if (sLatest.error) throw sLatest.error
 
     totals.globalContact = uCount.count || 0
+    totals.contactMessages = cCount.count || 0
     totals.sanMiguel = sCount.count || 0
     totals.audits = aCount.count || 0
 
     latestGlobalContact.value = uLatest.data || []
+    latestContactMessages.value = cLatest.data || []
     latestSanMiguel.value = sLatest.data || []
   } catch (e: any) {
     err.value = e?.message || "Failed to load dashboard."
@@ -98,7 +112,7 @@ function fmtDate(iso: string) {
     </p>
 
     <!-- Totals -->
-    <section class="mt-8 grid gap-4 lg:grid-cols-3">
+    <section class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       <div class="rounded-2xl border border-neutral-900/10 bg-white p-5">
         <div class="flex items-start justify-between gap-4">
           <div>
@@ -111,6 +125,25 @@ function fmtDate(iso: string) {
 
           <NuxtLink
               to="/admin/universal"
+              class="inline-flex h-10 items-center justify-center rounded-full border border-neutral-900/15 bg-white px-4 text-sm font-semibold hover:bg-neutral-50"
+          >
+            View all
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-neutral-900/10 bg-white p-5">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-600">
+              Contact messages
+            </p>
+            <p class="mt-2 text-3xl font-semibold">{{ totals.contactMessages }}</p>
+            <p class="mt-1 text-sm text-neutral-600">contact_messages table</p>
+          </div>
+
+          <NuxtLink
+              to="/admin/contact-messages"
               class="inline-flex h-10 items-center justify-center rounded-full border border-neutral-900/15 bg-white px-4 text-sm font-semibold hover:bg-neutral-50"
           >
             View all
@@ -153,6 +186,56 @@ function fmtDate(iso: string) {
           >
             View all
           </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Contact Messages -->
+    <section class="mt-10">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-lg font-semibold">Latest contact messages</h2>
+        <NuxtLink
+            to="/admin/contact-messages"
+            class="text-sm font-semibold text-neutral-700 hover:text-neutral-950 underline underline-offset-4"
+        >
+          View all →
+        </NuxtLink>
+      </div>
+
+      <div class="mt-4 overflow-hidden rounded-2xl border border-neutral-900/10 bg-white">
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="border-b border-neutral-900/10 bg-neutral-50">
+            <tr>
+              <th class="px-4 py-3 font-semibold">Date</th>
+              <th class="px-4 py-3 font-semibold">Name</th>
+              <th class="px-4 py-3 font-semibold">Organization</th>
+              <th class="px-4 py-3 font-semibold">Email</th>
+              <th class="px-4 py-3 font-semibold">Message</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr v-for="row in latestContactMessages" :key="row.id" class="border-b border-neutral-900/5">
+              <td colspan="5" class="p-0">
+                <NuxtLink
+                    :to="`/admin/contact-messages/${row.id}`"
+                    class="grid grid-cols-1 gap-1 px-4 py-3 hover:bg-neutral-50 sm:grid-cols-[12rem_14rem_14rem_16rem_1fr] sm:items-center"
+                >
+                  <div class="whitespace-nowrap text-neutral-700">{{ fmtDate(row.created_at) }}</div>
+                  <div class="font-semibold truncate">{{ row.name }}</div>
+                  <div class="truncate">{{ row.organization || "—" }}</div>
+                  <div class="truncate">{{ row.email }}</div>
+                  <div class="text-neutral-800 line-clamp-2">{{ row.message || "—" }}</div>
+                </NuxtLink>
+              </td>
+            </tr>
+
+            <tr v-if="!loading && latestContactMessages.length === 0">
+              <td class="px-4 py-6 text-neutral-600" colspan="5">No contact messages yet.</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
