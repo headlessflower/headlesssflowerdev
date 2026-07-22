@@ -1,23 +1,43 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
 
 const mobileOpen = ref(false);
+const serviceDropdownOpen = ref(false);
+const serviceDropdown = ref<HTMLElement | null>(null);
 const scrolled = ref(false);
 const route = useRoute();
 
 const navLinks = [
   { label: "Work", to: "/work" },
   { label: "About", to: "/agency" },
-  { label: "Services", to: "/services" },
-  { label: "News", to: "/blog" },
+];
+
+const serviceLinks = [
+  { label: "Services overview", to: "/services" },
+  { label: "Web Design", to: "/web-design" },
+  { label: "Lead Capture", to: "/lead-capture-booking" },
+  { label: "Business Systems", to: "/white-label-business-apps" },
+  { label: "Managed Presence", to: "/managed-web-presence" },
+  { label: "Maintenance", to: "/maintenance-upkeep" },
+  { label: "SEO & Analytics", to: "/seo-analytics" },
+  { label: "Brand-Aligned Design", to: "/brand-aligned-design" },
 ];
 
 function closeMenu() {
   mobileOpen.value = false;
+  serviceDropdownOpen.value = false;
 }
 
 function onKey(event: KeyboardEvent) {
   if (event.key === "Escape") closeMenu();
+}
+
+function onServiceFocusOut(event: FocusEvent) {
+  const nextTarget = event.relatedTarget;
+
+  if (!(nextTarget instanceof Node) || !serviceDropdown.value?.contains(nextTarget)) {
+    serviceDropdownOpen.value = false;
+  }
 }
 
 function onScroll() {
@@ -34,6 +54,11 @@ onBeforeUnmount(() => {
   window.removeEventListener("keydown", onKey);
   window.removeEventListener("scroll", onScroll);
 });
+
+watch(
+  () => route.fullPath,
+  () => closeMenu(),
+);
 
 const headerClass = computed(() => {
   const startsOnDark = route.path === "/" || route.path === "/agency";
@@ -66,6 +91,55 @@ const headerClass = computed(() => {
           :to="link.to"
         >
           {{ link.label }}
+        </NuxtLink>
+
+        <div
+          ref="serviceDropdown"
+          class="relative"
+          @mouseenter="serviceDropdownOpen = true"
+          @mouseleave="serviceDropdownOpen = false"
+          @focusin="serviceDropdownOpen = true"
+          @focusout="onServiceFocusOut"
+        >
+          <NuxtLink
+            to="/services"
+            class="inline-flex items-center gap-1"
+            aria-haspopup="true"
+            :aria-expanded="serviceDropdownOpen"
+            @click="closeMenu"
+          >
+            Services
+            <span
+              class="text-base leading-none transition duration-300"
+              :class="serviceDropdownOpen ? 'rotate-180' : ''"
+              aria-hidden="true"
+            >
+              ↓
+            </span>
+          </NuxtLink>
+
+          <div
+            class="absolute left-1/2 top-full w-[min(28rem,calc(100vw-2rem))] -translate-x-1/2 pt-5 transition duration-200"
+            :class="serviceDropdownOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'"
+          >
+            <div class="border border-black/10 bg-[#f7f7f4] p-5 text-[#080808] shadow-[0_24px_60px_rgba(0,0,0,0.14)]">
+              <div class="grid gap-1">
+                <NuxtLink
+                  v-for="service in serviceLinks"
+                  :key="service.to"
+                  :to="service.to"
+                  class="block border-b border-black/10 py-3 text-xl font-semibold last:border-b-0"
+                  @click="closeMenu"
+                >
+                  {{ service.label }}
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <NuxtLink to="/blog">
+          News
         </NuxtLink>
       </nav>
 
@@ -110,6 +184,29 @@ const headerClass = computed(() => {
             @click="closeMenu"
           >
             {{ link.label }}
+          </NuxtLink>
+          <div class="border-b border-black/10 py-3">
+            <NuxtLink to="/services" @click="closeMenu">
+              Services
+            </NuxtLink>
+            <div class="mt-4 grid gap-1 text-xl font-semibold leading-tight text-black/56">
+              <NuxtLink
+                v-for="service in serviceLinks.slice(1)"
+                :key="service.to"
+                :to="service.to"
+                class="py-1"
+                @click="closeMenu"
+              >
+                {{ service.label }}
+              </NuxtLink>
+            </div>
+          </div>
+          <NuxtLink
+            to="/blog"
+            class="border-b border-black/10 py-3"
+            @click="closeMenu"
+          >
+            News
           </NuxtLink>
           <NuxtLink to="#contact" class="py-3" @click="closeMenu">
             Start a project
