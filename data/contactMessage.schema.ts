@@ -1,4 +1,5 @@
 export const contactMessagesTable = "contact_messages";
+export const contactMessageReadStorageKey = "admin:contact_messages:read_ids";
 
 export type ContactMessage = {
     id: number;
@@ -8,4 +9,3 @@ export type ContactMessage = {
     organization: string | null;
     message: string;
 };
-
